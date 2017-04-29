@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>${username}</h1>
+
+<ul>
+	[#list userList as item]
+	<li>${item.name}的生日是：${item.birthday?string('yyyy-MM-dd')}</li>
+	[/#list]
+</ul>
+
+</body>
+</html>

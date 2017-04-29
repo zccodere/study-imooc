@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Freemarker内建函数</h1>
+
+<h2>1. 字符串内建函数</h2>
+<ul>
+	[#list "a|b|c|d"?split("|") as item]
+	<li>${item}</li>
+	[/#list]
+	
+	<!-- 字符串转日期 -->
+	[#assign var1 = "01/03/2017"?date("MM/dd/yyyy")]
+	[#assign var2 = "23:45:30"?time("HH:mm:ss")]
+	[#assign var3 = "2016-12-31 03:05 PM"?datetime("yyyy-MM-dd hh:mm")]
+	<li>${var1}</li>
+	<li>${var2}</li>
+	<li>${var3}</li>
+</ul>
+
+<h2>2. 数字类型内建函数</h2>
+<ul>
+	[#assign numVar1 = 314.5662/]
+	<li>${numVar1?string("0.##")}</li>
+	<li>${numVar1?round}</li>
+</ul>
+
+<h2>3. list内建函数</h2>
+<ul>
+	[#assign listVar1 = [1,2,3,4, 11,12,13,14, 21,22,23,24] /]
+	<li>${listVar1?chunk(4)?size}</li>
+		[#list listVar1?chunk(4)?last as item]
+		<li>${item}</li>
+		[/#list]
+</ul>
+
+<h2>4. 其他内建函数</h2>
+<ul>
+	[#assign sVar1 = 'hello' /]
+	<li>${sVar1?is_number?string('yes','no')}</li>
+	<li>${sVar1?has_content?string('yes','no')}</li>
+	<li>${sVar2!"ss"}</li>
+	<li>${("1+2")?eval}</li>
+	<li>${"1"+"2"?is_string?string('yes','no')}</li>
+</ul>
+
+
+</body>
+</html>
