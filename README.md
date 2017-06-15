@@ -43,7 +43,7 @@
 ### 2017-2017031902：08-my-myfreemarker<br>
 慕课网《Java模板引擎之Freemarker》学习源码
 
-### 2017-2017032201：09-my-myssomy<br>
+### 2017-2017032201：09-my-mysso<br>
 慕课网《Java实现SSO单点登录》学习源码
 
 ### 2017-2017041001：10-my-myjavasecurity<br>
