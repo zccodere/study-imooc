@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd" >
+        
+<!--         <bean id="injectionService" class="com.imooc.ioc.injection.service.InjectionServiceImpl"> -->
+<!--         	<property name="injectionDAO" ref="injectionDAO"></property> -->
+<!--         </bean> -->
+
+		<bean id="injectionService" class="com.imooc.ioc.injection.service.InjectionServiceImpl">
+        	<constructor-arg name="injectionDAO" ref="injectionDAO"></constructor-arg>
+        </bean>
+        
+        <bean id="injectionDAO" class="com.imooc.ioc.injection.dao.InjectionDAOImpl"></bean>
+	
+ </beans>
