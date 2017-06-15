@@ -1,0 +1,16 @@
+server:
+  port: 8080
+girl:
+  cupSize: B
+  age: 18
+#content: "cupSize: ${cupSize}, age: ${age}"
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/boot
+    username: root
+    password: root5770
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
