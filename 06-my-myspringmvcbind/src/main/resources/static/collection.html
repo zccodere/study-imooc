@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+
+<form id="input-form" modelAttribute="courseInfo"
+      action="${ctx}/demo/course.do?method=save" method="post" >
+    <input type="hidden" name="id" value="${course.id}" />
+    <fieldset class="prepend-top">
+        <legend>课程信息</legend>
+        <div id="messageBox" class="error-msg" style="display: none">输入有误，请先更正。</div>
+        <div>
+            <label for="course.name" class="field">课程名称:</label> <input
+                type="text" id="course.name" name="course.name" size="20"
+                value="" class="required" />
+        </div>
+        <div>
+            <label for="course.description" class="field">课程介绍:</label> <input
+                type="text" id="course.description" name="course.description"
+                size="20" value=""class="required" />
+        </div>
+        <div>
+            <label for="teacher.name" class="field">老师姓名:</label> <input
+                type="text" id="teacher.name" name="teacher.name" size="20"
+                value="" class="required" />
+        </div>
+        <div>
+            <label for="teacher.email" class="field">老师Email:</label> <input
+                type="text" id="teacher.email" name="teacher.email" size="20"
+                value="" class="required" />
+        </div>
+        <div>
+            <label for="times" class="field">上课时间:</label> <inputtype="text"
+            id="times[0]" name="times" size="20" value="周一"class="required" />
+            <input type="text" id="times[1]" name="times" size="20" value="周三"
+                   class="required" /> <input type="text" id="times[2]"name="times"
+                                              size="20" value="周五" class="required" />
+        </div>
+        <div>
+            <label for="studentList[0].name" class="field">学生1姓名:</label> <input
+                type="text" id="studentList[0].name" name="studentList[0].name"size="20"
+                value="学生1姓名" class="required" />
+        </div>
+        <div>
+            <label for="studentList[0].email" class="field">学生1Email:</label> <input
+                type="text" id="studentList[0].email"name="studentList[0].email" size="20"
+                value="学生1Email" class="required" />
+        </div>
+        <div>
+            <label for="studentList[1].name" class="field">学生2姓名:</label> <input
+                type="text" id="studentList[1].name" name="studentList[1].name"size="20"
+                value="学生2姓名" class="required" />
+        </div>
+        <div>
+            <label for="studentList[1].email" class="field">学生2Email:</label> <input
+                type="text" id="studentList[0].email"name="studentList[1].email" size="20"
+                value="学生2Email" class="required" />
+        </div>
+    </fieldset>
+
+</body>
+</html>
