@@ -1,0 +1,71 @@
+group 'com.myimooc'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceCompatibility = 1.8
+
+configurations.all {
+    resolutionStrategy {
+        failOnVersionConflict()
+        // 强制指定一个版本
+        force 'org.slf4j:slf4j-api:1.7.22'
+    }
+}
+
+repositories {
+//    maven{
+//        url ''
+//    }
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
+    compile (group: 'org.hibernate', name: 'hibernate-core', version: '3.6.3.Final'){
+        // 排除传递依赖
+        exclude group:'org.slf4j',module:'slf4j-api'
+    }
+    // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+// 声明 闭包：创建目录，需传入参数为字符串目录路径
+def createDir = {
+    // 参数
+    path ->
+        // 功能
+        println path
+        File dir = new File(path);
+        if(!dir.exists()){
+            dir.mkdirs();
+        }
+}
+
+// 任务：自动创建Java工程目录结构
+task makeJavaDir(){
+    // 定义数组存放目录路径
+    def paths = ['src/main/java', 'src/main/resources', 'src/test/java', 'src/test/resources'];
+    // 添加动作：doFirst：在动作列表的前面插入一个动作
+    doFirst{
+        for(String path : paths){
+            // 调用 闭包
+            createDir(path)
+        }
+    }
+}
+// 任务：自动创建Web工程目录结构
+task makeWebDir(){
+    // 声明当前任务依赖 makeJavaDir 任务
+    dependsOn 'makeJavaDir'
+    def paths = ['src/main/webapp', 'src/test/webapp']
+    // 添加动作：doLast：在动作列表的后面插入一个动作
+    doLast{
+        for(String path : paths){
+            // 调用 闭包
+            createDir(path)
+        }
+    }
+}
