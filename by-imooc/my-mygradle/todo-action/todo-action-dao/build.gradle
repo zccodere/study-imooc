@@ -1,7 +1,0 @@
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    compile project(':todo-action-model')
-}

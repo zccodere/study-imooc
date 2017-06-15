@@ -1,5 +1,0 @@
-rootProject.name = 'todo-action'
-include 'todo-action-model'
-include 'todo-action-dao'
-include 'todo-action-web'
-

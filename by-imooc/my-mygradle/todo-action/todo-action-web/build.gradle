@@ -1,9 +1,0 @@
-apply plugin: 'war'
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    compile project(':todo-action-dao')
-}
