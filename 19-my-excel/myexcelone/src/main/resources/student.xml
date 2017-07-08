@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<excel id="student" code="student" name="学生信息导入">
+    <colgroup>
+        <col index="A" width='17em'></col>
+        <col index="B" width='17em'></col>
+        <col index="C" width='17em'></col>
+        <col index="D" width='17em'></col>
+        <col index="E" width='17em'></col>
+        <col index="F" width='17em'></col>        
+    </colgroup>
+    <title>
+        <tr height="16px">
+            <td rowspan="1" colspan="6" value="学生信息导入" />
+        </tr>
+    </title>
+    <thead>
+        <tr height="16px">
+        	<th value="编号" />
+            <th value="姓名" />
+            <th value="年龄" />
+            <th value="性别" />
+            <th value="出生日期" />
+            <th value=" 爱好" />            
+        </tr>
+    </thead>
+    <tbody>
+        <tr height="16px" firstrow="2" firstcol="0" repeat="5">
+            <td type="string" isnullable="false" maxlength="30" /><!--用户编号 -->
+            <td type="string" isnullable="false" maxlength="50" /><!--姓名 -->
+            <td type="numeric" format="##0" isnullable="false" /><!--年龄 -->
+            <td type="enum" format="男,女" isnullable="true" /><!--性别 -->
+            <td type="date" isnullable="false" maxlength="30" /><!--出生日期 -->
+            <td type="enum" format="足球,篮球,乒乓球" isnullable="true" /><!--爱好 -->
+        </tr>
+    </tbody>
+</excel>

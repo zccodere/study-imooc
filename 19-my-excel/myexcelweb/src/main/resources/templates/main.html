@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>后台数据管理系统</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="[@common.ctx /]/static/plugin/easyui1.5.1/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="[@common.ctx /]/static/plugin/easyui1.5.1//themes/icon.css">
+<script type="text/javascript" src="[@common.ctx /]/static/plugin/easyui1.5.1//jquery.min.js"></script>
+<script type="text/javascript" src="[@common.ctx /]/static/plugin/easyui1.5.1/jquery.easyui.min.js"></script>
+
+<script type="text/javascript" src="[@common.ctx /]/static/script/main.js"></script>
+<script type="text/javascript">
+	var ctx = '[@common.ctx /]';
+</script>
+</head>
+<body class="easyui-layout">
+	<div data-options="region:'north',border:false" style="height:60px;background:#00000;padding:10px">
+		<span style="font-size:30;">后台数据管理系统</span>
+			<div id="desktop_tabs_tools" style="float:right">
+			<br/>
+			<input type="hidden" id="ctx" value="[@common.ctx /]">
+		<a class="easyui-linkbutton" id="refreshCache"
+			data-options="plain:true"><span>欢迎您：妙手空空</span></a>
+					<a class="easyui-linkbutton" id="refreshCache"
+			data-options="plain:true"><span>系统管理员</span></a>
+		<a class="easyui-linkbutton" id="userinfo"
+			data-options="iconCls:'icon-man',plain:true">个人资料</a>
+		<a class="easyui-linkbutton" id="editPwd"
+			data-options="iconCls:'icon-edit',plain:true">修改密码</a>
+		<a class="easyui-linkbutton" id="refreshCache"
+			data-options="iconCls:'icon-edit',plain:true">清除缓存</a>
+		<a class="easyui-linkbutton" id="logoutbb"
+			data-options="iconCls:'icon-undo',plain:true">退出登录</a>
+	</div>
+	</div>
+	
+	<div data-options="region:'west',split:true,title:'菜单栏'" style="width:200px;padding:10px;">
+		<ul id="menu_id" class="easyui-tree">
+			<!-- <li>数据导入</li>
+			<li>学生信息</li> -->
+		</ul>
+	</div>
+	
+	<!-- <div data-options="region:'center'"> -->
+	<div id="tab" data-options="region:'center'" class="easyui-tabs" style="width:100%;height:100%">
+		<div title="首页" style="padding:10px">
+			<img alt="" src="[@common.ctx /]/static/img/home.jpg" height="100%" />
+		</div>
+	</div>
+	<div data-options="region:'south',border:false" style="height:50px;background:#00000;padding:10px;">
+		<center>© 2017 重庆邮电大学移通学院 妙手空空 版权所有</center>
+	</div>
+</body>
+</html>
