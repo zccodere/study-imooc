@@ -99,3 +99,6 @@
 
 ### 2017-2017071102：24-my-hibernateanno<br>
 慕课网《Hibernate注解》学习源码
+
+### 2017-2017071501：25-my-thumbnail<br>
+慕课网《Java实现图片等比例缩略图》学习源码
