@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>登录</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+</head>
+<body>
+	<div align="center">
+	
+	<form action="/bindwx" method="post">
+		<input type="text" name="account" />
+		<input type="password" name="password" />
+		<input type="hidden" name="unionid" value="${unionid}" />
+		<input type="submit" value="登录并绑定" />
+	</form>
+	</div>
+</body>
+</html>
