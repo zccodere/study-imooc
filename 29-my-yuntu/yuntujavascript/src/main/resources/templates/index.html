@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>全国三甲医院查询系统</title>
+
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="http://webapi.amap.com/maps?v=1.3&key=cd268d137284ab1862e2f0bb26c4ef61"></script>
+<script type="text/javascript" language="javascript">
+var mapObj;
+var keywords;
+var cloudDataLayer;
+
+/**
+ * 初始化地图对象，加载地图
+ */
+function mapInit(){
+	console.log("开始初始化");
+	mapObj = new AMap.Map('iCenter',{center: [108,39.907629],level:4});
+	//mapObj = new AMap.Map("container",{center: new AMap.LngLat(108,39.907629),level:4});
+	addCloudLayer();
+}
+/**
+ * 叠加云数据图层
+ */
+function addCloudLayer(){
+	console.log("加载云数据图层插件");
+	console.log(mapObj);
+	// 加载云数据图层插件
+	mapObj.plugin('AMap.CloudDataLayer',function(){
+		var layerOptions = {
+			query:{keywords:''},
+			clickable:true
+		}
+		// 实例化云数据图层类
+		cloudDataLayer = new AMap.CloudDataLayer('5991b48dafdf521e86dbbe90',layerOptions);
+		console.log("加载云数据图层数据"+cloudDataLayer);
+		console.log(cloudDataLayer);
+		// 叠加云数据图层到地图
+		cloudDataLayer.setMap(mapObj);
+		
+		// 添加事件监听器
+		AMap.event.addListener(cloudDataLayer,'click',function(result){
+			var clouddata = result.data;
+			var infoWindow = new AMap.InfoWindow({
+				content:'<h3><font face="微软雅黑" color="#3366FF">'+clouddata._name+'</font></h3><hr />'
+				+'地址：'+clouddata._address+'<br />'
+				+'电话：'+clouddata.phonenumber+'<br />'
+				+'邮编：'+clouddata.postcode+'<br />'
+				+'擅长：'+clouddata.medicalspecialists+'<br />'
+				+'省份：'+clouddata.provinces+'<br />',
+				size:new AMap.Size(300,0),
+				autoMove:true,
+				offset:new AMap.Pixel(0,5)
+			});
+			
+			infoWindow.open(mapObj,clouddata._location);
+		});
+	});
+}
+function getType(medicalspecialists){
+	var op = {
+			query:{keywords:medicalspecialists}
+	}
+	console.log('查询数据：'+op);
+	cloudDataLayer.setOptions(op);
+}
+</script>
+</head>
+<body onLoad="mapInit()">
+	<div class="container">
+		<br/>
+		<div class="panel panel-default">
+			<div class="panel-heading">全国三甲医院查询系统<small>（数据来源于网络，仅供参考）</small></div>
+			<div class="panel-body">
+				<label class="control-label">选择你想看的专科：</label>
+				<form id="selecttype" class="form-inline">
+					<input type="radio" name="medicalspecialists" value="全部三甲医院" onclick="getType('')"/>全部三甲医院
+					<input type="radio" name="medicalspecialists" value="内科" onclick="getType('内科')"/>内科
+					<input type="radio" name="medicalspecialists" value="外科" onclick="getType('外科')"/>外科
+					<input type="radio" name="medicalspecialists" value="妇科" onclick="getType('妇科')"/>妇科
+					<input type="radio" name="medicalspecialists" value="眼科" onclick="getType('眼科')"/>眼科
+					<input type="radio" name="medicalspecialists" value="耳鼻喉科" onclick="getType('耳鼻喉科')"/>耳鼻喉科
+					<input type="radio" name="medicalspecialists" value="儿科" onclick="getType('儿科')"/>儿科
+					<input type="radio" name="medicalspecialists" value="口腔科" onclick="getType('口腔科')"/>口腔科
+					<input type="radio" name="medicalspecialists" value="皮肤科" onclick="getType('皮肤科')"/>皮肤科
+					<input type="radio" name="medicalspecialists" value="骨科" onclick="getType('骨科')"/>骨科
+					<input type="radio" name="medicalspecialists" value="中医" onclick="getType('中医')"/>中医
+					<input type="radio" name="medicalspecialists" value="针灸推拿" onclick="getType('针灸推拿')"/>针灸推拿
+					<input type="radio" name="medicalspecialists" value="心理咨询" onclick="getType('心理咨询')"/>心理咨询
+					<input type="radio" name="medicalspecialists" value="肿瘤科" onclick="getType('肿瘤科')"/>肿瘤科
+					<input type="radio" name="medicalspecialists" value="心血管科" onclick="getType('心血管科')"/>心血管科
+					<input type="radio" name="medicalspecialists" value="消化科" onclick="getType('消化科')"/>消化科
+					<input type="radio" name="medicalspecialists" value="泌尿科" onclick="getType('泌尿科')"/>泌尿科
+					<input type="radio" name="medicalspecialists" value="肝肠科" onclick="getType('肝肠科')"/>肝肠科
+					<input type="radio" name="medicalspecialists" value="肝病科" onclick="getType('肝病科')"/>肝病科
+					<input type="radio" name="medicalspecialists" value="性病科" onclick="getType('性病科')"/>性病科
+					<input type="radio" name="medicalspecialists" value="肾病科" onclick="getType('肾病科')"/>肾病科
+					<input type="radio" name="medicalspecialists" value="呼吸内科" onclick="getType('呼吸内科')"/>呼吸内科
+				</form>
+			</div>
+		</div>
+		<hr/>
+		<div id="iCenter"style="width:100%;height:600px;"></div>
+		<div id="info" style="padding:2px 0px 0px5px;font-size:12px;color:red;height:20px"></div>
+	</div>
+</body>
+</html>

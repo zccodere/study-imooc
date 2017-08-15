@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>武侠通讯录</title>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    <script src="http://cache.amap.com/lbs/static/es5.min.js"></script>
+    <script src="http://webapi.amap.com/maps?v=1.3&key=b8324d79ff6a54d04e1a0395ae983554"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+</head>
+<body>
+<div id="hh" style="width:100%;height:100%;"></div>
+<input id="name" type="text" style="position:absolute;z-index:160px;width:300px;height:40px;top:50px;right:20px"/>
+
+<script>
+	// 创建基本图层
+    var map = new AMap.Map('hh', {
+        resizeEnable: true,
+        zoom:12,
+        center: [106.556031, 29.564068]
+    });
+	var layer;
+    
+    // 加载云图插件
+    map.plugin(['AMap.CloudDataLayer'],function(){
+    	// 加载表下面的数据
+    	layer = new AMap.CloudDataLayer('5991d7492376c11daba78511');
+    	// 将数据渲染到基本图层上
+    	layer.setMap(map);
+    	
+    	// 添加监听事件
+    	AMap.event.addListener(layer,'click',function(e){
+    		console.log(e);
+    		var obj = e.data,
+    			address = obj._address,
+    			school = obj._name,
+    			name = obj.username,
+    			phone = obj.phone,
+    			img = '';
+    		if(obj._image.length){
+    			img = obj._image[0]._preurl;
+    		}
+    		
+    		var str = '<h3><font face="微软雅黑" color="#3366FF">'+name+'</font></h3><hr />'
+				+'手机：'+phone+'<br />'
+				+'学校：'+school+'<br />'
+				+'地址：'+address+'<br />';
+    		var infoWindow = new AMap.InfoWindow({
+    			autoMove:true,
+				offset:new AMap.Pixel(0,0)
+			});
+    		
+    		infoWindow.setSize(new AMap.Size(300,0));
+    		infoWindow.setContent(str);
+    		infoWindow.open(map,obj._location);
+    	});
+    });
+    
+    // 给输入框绑定回车按钮事件监听
+    document.getElementById('name').onkeydown = function(e){
+    	//console.info(e);
+    	if(e.keyCode == 13){
+    		var text = document.getElementById('name').value;
+    		console.info(text);
+    		layer.setOptions({
+    			query:{keywords:text}
+    		});
+    	}
+    };
+
+</script>
+</body>
+</html>
