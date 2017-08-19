@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	
+	<package name="ssh" extends="struts-default" namespace="/">
+		<action name="product_*" class="productAction" method="{1}"></action>
+	</package>
+	
+ <!--    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+
+    <package name="default" namespace="/" extends="struts-default">
+        
+        注册拦截器
+        <interceptors>
+            <interceptor name="mytimer" class="com.myimooc.interceptor.TimerInterceptor"></interceptor>
+        </interceptors>
+        
+        <action name="timer" class="com.myimooc.action.TimerAction">
+            <result>/success.jsp</result>
+            为Action显式引用拦截器后，默认的拦截器defaultStack不再生效，需要手工引用
+            <interceptor-ref name="defaultStack"></interceptor-ref>
+            引用拦截器
+            <interceptor-ref name="mytimer"></interceptor-ref>
+        </action>
+        
+    </package> -->
+
+</struts>
