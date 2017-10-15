@@ -141,3 +141,6 @@
 
 ### 2017-2017091401：35-my-springbootes<br>
 慕课网《ElasticSearch入门》学习源码
+
+### 2017-2017101401：36-my-guice<br>
+慕课网《使用Google Guice实现依赖注入》学习源码
