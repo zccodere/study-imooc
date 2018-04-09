@@ -153,3 +153,7 @@
 
 ### 2017-2017120101：38-my-hotdeploy<br>
 慕课网《Spring Boot热部署》学习源码
+
+### 2018-2018040801：39-my-boot<br>
+慕课网《Spring Boot 2.0深度实践-初遇Spring Boot》学习源码
+
