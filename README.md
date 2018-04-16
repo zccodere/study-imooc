@@ -160,3 +160,5 @@
 ### 2018-2018041101：40-my-websocket<br>
 慕课网《Netty入门之WebSocket初体验》学习源码
 
+### 2018-2018041101：40-teach-websocket<br>
+慕课网《Netty入门之WebSocket初体验》教学源码
