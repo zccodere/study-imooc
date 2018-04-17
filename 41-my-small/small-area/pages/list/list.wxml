@@ -1,0 +1,25 @@
+<!--pages/list/list.wxml-->
+<view class='container'>
+  <view class='widget'>
+    <text class='column'>ID</text>
+    <text class='column'>区域</text>
+    <text class='column'>优先级</text>
+    <text class='column'>操作</text>
+  </view>
+  <scroll-view scroll-y='true'>
+    <view>
+      <block wx:for='{{list}}'>
+        <view class='widget'>
+          <text class='column'>{{item.areaId}}</text>
+          <text class='column'>{{item.areaName}}</text>
+          <text class='column'>{{item.priority}}</text>
+          <view class='link-column'>
+            <navigator class='link' url='../operation/operation?areaId={{item.areaId}}'>编辑</navigator>|
+            <text class='link' bindtap='deleteArea' data-areaid='{{item.areaId}}' data-areaname='{{item.areaName}}' data-index='{{index}}'>删除</text>
+          </view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+  <button type='primary' bindtap='addArea'>新增区域信息</button>
+</view>
