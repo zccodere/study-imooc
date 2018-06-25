@@ -1,0 +1,5 @@
+disable 'demo:user';drop 'demo:user'
+
+create_namespace 'demo'
+{NAME => 'b',VERSIONS => '3', TTL => '2147483647', 'BLOOMFILTER => 'ROW'},
+{NAME => 'o',VERSIONS => '3', TTL => '2147483647', 'BLOOMFILTER => 'ROW'},
