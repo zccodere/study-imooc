@@ -7,20 +7,11 @@
 ### 2017-2017011801：01-my-myspring<br>
 慕课网《Spring入门篇》学习源码
 
-### 2017-2017011801：01-teach-spring<br>
-慕课网《Spring入门篇》教学源码
-
 ### 2017-2017011801：02-my-myspringtransactions<br>
 慕课网《Spring事务管理》学习源码
 
-### 2017-2017011801：02-teach-springtransactions<br>
-慕课网《Spring事务管理》教学源码
-
 ### 2017-2017011801：03-my-myspringmvcstudy<br>
 慕课网《SpringMVC起步》学习源码
-
-### 2017-2017011801：03-teach-springmvcstudy<br>
-慕课网《SpringMVC起步》教学源码
 
 ### 2017-2017011801：04-my-myspringmvcinterceptor<br>
 慕课网《SpringMVC拦截器》学习源码
@@ -31,14 +22,8 @@
 ### 2017-2017021901：06-my-myspringmvcbind<br>
 慕课网《SpringMVC数据绑定入门》学习源码
 
-### 2017-2017021901：06-teach-springmvcbind<br>
-慕课网《SpringMVC数据绑定入门》教学源码
-
 ### 2017-2017031901：07-my-myspringbootweb<br>
 慕课网《SpringBoot进阶之Web进阶》学习源码
-
-### 2017-2017031901：07-teach-springbootweb<br>
-慕课网《SpringBoot进阶之Web进阶》教学源码
 
 ### 2017-2017031902：08-my-myfreemarker<br>
 慕课网《Java模板引擎之Freemarker》学习源码
@@ -49,14 +34,8 @@
 ### 2017-2017041001：10-my-myjavasecurity<br>
 慕课网《搞定java加解密》学习路径学习源码
 
-### 2017-2017041001：10-teach-javasecurity<br>
-慕课网《搞定java加解密》学习路径教学源码
-
 ### 2017-2017042401：11-my-myspringdata<br>
 慕课网《轻松愉快之玩转SpringData》学习源码
-
-### 2017-2017042401：11-teach-springdata<br>
-慕课网《轻松愉快之玩转SpringData》教学源码
 
 ### 2017-2017051601：12-my-mygradle<br>
 慕课网《新一代构建工具gradle》学习源码
@@ -78,9 +57,6 @@
 
 ### 2017-2017062601：18-my-quartz<br>
 慕课网《Java定时任务调度工具详解之Quartz篇》学习源码
-
-### 2017-2017062601：18-teach-quartz<br>
-慕课网《Java定时任务调度工具详解之Quartz篇》教学源码
 
 ### 2017-2017070601：19-my-excel<br>
 慕课网《解密JAVA实现Excel导入导出》学习源码
@@ -112,9 +88,6 @@
 ### 2017-2017081101：28-my-wxdev<br>
 慕课网《初识Java微信公众号开发》《Java微信公众号开发进阶》《微信授权登录》学习源码
 
-### 2017-2017081101：28-teach-wxdev<br>
-慕课网《初识Java微信公众号开发》《Java微信公众号开发进阶》《微信授权登录》教学源码
-
 ### 2017-2017081301：29-my-yuntu<br>
 慕课网《如何使用高德云图在线制作属于你的地图》学习源码
 
@@ -130,23 +103,14 @@
 ### 2017-2017082701：33-my-designpattern<br>
 慕课网《模式宗师养成宝典之Java版》学习路径学习源码
 
-### 2017-2017082701：33-teach-designpattern<br>
-慕课网《模式宗师养成宝典之Java版》学习路径教学源码
-
 ### 2017-2017090301：34-my-springaop<br>
 慕课网《探秘Spring AOP》学习源码
-
-### 2017-2017090301：34-teach-springaop<br>
-慕课网《探秘Spring AOP》教学源码
 
 ### 2017-2017091401：35-my-springbootes<br>
 慕课网《ElasticSearch入门》学习源码
 
 ### 2017-2017101401：36-my-guice<br>
 慕课网《使用Google Guice实现依赖注入》学习源码
-
-### 2017-2017101401：36-teach-guice<br>
-慕课网《使用Google Guice实现依赖注入》教学源码
 
 ### 2017-2017101601：37-my-rxjava<br>
 慕课网《RxJava与RxAndroid基础入门》学习源码
@@ -160,23 +124,14 @@
 ### 2018-2018041101：40-netty<br>
 慕课网《Netty入门之WebSocket初体验》学习源码
 
-### 2018-2018041101：40-teach-websocket<br>
-慕课网《Netty入门之WebSocket初体验》教学源码
-
 ### 2018-2018041601：41-boot-small<br>
 慕课网《SpringBoot+MyBatis搭建迷你小程序》学习源码
 
 ### 2018-2018041801：42-ajax<br>
 慕课网《Ajax跨域完全讲解》学习源码
 
-### 2018-2018041801：42-teach-ajax<br>
-慕课网《Ajax跨域完全讲解》教学源码
-
 ### 2018-2018041901：43-boot<br>
 慕课网《Spring Boot开发常用技术整合》学习源码
-
-### 2018-2018041901：43-teach-boot<br>
-慕课网《Spring Boot开发常用技术整合》教学源码
 
 ### 2018-2018042601：44-shiro<br>
 慕课网《Shiro安全框架入门》学习源码
