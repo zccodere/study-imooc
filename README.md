@@ -115,7 +115,7 @@
 ### 2017-2017101601：37-my-rxjava<br>
 慕课网《RxJava与RxAndroid基础入门》学习源码
 
-### 2017-2017120101：38-my-hotdeploy<br>
+### 2017-2017120101：38-boot-deploy<br>
 慕课网《Spring Boot热部署》学习源码
 
 ### 2018-2018040801：39-boot<br>
