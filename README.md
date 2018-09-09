@@ -163,7 +163,7 @@
 ### 2018-2018041101：40-teach-websocket<br>
 慕课网《Netty入门之WebSocket初体验》教学源码
 
-### 2018-2018041601：41-my-small<br>
+### 2018-2018041601：41-boot-small<br>
 慕课网《SpringBoot+MyBatis搭建迷你小程序》学习源码
 
 ### 2018-2018041801：42-ajax<br>
