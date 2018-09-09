@@ -157,7 +157,7 @@
 ### 2018-2018040801：39-my-boot<br>
 慕课网《Spring Boot 2.0深度实践-初遇Spring Boot》学习源码
 
-### 2018-2018041101：40-my-websocket<br>
+### 2018-2018041101：40-netty<br>
 慕课网《Netty入门之WebSocket初体验》学习源码
 
 ### 2018-2018041101：40-teach-websocket<br>

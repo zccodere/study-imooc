@@ -22,7 +22,10 @@ import java.util.Date;
  */
 public class MyWebSocketHandler extends SimpleChannelInboundHandler<Object> {
 
-    private WebSocketServerHandshaker handshaker;
+    private static final String UPGRADE_KEY = "Upgrade";
+    private static final String UPGRADE_WEBSOCKET = "websocket";
+
+    private WebSocketServerHandshaker handShaker;
     private static final String WEB_SOCKET_URL = "ws://localhost:8888/websocket";
 
     /**
@@ -45,19 +48,19 @@ public class MyWebSocketHandler extends SimpleChannelInboundHandler<Object> {
      * 处理客户端与服务端之前的websocket业务
      */
     private void handWebSocketFrame(ChannelHandlerContext ctx, WebSocketFrame frame) {
-        if (frame instanceof CloseWebSocketFrame){
+        if (frame instanceof CloseWebSocketFrame) {
             // 如果是关闭websocket的指令
-            handshaker.close(ctx.channel(),(CloseWebSocketFrame)frame.retain());
+            handShaker.close(ctx.channel(), (CloseWebSocketFrame) frame.retain());
         }
-        if (frame instanceof PingWebSocketFrame){
+        if (frame instanceof PingWebSocketFrame) {
             // 如果是ping消息
             ctx.channel().write(new PongWebSocketFrame(frame.content().retain()));
             return;
         }
-        if (!(frame instanceof TextWebSocketFrame)){
+        if (!(frame instanceof TextWebSocketFrame)) {
             // 如果不是文本消息，则抛出异常
             System.out.println("目前暂不支持二进制消息");
-            throw  new RuntimeException("【"+this.getClass().getName()+"】不支持二进制消息");
+            throw new RuntimeException("【" + this.getClass().getName() + "】不支持二进制消息");
         }
 
         // 获取客户端向服务端发送的文本消息
@@ -76,19 +79,19 @@ public class MyWebSocketHandler extends SimpleChannelInboundHandler<Object> {
      * 处理客户端向服务端发起http握手请求的业务
      */
     private void handHttpRequest(ChannelHandlerContext ctx, FullHttpRequest request) {
-        if (!request.getDecoderResult().isSuccess() || !("websocket").equals(request.headers().get("Upgrade"))) {
+        if (!request.getDecoderResult().isSuccess() || !(UPGRADE_WEBSOCKET).equals(request.headers().get(UPGRADE_KEY))) {
             // 不是websocket握手请求时
             this.sendHttpResponse(ctx, request, new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.BAD_REQUEST));
             return;
         }
 
         WebSocketServerHandshakerFactory wsFactory = new WebSocketServerHandshakerFactory(WEB_SOCKET_URL, null, false);
-        handshaker = wsFactory.newHandshaker(request);
+        handShaker = wsFactory.newHandshaker(request);
 
-        if (handshaker == null) {
+        if (handShaker == null) {
             WebSocketServerHandshakerFactory.sendUnsupportedWebSocketVersionResponse(ctx.channel());
         } else {
-            handshaker.handshake(ctx.channel(), request);
+            handShaker.handshake(ctx.channel(), request);
         }
     }
 
@@ -96,7 +99,7 @@ public class MyWebSocketHandler extends SimpleChannelInboundHandler<Object> {
      * 服务端向客户端响应消息
      */
     private void sendHttpResponse(ChannelHandlerContext ctc, FullHttpMessage request, DefaultFullHttpResponse response) {
-        if (response.getStatus().code() != 200) {
+        if (response.getStatus().code() != HttpResponseStatus.OK.code()) {
             ByteBuf buf = Unpooled.copiedBuffer(response.getStatus().toString(), CharsetUtil.UTF_8);
             response.content().writeBytes(buf);
             buf.release();
@@ -104,7 +107,7 @@ public class MyWebSocketHandler extends SimpleChannelInboundHandler<Object> {
 
         // 服务端向客户端发送数据
         ChannelFuture future = ctc.channel().writeAndFlush(response);
-        if (response.getStatus().code() != 200) {
+        if (response.getStatus().code() != HttpResponseStatus.OK.code()) {
             future.addListener(ChannelFutureListener.CLOSE);
         }
     }
