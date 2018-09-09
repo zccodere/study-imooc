@@ -10,9 +10,9 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>rabbitmq-producer</module>
-        <module>rabbitmq-consumer</module>
-        <module>rabbitmq-ha</module>
+        <module>47-rabbitmq-producer</module>
+        <module>47-rabbitmq-consumer</module>
+        <module>47-rabbitmq-ha</module>
     </modules>
 
     <build>
