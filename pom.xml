@@ -13,8 +13,9 @@
 
     <modules>
 
-        <!--TODO ZC 20180909 20180930 重构模块01-34-->
+        <!--TODO ZC 20180909 20180930 重构模块01-33-->
 
+        <module>34-spring-aop</module>
         <module>35-boot-es</module>
 
         <module>36-guice</module>
