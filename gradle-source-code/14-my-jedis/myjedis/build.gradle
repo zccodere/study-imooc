@@ -1,0 +1,18 @@
+group 'com.myimooc'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/redis.clients/jedis
+    compile group: 'redis.clients', name: 'jedis', version: '2.9.0'
+    // https://mvnrepository.com/artifact/commons-pool/commons-pool
+    compile group: 'commons-pool', name: 'commons-pool', version: '1.6'
+    compile group: 'junit', name: 'junit', version: '4.11'
+}
