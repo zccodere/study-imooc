@@ -1,4 +1,4 @@
-package com.myimooc.springbootes;
+package com.myimooc.boot.es.simple;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,10 +10,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @version 1.0 2017-09-15
  */
 @SpringBootApplication
-public class SpringbootesApplication {
+public class BootEsSimpleApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringbootesApplication.class, args);
+		SpringApplication.run(BootEsSimpleApplication.class, args);
 	}
 	
 }

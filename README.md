@@ -106,13 +106,13 @@
 ### 2017-2017090301：34-my-springaop<br>
 慕课网《探秘Spring AOP》学习源码
 
-### 2017-2017091401：35-my-springbootes<br>
+### 2017-2017091401：35-boot-es<br>
 慕课网《ElasticSearch入门》学习源码
 
-### 2017-2017101401：36-my-guice<br>
+### 2017-2017101401：36-guice<br>
 慕课网《使用Google Guice实现依赖注入》学习源码
 
-### 2017-2017101601：37-my-rxjava<br>
+### 2017-2017101601：37-rxjava<br>
 慕课网《RxJava与RxAndroid基础入门》学习源码
 
 ### 2017-2017120101：38-boot-deploy<br>

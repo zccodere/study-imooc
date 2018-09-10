@@ -1,4 +1,4 @@
-package com.myimooc.springbootes.config;
+package com.myimooc.boot.es.simple.config;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

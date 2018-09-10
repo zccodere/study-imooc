@@ -1,4 +1,4 @@
-package com.myimooc.springbootes.rest;
+package com.myimooc.boot.es.simple.rest;
 
 import java.io.IOException;
 import java.util.ArrayList;
