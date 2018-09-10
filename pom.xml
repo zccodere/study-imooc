@@ -15,6 +15,7 @@
 
         <!--TODO ZC 20180909 20180930 重构模块01-33-->
 
+        <module>33-java</module>
         <module>34-spring-aop</module>
         <module>35-boot-es</module>
 
