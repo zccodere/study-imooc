@@ -13,19 +13,20 @@
 
     <modules>
 
-        <!--TODO ZC 20180909 20180930 重构模块01-36-->
+        <!--TODO ZC 20180909 20180930 重构模块01-35-->
 
+        <module>36-guice</module>
         <module>37-rxjava</module>
         <module>38-boot-deploy</module>
         <module>39-boot</module>
-
         <module>40-netty</module>
+
         <module>41-boot-small</module>
         <module>42-ajax</module>
         <module>43-boot</module>
         <module>44-shiro</module>
-
         <module>45-java-sms</module>
+
         <module>46-hbase</module>
         <module>47-rabbitmq</module>
         <module>48-boot-mail</module>
