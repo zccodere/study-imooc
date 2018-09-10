@@ -1,4 +1,4 @@
-package com.myimooc.myrxjava;
+package com.myimooc.rxjava.simple;
 
 import java.util.ArrayList;
 import java.util.List;

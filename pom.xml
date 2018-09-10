@@ -13,42 +13,22 @@
 
     <modules>
 
-        <!--TODO ZC 20180909 20180930 重构模块01-37-->
+        <!--TODO ZC 20180909 20180930 重构模块01-36-->
 
-        <!--慕课网《Spring Boot热部署》学习源码-->
+        <module>37-rxjava</module>
         <module>38-boot-deploy</module>
-
-        <!--慕课网《Spring Boot 2.0深度实践-初遇Spring Boot》学习源码-->
         <module>39-boot</module>
 
-        <!--慕课网《Netty入门之WebSocket初体验》学习源码-->
         <module>40-netty</module>
-
-        <!--慕课网《SpringBoot+MyBatis搭建迷你小程序》学习源码-->
         <module>41-boot-small</module>
-
-        <!--慕课网《Ajax跨域完全讲解》学习源码-->
         <module>42-ajax</module>
-
-        <!--慕课网《Spring Boot开发常用技术整合》学习源码-->
         <module>43-boot</module>
-
-        <!--慕课网《Shiro安全框架入门》学习源码-->
         <module>44-shiro</module>
 
-        <!--慕课网《Java9之模块系统》学习源码-->
         <module>45-java-sms</module>
-
-        <!--慕课网《HBase 存储原理剖析》学习源码-->
         <module>46-hbase</module>
-
-        <!--慕课网《RabbitMQ消息中间件极速入门与实战》学习源码-->
         <module>47-rabbitmq</module>
-
-        <!--慕课网《Spring Boot 发送邮件》学习源码-->
         <module>48-boot-mail</module>
-
-        <!--慕课网《Kafka流处理平台》学习源码-->
         <module>49-kafka</module>
 
     </modules>

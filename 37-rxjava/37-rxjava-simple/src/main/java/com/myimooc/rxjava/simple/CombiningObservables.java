@@ -1,4 +1,4 @@
-package com.myimooc.myrxjava;
+package com.myimooc.rxjava.simple;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -27,8 +27,8 @@ public class CombiningObservables {
 	private static void combiningCombineLatest() {
 		Observable<Integer> first = Observable.just(1,3,5);
 		Observable<Integer> second = Observable.just(2,4,6);
-		
-		first.combineLatest(first,second,new Func2<Integer,Integer,Integer>(){
+
+		Observable.combineLatest(first,second,new Func2<Integer,Integer,Integer>(){
 			@Override
 			public Integer call(Integer num1, Integer num2) {
 				System.out.println("num1 = "+num1 + " num2 = "+num2);

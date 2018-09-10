@@ -1,4 +1,4 @@
-package com.myimooc.myrxjava;
+package com.myimooc.rxjava.simple;
 
 import java.util.concurrent.TimeUnit;
 
@@ -74,11 +74,12 @@ public class FilteringObservables {
 	 * Sample操作符:取样
 	 */
 	private static void filterSample() {
+		int total =10;
 		Observable.unsafeCreate(new OnSubscribe<Integer>(){
 			@Override
 			public void call(Subscriber<? super Integer> arg) {
 				try{
-					for (int i=0;i<10;i++){
+					for (int i=0;i<total;i++){
 						Thread.sleep(1000);
 						arg.onNext(i);
 					}
@@ -219,11 +220,12 @@ public class FilteringObservables {
 	 * Debounce操作符:在操作后指定时间内无操作时响应
 	 */
 	private static void filterDebounce() {
+		int total = 10;
 		Observable.unsafeCreate(new OnSubscribe<Integer>(){
 			@Override
 			public void call(Subscriber<? super Integer> arg) {
 				try{
-					for (int i=0;i<10;i++){
+					for (int i=0;i<total;i++){
 						Thread.sleep(2000);
 						arg.onNext(i);
 					}

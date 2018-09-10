@@ -1,4 +1,4 @@
-package com.myimooc.myrxjava;
+package com.myimooc.rxjava.simple;
 
 import rx.Observable;
 import rx.Observable.OnSubscribe;
@@ -17,7 +17,7 @@ public class HelloWorld
     {
         
     	// 1.创建被观察者
-    	Observable myObservable = Observable.create(new OnSubscribe<String>(){
+    	Observable myObservable = Observable.unsafeCreate(new OnSubscribe<String>(){
 			@Override
 			public void call(Subscriber<? super String> subscriber) {
 				subscriber.onNext("hello World!");
