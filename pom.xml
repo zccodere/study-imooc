@@ -13,7 +13,9 @@
 
     <modules>
 
-        <!--TODO ZC 20180909 20180930 重构模块01-30-->
+        <!--TODO ZC 20180909 20180930 重构模块01-29-->
+
+        <module>30-ssh</module>
 
         <module>31-spring</module>
         <module>32-spring</module>
