@@ -1,4 +1,4 @@
-package com.myimooc.thumbnail.service;
+package com.myimooc.java.thumbnail.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

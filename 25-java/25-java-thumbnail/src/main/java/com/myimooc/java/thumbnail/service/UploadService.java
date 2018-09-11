@@ -1,4 +1,4 @@
-package com.myimooc.thumbnail.service;
+package com.myimooc.java.thumbnail.service;
 
 import java.io.File;
 import java.io.IOException;

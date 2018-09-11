@@ -1,4 +1,4 @@
-package com.myimooc.thumbnail.config;
+package com.myimooc.java.thumbnail.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

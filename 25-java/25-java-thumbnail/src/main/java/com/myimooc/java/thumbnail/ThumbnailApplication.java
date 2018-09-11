@@ -1,4 +1,4 @@
-package com.myimooc.thumbnail;
+package com.myimooc.java.thumbnail;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,15 +11,15 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
  *
  */
 @SpringBootApplication
-public class ThumbnailWebApp extends SpringBootServletInitializer
+public class ThumbnailApplication extends SpringBootServletInitializer
 {
     public static void main( String[] args )
     {
-        SpringApplication.run(ThumbnailWebApp.class, args);
+        SpringApplication.run(ThumbnailApplication.class, args);
     }
     
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(ThumbnailWebApp.class);
+        return application.sources(ThumbnailApplication.class);
     }
 }

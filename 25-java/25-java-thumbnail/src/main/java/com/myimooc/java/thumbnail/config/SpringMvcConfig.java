@@ -1,4 +1,4 @@
-package com.myimooc.thumbnail.config;
+package com.myimooc.java.thumbnail.config;
 
 import java.util.Properties;
 

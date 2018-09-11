@@ -13,7 +13,9 @@
 
     <modules>
 
-        <!--TODO ZC 20180909 20180930 重构模块01-25-->
+        <!--TODO ZC 20180909 20180930 重构模块01-24-->
+
+        <module>25-java</module>
 
         <module>26-java</module>
         <module>27-activemq</module>

@@ -1,7 +1,9 @@
-package com.myimooc.thumbnail.controller;
+package com.myimooc.java.thumbnail.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.myimooc.java.thumbnail.service.ThumbnailService;
+import com.myimooc.java.thumbnail.service.UploadService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.myimooc.thumbnail.service.ThumbnailService;
-import com.myimooc.thumbnail.service.UploadService;
 
 /**
  * Thumbnail 控制器类
@@ -44,7 +43,7 @@ public class ThumbnailController {
 		String imageUrl = uploadService.uploadImage(image, uploadPath, realUploadPath);
 		String thumImageUrl = thumbnailService.thumbnail(image, uploadPath, realUploadPath);
 		
-		mav.addObject("imageURL", imageUrl);
+		mav.addObject("imageUrl", imageUrl);
 		mav.addObject("thumImageUrl", thumImageUrl);
 		mav.setViewName("thumbnail");
 		return mav;
