@@ -13,8 +13,9 @@
 
     <modules>
 
-        <!--TODO ZC 20180909 20180930 重构模块01-27-->
+        <!--TODO ZC 20180909 20180930 重构模块01-26-->
 
+        <module>27-activemq</module>
         <module>28-small</module>
         <module>29-amap</module>
         <module>30-ssh</module>
