@@ -13,8 +13,9 @@
 
     <modules>
 
-        <!--TODO ZC 20180909 20180930 重构模块01-31-->
+        <!--TODO ZC 20180909 20180930 重构模块01-30-->
 
+        <module>31-spring</module>
         <module>32-spring</module>
         <module>33-java</module>
         <module>34-spring-aop</module>
