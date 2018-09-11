@@ -1,4 +1,4 @@
-package com.myimooc.yuntujava;
+package com.myimooc.amap.java;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,15 +11,15 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
  * @author ZhangCheng on 2017-08-13
  */
 @SpringBootApplication
-public class YuntuJavaApp extends SpringBootServletInitializer
+public class AmapJavaApplication extends SpringBootServletInitializer
 {
     public static void main( String[] args )
     {
-        SpringApplication.run(YuntuJavaApp.class, args);
+        SpringApplication.run(AmapJavaApplication.class, args);
     }
     
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(YuntuJavaApp.class);
+        return application.sources(AmapJavaApplication.class);
     }
 }

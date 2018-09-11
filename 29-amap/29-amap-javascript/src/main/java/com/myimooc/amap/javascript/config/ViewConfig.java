@@ -1,4 +1,4 @@
-package com.myimooc.yuntujavascript.config;
+package com.myimooc.amap.javascript.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

@@ -1,4 +1,4 @@
-package com.myimooc.yuntujava.rest;
+package com.myimooc.amap.java.rest;
 
 import java.util.Objects;
 
@@ -25,7 +25,10 @@ public class DemoController {
 	private static final String API_DATA_UPDATE = "http://yuntuapi.amap.com/datamanage/data/update";
 	private static final String API_DATA_DELETE = "http://yuntuapi.amap.com/datamanage/data/delete";
 	private static final String API_DATA_SEARCH_LOCAL = "http://yuntuapi.amap.com/datasearch/local";
-	
+
+	private static final String SUCCESS_CODE = "1";
+	private static final String STATUS = "status";
+
 	@Autowired
 	private RestTemplate restTemplate;
 	
@@ -43,7 +46,7 @@ public class DemoController {
 		reqParam.add("key", KEY);
 		reqParam.add("name", name);
 		JSONObject result = JSONObject.parseObject(restTemplate.postForObject(API_CREAT_TABLE, reqParam, String.class));
-		if(Objects.equals("1", result.getString("status"))){
+		if(Objects.equals(SUCCESS_CODE, result.getString(STATUS))){
 			return result;
 		}
 		return JSONObject.parseObject(restTemplate.postForObject(API_CREAT_TABLE, reqParam, String.class));
