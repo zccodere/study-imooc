@@ -113,7 +113,7 @@ var seckill = {
                 });
                 $('#killPhoneBtn').click(function(){
                     var inputPhone = $('#killPhoneKey').val();
-                    console.log('inputPhone='+inputPhone);//TODO
+                    console.log('inputPhone='+inputPhone);
                     if(!seckill.validatePhone(killPhone)){
                         // 电话写入cookie
                         $.cookie('killPhone',inputPhone,{expires:7,path:'/seckill'});
