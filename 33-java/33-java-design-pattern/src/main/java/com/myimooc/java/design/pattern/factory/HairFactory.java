@@ -42,14 +42,7 @@ public class HairFactory {
         try {
             HairInterface hair = (HairInterface) Class.forName(className).newInstance();
             return hair;
-        } catch (InstantiationException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
@@ -66,14 +59,7 @@ public class HairFactory {
             Map<String, String> map = new PropertiesReader().getProperties();
             HairInterface hair = (HairInterface) Class.forName(map.get(key)).newInstance();
             return hair;
-        } catch (InstantiationException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            // TODO Auto-generated catch block
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
