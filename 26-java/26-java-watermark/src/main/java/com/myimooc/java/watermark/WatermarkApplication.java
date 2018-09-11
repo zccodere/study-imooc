@@ -1,4 +1,4 @@
-package com.myimooc.watermark;
+package com.myimooc.java.watermark;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,15 +11,15 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
  *
  */
 @SpringBootApplication
-public class WatermarkWebApp extends SpringBootServletInitializer
+public class WatermarkApplication extends SpringBootServletInitializer
 {
     public static void main( String[] args )
     {
-        SpringApplication.run(WatermarkWebApp.class, args);
+        SpringApplication.run(WatermarkApplication.class, args);
     }
     
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(WatermarkWebApp.class);
+        return application.sources(WatermarkApplication.class);
     }
 }

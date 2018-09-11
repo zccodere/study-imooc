@@ -1,4 +1,4 @@
-package com.myimooc.watermark.config;
+package com.myimooc.java.watermark.config;
 
 import java.util.Properties;
 

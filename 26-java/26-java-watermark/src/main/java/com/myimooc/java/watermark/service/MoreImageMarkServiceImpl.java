@@ -1,4 +1,4 @@
-package com.myimooc.watermark.service;
+package com.myimooc.java.watermark.service;
 
 import java.awt.AlphaComposite;
 import java.awt.Graphics2D;
@@ -32,8 +32,10 @@ public class MoreImageMarkServiceImpl implements MarkService {
 		
 		try {
 			Image image = ImageIO.read(imageFile);
-			int width = image.getWidth(null);// 原图宽度
-			int height = image.getHeight(null);// 原图高度
+			// 原图宽度
+			int width = image.getWidth(null);
+			// 原图高度
+			int height = image.getHeight(null);
 			
 			// 创建图片缓存对象
 			BufferedImage bufferedImage = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
@@ -61,14 +63,17 @@ public class MoreImageMarkServiceImpl implements MarkService {
 			
 			int x = -width / 2;
 			int y = -height / 2;
-			
-			int xmove = 200;// 水印之间的间隔
-			int ymove = 200;// 水印之间的间隔
+
+			// 水印之间的间隔
+			int xmove = 200;
+			// 水印之间的间隔
+			int ymove = 200;
 			
 			// 循环添加
-			while (x < width * 1.5){
+			double count = 1.5;
+			while (x < width * count){
 				y = -height / 2;
-				while(y < height * 1.5){
+				while(y < height * count){
 					// 添加水印
 					g.drawImage(imageLogo, x, y, null);
 					y += markHeight + ymove;

@@ -1,4 +1,4 @@
-package com.myimooc.watermark.controller;
+package com.myimooc.java.watermark.controller;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -6,6 +6,9 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.myimooc.java.watermark.domain.PicInfo;
+import com.myimooc.java.watermark.service.MarkService;
+import com.myimooc.java.watermark.service.UploadService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +16,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.myimooc.watermark.domain.PicInfo;
-import com.myimooc.watermark.service.MarkService;
-import com.myimooc.watermark.service.UploadService;
 
 /**
  * WatermarkController 控制类
@@ -59,8 +58,8 @@ public class WatermarkController {
 
 		String logoImageURL = markService.watermake(imageFile, image.getOriginalFilename(), uploadPath, realUploadPath);
 
-		picInfo.setImageURL(imageURL);
-		picInfo.setLogoImageURL(logoImageURL);
+		picInfo.setImageUrl(imageURL);
+		picInfo.setLogoImageUrl(logoImageURL);
 		mav.addObject("picInfo", picInfo);
 
 		return mav;
@@ -94,8 +93,8 @@ public class WatermarkController {
 				File imageFile = new File(realUploadPath + imageFileTemp.getOriginalFilename());
 				String logoImageURL = markService.watermake(imageFile, imageFileTemp.getOriginalFilename(), uploadPath,
 						realUploadPath);
-				picInfo.setImageURL(imageURL);
-				picInfo.setLogoImageURL(logoImageURL);
+				picInfo.setImageUrl(imageURL);
+				picInfo.setLogoImageUrl(logoImageURL);
 				picInfoList.add(picInfo);
 			}
 			mav.addObject("picInfoList", picInfoList);

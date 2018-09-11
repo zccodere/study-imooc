@@ -1,6 +1,7 @@
-package com.myimooc.watermark.service;
+package com.myimooc.java.watermark.service;
 
 import java.awt.AlphaComposite;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
@@ -11,33 +12,29 @@ import java.io.OutputStream;
 
 import javax.imageio.ImageIO;
 
-import org.springframework.stereotype.Service;
-
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
 /**
- * 图片水印服务类，添加图片水印
- * @author ZhangCheng on 2017-07-22
+ * 图片水印服务类，添加文字水印
+ * @author ZhangCheng on 2017-07-21
  *
  */
-//@Service
 @SuppressWarnings("unused")
-public class ImageMarkServiceImpl implements MarkService {
+public class TextMarkServiceImpl implements MarkService {
 
 	@Override
-	public String watermake(File imageFile, String imageFileName, String uploadPath, String realUploadPath) {
+	public String watermake(File imageFile,String imageFileName, String uploadPath, String realUploadPath) {
 		
 		String logoFileName = "logo_" + imageFileName;
 		OutputStream os = null;
 		
-		// 图片地址
-		String logoPath = realUploadPath + "/" + LOGO;
-		
 		try {
 			Image image = ImageIO.read(imageFile);
-			int width = image.getWidth(null);// 原图宽度
-			int height = image.getHeight(null);// 原图高度
+			// 原图宽度
+			int width = image.getWidth(null);
+			// 原图高度
+			int height = image.getHeight(null);
 			
 			// 创建图片缓存对象
 			BufferedImage bufferedImage = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
@@ -46,15 +43,15 @@ public class ImageMarkServiceImpl implements MarkService {
 			// 使用绘图工具将原图绘制到缓存图片对象
 			g.drawImage(image, 0, 0, width,height,null);
 			
-			// 读取Logo图片
-			File logo = new File(logoPath);
-			Image imageLogo = ImageIO.read(logo);
+			// 设置水印文字字体信息
+			g.setFont(new Font(FONT_NAME,FONT_STYLE,FONT_SIZE));
+			// 设置水印文字颜色
+			g.setColor(FONT_COLOR);
 			
-			// 获取Logo图片的宽度和高度
-			int markWidth = imageLogo.getWidth(null);
-			int markHeight = imageLogo.getHeight(null);
+			int markWidth = FONT_SIZE * getTextLength(MARK_TEXT);
+			int markHeight = FONT_SIZE;
 			
-			// 原图和Logo图片的高度和宽度之差
+			// 水印的高度和宽度之差
 			int widthDiff = width - markWidth;
 			int heightDiff = height - markHeight;
 			
@@ -69,11 +66,11 @@ public class ImageMarkServiceImpl implements MarkService {
 				y =heightDiff;
 			}
 			
-			// 设置水印透明度
+			// 设置水印文字透明度
 			g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_ATOP, ALPHA));
 			
 			// 添加水印
-			g.drawImage(imageLogo, x, y, null);
+			g.drawString(MARK_TEXT, x, y + FONT_SIZE);
 			
 			g.dispose();
 			
@@ -94,7 +91,20 @@ public class ImageMarkServiceImpl implements MarkService {
 		}
 		
 		return uploadPath + "/" + logoFileName;
-		
 	}
-
+	
+	/**
+	 * 功能：获取文本长度。汉字为1:1，英文和数字为2:1
+	 */
+	private int getTextLength(String text){
+		int length = text.length();
+		for(int i = 0 ; i < text.length(); i++){
+			String s = String.valueOf(text.charAt(i));
+			if(s.getBytes().length > 1){
+				length++;
+			}
+		}
+		length = length % 2 == 0 ? length / 2 : length / 2 + 1;
+		return length;
+	}
 }

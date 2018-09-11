@@ -1,4 +1,4 @@
-package com.myimooc.watermark.service;
+package com.myimooc.java.watermark.service;
 
 import java.awt.AlphaComposite;
 import java.awt.Font;
@@ -12,8 +12,6 @@ import java.io.OutputStream;
 
 import javax.imageio.ImageIO;
 
-import org.springframework.stereotype.Service;
-
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
@@ -22,7 +20,6 @@ import com.sun.image.codec.jpeg.JPEGImageEncoder;
  * @author ZhangCheng on 2017-07-22
  *
  */
-//@Service
 @SuppressWarnings("unused")
 public class MoreTextMarkServiceImpl implements MarkService {
 
@@ -33,8 +30,10 @@ public class MoreTextMarkServiceImpl implements MarkService {
 		
 		try {
 			Image image = ImageIO.read(imageFile);
-			int width = image.getWidth(null);// 原图宽度
-			int height = image.getHeight(null);// 原图高度
+			// 原图宽度
+			int width = image.getWidth(null);
+			// 原图高度
+			int height = image.getHeight(null);
 			
 			// 创建图片缓存对象
 			BufferedImage bufferedImage = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
@@ -59,14 +58,17 @@ public class MoreTextMarkServiceImpl implements MarkService {
 			
 			int x = -width / 2;
 			int y = -height / 2;
-			
-			int xmove = 200;// 水印之间的间隔
-			int ymove = 200;// 水印之间的间隔
+
+			// 水印之间的间隔
+			int xmove = 200;
+			// 水印之间的间隔
+			int ymove = 200;
 			
 			// 循环添加
-			while (x < width * 1.5){
+			double count = 1.5;
+			while (x < width * count){
 				y = -height / 2;
-				while(y < height * 1.5){
+				while(y < height * count){
 					g.drawString(MARK_TEXT, x, y);
 					
 					y += markHeight + ymove;

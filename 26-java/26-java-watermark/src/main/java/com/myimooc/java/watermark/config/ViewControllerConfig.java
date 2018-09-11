@@ -1,4 +1,4 @@
-package com.myimooc.watermark.config;
+package com.myimooc.java.watermark.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

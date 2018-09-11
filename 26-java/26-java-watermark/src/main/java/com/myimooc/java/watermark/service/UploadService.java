@@ -1,4 +1,4 @@
-package com.myimooc.watermark.service;
+package com.myimooc.java.watermark.service;
 
 import java.io.File;
 import java.io.IOException;
