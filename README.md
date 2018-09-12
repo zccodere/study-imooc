@@ -70,7 +70,7 @@
 ### 2017-2017070902：22-my-imagecheck<br>
 慕课网《Java图片验证码》学习源码
 
-### 2017-2017071101：23-my-hibernatemtm<br>
+### 2017-2017071101：23-hibernate<br>
 慕课网《Hibernate初探之多对多映射》学习源码
 
 ### 2017-2017071102：24-hibernate-anno<br>

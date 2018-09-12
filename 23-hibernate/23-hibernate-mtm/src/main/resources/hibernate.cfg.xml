@@ -17,8 +17,8 @@
         <property name="hbm2ddl.auto">update</property>
     	
     	<!-- 指定映射文件的路径 -->
-    	<mapping resource="com/myimooc/hibernatemtm/entity/Project.hbm.xml"/> 
-    	<mapping resource="com/myimooc/hibernatemtm/entity/Employee.hbm.xml"/>
+    	<mapping resource="com/myimooc/hibernate/mtm/entity/Project.hbm.xml"/>
+    	<mapping resource="com/myimooc/hibernate/mtm/entity/Employee.hbm.xml"/>
     	
     </session-factory>
 </hibernate-configuration>

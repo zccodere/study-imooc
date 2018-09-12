@@ -1,4 +1,4 @@
-package com.myimooc.hibernatemtm.util;
+package com.myimooc.hibernate.mtm.util;
 
 /**
  * session会话工具类

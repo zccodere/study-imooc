@@ -1,11 +1,11 @@
-package com.myimooc.hibernatemtm.test;
+package com.myimooc.hibernate.mtm.test;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.myimooc.hibernatemtm.entity.Employee;
-import com.myimooc.hibernatemtm.entity.Project;
-import com.myimooc.hibernatemtm.util.HibernateUtil;
+import com.myimooc.hibernate.mtm.entity.Employee;
+import com.myimooc.hibernate.mtm.entity.Project;
+import com.myimooc.hibernate.mtm.util.HibernateUtil;
 
 /**
  * 多对多关联关系的配置
