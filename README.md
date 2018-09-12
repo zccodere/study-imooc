@@ -73,7 +73,7 @@
 ### 2017-2017071101：23-my-hibernatemtm<br>
 慕课网《Hibernate初探之多对多映射》学习源码
 
-### 2017-2017071102：24-my-hibernateanno<br>
+### 2017-2017071102：24-hibernate-anno<br>
 慕课网《Hibernate注解》学习源码
 
 ### 2017-2017071501：25-java<br>
