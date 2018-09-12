@@ -1,4 +1,4 @@
-package com.myimooc.identifying.generator;
+package com.myimooc.java.image.code.generator;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -115,7 +115,6 @@ public class Image {
 		System.out.println("答案位置：" + keysOrder);
 		String fileName = UUID.randomUUID().toString().replaceAll("-", "") + ".jpeg";
 		String rootPath = Image.class.getClassLoader().getResource("static/targetImage/").getPath();
-		//String rootPath = Image.class.getClassLoader().getResource("sourceImage/").getPath();
 		log.info("根路径：{}",rootPath);
 		String fileUrl = rootPath + fileName;
 		// 保存图片
@@ -163,8 +162,13 @@ public class Image {
 		
 		// 假设总量8个，每种名称图片只有2个或4个，为了逻辑简单些
 		int leftCount = 8 - keyGroup.getCount();
-		if(leftCount == 4){
-			if(new Random().nextInt() % 2 == 0){
+
+		int leftCount6 = 6;
+		int leftCount4 = 4;
+		int leftCount2 = 2;
+
+		if(leftCount == leftCount4){
+			if(new Random().nextInt() % leftCount2 == 0){
 				List<ImageGroup> groups = new ArrayList<ImageGroup>(thisCountGroupMap.get(4).values());
 				if(groups.size() > 1){
 					num = random(0, groups.size() - 1);
@@ -180,8 +184,8 @@ public class Image {
 				int num2 = random(0, groups.size() - 1,num1);
 				result.add(groups.get(num2));
 			}
-		}else if(leftCount == 6){
-			if(new Random().nextInt() % 2 == 0){
+		}else if(leftCount == leftCount6){
+			if(new Random().nextInt() % leftCount2 == 0){
 				List<ImageGroup> groups1 = new ArrayList<ImageGroup>(thisCountGroupMap.get(4).values());
 				int num1 = random(0, groups1.size() - 1);
 				result.add(groups1.get(num1));
@@ -233,7 +237,7 @@ public class Image {
 		for (ImageGroup group : groups) {
 			imageGroupMap.put(group.getName(),group);
 			if(!countGroupMap.containsKey(group.getCount())){
-				countGroupMap.put(group.getCount(),new HashMap<String,ImageGroup>());
+				countGroupMap.put(group.getCount(),new HashMap<>(64));
 			}
 			countGroupMap.get(group.getCount()).put(group.getName(),group);
 		}

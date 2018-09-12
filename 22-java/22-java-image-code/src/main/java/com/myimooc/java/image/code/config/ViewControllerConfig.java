@@ -1,4 +1,4 @@
-package com.myimooc.identifying.config;
+package com.myimooc.java.image.code.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;

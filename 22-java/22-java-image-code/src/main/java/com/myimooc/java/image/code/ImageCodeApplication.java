@@ -1,4 +1,4 @@
-package com.myimooc.identifying;
+package com.myimooc.java.image.code;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,15 +11,15 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
  *
  */
 @SpringBootApplication
-public class IdentifyingWebApp extends SpringBootServletInitializer
+public class ImageCodeApplication extends SpringBootServletInitializer
 {
     public static void main( String[] args )
     {
-        SpringApplication.run(IdentifyingWebApp.class, args);
+        SpringApplication.run(ImageCodeApplication.class, args);
     }
     
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(IdentifyingWebApp.class);
+        return application.sources(ImageCodeApplication.class);
     }
 }

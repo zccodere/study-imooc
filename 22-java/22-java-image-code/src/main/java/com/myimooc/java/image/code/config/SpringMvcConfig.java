@@ -1,4 +1,4 @@
-package com.myimooc.identifying.config;
+package com.myimooc.java.image.code.config;
 
 import java.util.Properties;
 

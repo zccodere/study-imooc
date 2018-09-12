@@ -1,19 +1,18 @@
-package com.myimooc.identifying.controller;
+package com.myimooc.java.image.code.controller;
 
 import java.io.IOException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.myimooc.java.image.code.generator.Image;
+import com.myimooc.java.image.code.generator.ImageResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.myimooc.identifying.generator.Image;
-import com.myimooc.identifying.generator.ImageResult;
 
 /**
  * 登录控制器
@@ -77,8 +76,9 @@ public class LoginController {
         System.out.println("验证坐标："+ location);
     	Cookie[] cookies = ((HttpServletRequest) request).getCookies();
 		Cookie note = null;
+		String noteKey = "note";
         for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("note")) {
+            if (noteKey.equals(cookie.getName())) {
                 note = cookie;
                 break;
             }
@@ -124,9 +124,12 @@ public class LoginController {
 	}
 
 	private int location(int x, int y) {
-		if(y >=0 && y<75){
+    	int y75 =75;
+    	int y150 = 150;
+
+		if(y >=0 && y<y75){
 			return xLocation(x);
-		}else if(y >=75 && y<=150){
+		}else if(y >=y75 && y<=y150){
 			return xLocation(x)+4;
 		}else{
 			// 脏数据
@@ -135,13 +138,17 @@ public class LoginController {
 	}
 
 	private int xLocation(int x) {
-		if(x >=0 && x<75){
+    	int x75 = 75;
+    	int x150 = 150;
+    	int x225 = 225;
+    	int x300 = 300;
+		if(x >=0 && x<x75){
 			return 0;
-		}else if(x >=75 && x<150){
+		}else if(x >=x75 && x<x150){
 			return 1;
-		}else if(x >=150 && x<225){
+		}else if(x >=x150 && x<x225){
 			return 2;
-		}else if(x >=225 && x<=300){
+		}else if(x >=x225 && x<=x300){
 			return 3;
 		}else{
 			// 脏数据

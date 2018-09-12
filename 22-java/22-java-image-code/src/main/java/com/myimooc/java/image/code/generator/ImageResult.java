@@ -1,4 +1,4 @@
-package com.myimooc.identifying.generator;
+package com.myimooc.java.image.code.generator;
 
 import java.util.Set;
 
