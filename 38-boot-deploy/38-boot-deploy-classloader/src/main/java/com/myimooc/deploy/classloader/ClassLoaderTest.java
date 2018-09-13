@@ -12,11 +12,9 @@ public class ClassLoaderTest {
 
     public static void main(String[] args) {
 
-        ThreadFactory threadFactory = Executors.defaultThreadFactory();
+        ExecutorService executor = Executors.newSingleThreadExecutor();
 
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 1, 1, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<Runnable>(5), threadFactory);
-
-        threadPoolExecutor.execute(new MsgHandler());
+        executor.execute(new MsgHandler());
 
     }
 }
