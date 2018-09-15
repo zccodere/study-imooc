@@ -1,4 +1,4 @@
-package com.myimooc.json.demo;
+package com.myimooc.json.simple.demo;
 
 import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
@@ -8,8 +8,12 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * 读取 JSON 数据演示类
- * Created by ChangComputer on 2017/5/21.
+ * <br>
+ * 标题: 读取 JSON 数据演示类<br>
+ * 描述: 读取 JSON 数据演示类<br>
+ * 时间: 2017/05/21<br>
+ *
+ * @author zc
  */
 public class ReadJsonSample {
 
@@ -37,7 +41,8 @@ public class ReadJsonSample {
         }
 
         // 判断属性的值是否为空
-        if(!jsonObject.isNull("nickname")){
+        String key = "nickname";
+        if(!jsonObject.isNull(key)){
             System.out.println("昵称："+jsonObject.getDouble("nickname"));
         }
     }

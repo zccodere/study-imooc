@@ -1,15 +1,19 @@
-package com.myimooc.json.gson;
+package com.myimooc.json.simple.gson;
 
 import com.google.gson.FieldNamingStrategy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.myimooc.json.model.Diaosi;
+import com.myimooc.json.simple.model.Diaosi;
 
 import java.lang.reflect.Field;
 
 /**
- * 使用 GSON 进行 JSON 相关操作
- * Created by ChangComputer on 2017/5/21.
+ * <br>
+ * 标题: 使用 GSON 进行 JSON 相关操作<br>
+ * 描述: 使用 GSON 进行 JSON 相关操作<br>
+ * 时间: 2017/05/21<br>
+ *
+ * @author zc
  */
 public class GsonCreateSample {
 
@@ -29,7 +33,7 @@ public class GsonCreateSample {
         wangxiaoer.setBirthday("1990-01-01");
         wangxiaoer.setSchool("蓝翔");
         wangxiaoer.setMajor(new String[]{"理发","挖掘机"});
-        wangxiaoer.setHas_girlfriend(false);
+        wangxiaoer.setHasGirlfriend(false);
         wangxiaoer.setCar(null);
         wangxiaoer.setHouse(null);
         wangxiaoer.setComment("这是一个注释");
@@ -42,7 +46,8 @@ public class GsonCreateSample {
         gsonBuilder.setFieldNamingStrategy(new FieldNamingStrategy() {
             @Override
             public String translateName(Field f) {
-                if(f.getName().equals("name")){
+                String name = "name";
+                if(name.equals(f.getName())){
                     return "NAME";
                 }
                 return f.getName();

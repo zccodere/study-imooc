@@ -1,21 +1,28 @@
-package com.myimooc.json.model;
+package com.myimooc.json.simple.model;
 
 import java.util.Arrays;
 
 /**
- * Created by ChangComputer on 2017/5/21.
+ * <br>
+ * 标题: 人物实体<br>
+ * 描述: 人物实体<br>
+ * 时间: 2017/05/21<br>
+ *
+ * @author zc
  */
 public class Diaosi {
     private String name;
     private String school;
-    private boolean has_girlfriend;
+    private boolean hasGirlfriend;
     private double age;
     private Object car;
     private Object house;
     private String[] major;
     private String comment;
     private String birthday;
-    // 使用 transient 关键字，生成 JSON 时忽略该字段
+    /**
+     * 使用 transient 关键字，生成 JSON 时忽略该字段
+     */
     private transient String ignore;
 
     public String getIgnore() {
@@ -42,12 +49,12 @@ public class Diaosi {
         this.school = school;
     }
 
-    public boolean isHas_girlfriend() {
-        return has_girlfriend;
+    public boolean isHasGirlfriend() {
+        return hasGirlfriend;
     }
 
-    public void setHas_girlfriend(boolean has_girlfriend) {
-        this.has_girlfriend = has_girlfriend;
+    public void setHasGirlfriend(boolean hasGirlfriend) {
+        this.hasGirlfriend = hasGirlfriend;
     }
 
     public double getAge() {
@@ -103,7 +110,7 @@ public class Diaosi {
         return "Diaosi{" +
                 "name='" + name + '\'' +
                 ", school='" + school + '\'' +
-                ", has_girlfriend=" + has_girlfriend +
+                ", hasGirlfriend=" + hasGirlfriend +
                 ", age=" + age +
                 ", car=" + car +
                 ", house=" + house +
