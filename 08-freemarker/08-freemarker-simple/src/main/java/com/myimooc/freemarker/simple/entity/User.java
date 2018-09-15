@@ -1,4 +1,4 @@
-package com.myimooc.myfreemarker.entity;
+package com.myimooc.freemarker.simple.entity;
 
 import java.util.Date;
 

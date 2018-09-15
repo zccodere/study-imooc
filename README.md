@@ -25,7 +25,7 @@
 ### 2017-2017031901：07-my-myspringbootweb<br>
 慕课网《SpringBoot进阶之Web进阶》学习源码
 
-### 2017-2017031902：08-my-myfreemarker<br>
+### 2017-2017031902：08-freemarker<br>
 慕课网《Java模板引擎之Freemarker》学习源码
 
 ### 2017-2017032201：09-sso<br>

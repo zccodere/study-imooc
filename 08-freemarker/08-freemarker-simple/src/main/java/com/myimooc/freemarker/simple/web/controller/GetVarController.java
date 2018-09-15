@@ -1,4 +1,4 @@
-package com.myimooc.myfreemarker.web.controller;
+package com.myimooc.freemarker.simple.web.controller;
 
 
 import java.util.ArrayList;
@@ -7,12 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.myimooc.freemarker.simple.entity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.myimooc.myfreemarker.entity.User;
 
 /**
  * 取值控制器
@@ -66,7 +65,7 @@ public class GetVarController {
         mv.addObject("myList",list);
         
         //定义Map集合
-        Map<String,String> map = new HashMap<String,String>();
+        Map<String,String> map = new HashMap<String,String>(16);
         map.put("java", "你好java");
         map.put("python", "你好python");
         map.put("nodejs", "你好nodejs");

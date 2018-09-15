@@ -1,4 +1,4 @@
-package com.myimooc.myfreemarker.config;
+package com.myimooc.freemarker.simple.config;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import com.myimooc.freemarker.simple.web.controller.RoleDirectiveModel;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +23,6 @@ import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.myimooc.myfreemarker.web.controller.RoleDirectiveModel;
 
 /**
  * Web项目SpringMvc配置
@@ -109,7 +109,7 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter{
         freeMarkerConfigurer.setFreemarkerSettings(settings);
         
         // 配置自定义指令
-        Map<String,Object> variables = new HashMap<String,Object>();
+        Map<String,Object> variables = new HashMap<String,Object>(16);
         variables.put("role", new RoleDirectiveModel());
         freeMarkerConfigurer.setFreemarkerVariables(variables);
         

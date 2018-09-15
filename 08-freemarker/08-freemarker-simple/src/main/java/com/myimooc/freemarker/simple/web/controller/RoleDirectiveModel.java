@@ -1,4 +1,4 @@
-package com.myimooc.myfreemarker.web.controller;
+package com.myimooc.freemarker.simple.web.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,11 +16,11 @@ import freemarker.template.TemplateScalarModel;
 
 /**
  * Freemarker自定义指令
+ * //实现Freemarker顶层TemplateDirectiveModel指令接口，且实现execute方法
  * @author ZhangCheng
  * @date 2017-03-20
  * @version V1.0
  */
-//实现Freemarker顶层TemplateDirectiveModel指令接口，且实现execute方法
 public class RoleDirectiveModel implements TemplateDirectiveModel {
     
     /**
@@ -40,7 +40,9 @@ public class RoleDirectiveModel implements TemplateDirectiveModel {
         TemplateScalarModel role = (TemplateScalarModel) params.get("role");
         
         //判断用户编号及角色是否匹配
-        if("123456".equals(user.getAsString()) && "admin".equals(role.getAsString())){
+        String userId = "123456";
+        String userRole = "admin";
+        if(userId.equals(user.getAsString()) && userRole.equals(role.getAsString())){
             loopVars[0] = TemplateBooleanModel.TRUE;
         }
         

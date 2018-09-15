@@ -1,4 +1,4 @@
-package com.myimooc.myfreemarker;
+package com.myimooc.freemarker.simple;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,9 +11,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
-public class ConsoleMain {
+public class FreemarkerSimpleApplication {
     
     public static void main(String[] args) {
-        SpringApplication.run(ConsoleMain.class, args);
+        SpringApplication.run(FreemarkerSimpleApplication.class, args);
     }
 }

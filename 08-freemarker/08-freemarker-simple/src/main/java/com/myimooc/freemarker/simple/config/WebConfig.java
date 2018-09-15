@@ -1,4 +1,4 @@
-package com.myimooc.myfreemarker.config;
+package com.myimooc.freemarker.simple.config;
 
 import java.util.EnumSet;
 

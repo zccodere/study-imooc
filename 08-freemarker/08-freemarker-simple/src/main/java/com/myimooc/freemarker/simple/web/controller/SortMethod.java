@@ -1,4 +1,4 @@
-package com.myimooc.myfreemarker.web.controller;
+package com.myimooc.freemarker.simple.web.controller;
 
 import java.math.BigDecimal;
 import java.util.Collections;
@@ -11,11 +11,11 @@ import freemarker.template.TemplateModelException;
 
 /**
  * Freemarker自定义函数，整数排序
+ * //实现TemplateMethodModelEx接口并实现exec方法
  * @author ZhangCheng
  * @date 2017-03-20
  * @version V1.0
  */
-//实现TemplateMethodModelEx接口并实现exec方法
 public class SortMethod implements TemplateMethodModelEx {
 
     @SuppressWarnings({ "rawtypes", "deprecation", "unchecked" })
@@ -30,7 +30,8 @@ public class SortMethod implements TemplateMethodModelEx {
             @Override
             public int compare(BigDecimal o1, BigDecimal o2) {
                 //return o2.intValue()-o1.intValue();//降序
-                return o1.intValue()-o2.intValue();//升序
+                //升序
+                return o1.intValue()-o2.intValue();
             }
         });
         return list;

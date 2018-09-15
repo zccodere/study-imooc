@@ -13,8 +13,9 @@
 
     <modules>
 
-        <!--TODO ZC 20180909 20180930 重构模块01-08-->
+        <!--TODO ZC 20180909 20180930 重构模块01-07-->
 
+        <module>08-freemarker</module>
         <module>09-sso</module>
         <module>10-java</module>
 

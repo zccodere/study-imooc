@@ -1,17 +1,16 @@
-package com.myimooc.myfreemarker.web.controller;
+package com.myimooc.freemarker.simple.web.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.myimooc.freemarker.simple.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.myimooc.myfreemarker.entity.User;
 
 /**
  * 首页控制器
@@ -45,7 +44,8 @@ public class IndexController {
      */
     private List<User> prepareUserList(){
         List<User> list = new ArrayList<User>();
-        for(int i=0;i<5;i++){
+        int count = 5;
+        for(int i=0;i<count;i++){
             User item = new User();
             item.setName("用户"+i);
             item.setBirthday(new Date());
