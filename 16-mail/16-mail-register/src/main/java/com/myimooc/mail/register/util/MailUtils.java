@@ -1,4 +1,4 @@
-package com.myimooc.myregistweb.util;
+package com.myimooc.mail.register.util;
 
 import java.util.Properties;
 
@@ -12,9 +12,12 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMessage.RecipientType;
 
 /**
- * 邮件发送工具类
- * @create ZhangCheng by 2017-06-08
+ * <br>
+ * 标题: 邮件发送工具类<br>
+ * 描述: 邮件发送工具类<br>
+ * 时间: 2017/06/07<br>
  *
+ * @author zc
  */
 public class MailUtils {
     

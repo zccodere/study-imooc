@@ -1,9 +1,17 @@
-package com.myimooc.myregistweb.domain;
+package com.myimooc.mail.register.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+/**
+ * <br>
+ * 标题: 用户实体<br>
+ * 描述: 用户实体<br>
+ * 时间: 2017/06/07<br>
+ *
+ * @author zc
+ */
 @Entity
 public class User {
     

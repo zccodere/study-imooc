@@ -15,6 +15,7 @@
 
         <!--TODO ZC 20180909 20180930 重构模块01-16-->
 
+        <module>16-mail</module>
         <module>17-qrcode</module>
         <module>18-quartz</module>
         <module>19-excel</module>
