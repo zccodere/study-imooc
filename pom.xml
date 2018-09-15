@@ -13,8 +13,9 @@
 
     <modules>
 
-        <!--TODO ZC 20180909 20180930 重构模块01-14-->
+        <!--TODO ZC 20180909 20180930 重构模块01-13-->
 
+        <module>14-redis</module>
         <module>15-java</module>
 
         <module>16-mail</module>
