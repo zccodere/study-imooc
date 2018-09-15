@@ -34,7 +34,7 @@
 ### 2017-2017041001：10-my-myjavasecurity<br>
 慕课网《搞定java加解密》学习路径学习源码
 
-### 2017-2017042401：11-my-myspringdata<br>
+### 2017-2017042401：11-spring<br>
 慕课网《轻松愉快之玩转SpringData》学习源码
 
 ### 2017-2017051601：12-gradle<br>
