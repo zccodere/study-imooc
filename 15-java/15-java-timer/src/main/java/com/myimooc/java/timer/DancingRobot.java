@@ -1,11 +1,15 @@
-package com.myimooc.timer;
+package com.myimooc.java.timer;
 
 import java.text.SimpleDateFormat;
 import java.util.TimerTask;
 
 /**
- * 跳舞机器人
- * Created by ChangComputer on 2017/5/24.
+ * <br>
+ * 标题: 跳舞机器人<br>
+ * 描述: 跳舞机器人<br>
+ * 时间: 2017/05/24<br>
+ *
+ * @author zc
  */
 public class DancingRobot extends TimerTask{
 

@@ -1,4 +1,4 @@
-package com.myimooc.timer;
+package com.myimooc.java.timer;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -6,8 +6,12 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * schedule和scheduleAtFixedRate的区别 测试类
- * Created by ChangComputer on 2017/5/24.
+ * <br>
+ * 标题: schedule和scheduleAtFixedRate的区别 测试类<br>
+ * 描述: schedule和scheduleAtFixedRate的区别 测试类<br>
+ * 时间: 2017/05/24<br>
+ *
+ * @author zc
  */
 public class DifferenceTwoTest {
 

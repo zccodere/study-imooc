@@ -1,16 +1,20 @@
-package com.myimooc.timer;
+package com.myimooc.java.timer;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Timer;
 
 /**
- * 定时调度类
- * Created by ChangComputer on 2017/5/24.
+ * <br>
+ * 标题: 定时调度类<br>
+ * 描述: 定时调度类<br>
+ * 时间: 2017/05/24<br>
+ *
+ * @author zc
  */
 public class MyTimer {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         // 创建一个 Timer 实例
         Timer timer = new Timer();
@@ -20,7 +24,7 @@ public class MyTimer {
 
         // 通过 Timer 定时定频率调用 MyTimerTask 的业务逻辑
         // 即第一次执行是在当前时间的两秒之后，之后每隔一秒钟执行一次
-        timer.schedule(myTimerTask,2000L);
+        timer.schedule(myTimerTask, 2000L);
 
         System.out.println("schedule time is " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(myTimerTask.scheduledExecutionTime()));
 
@@ -34,7 +38,7 @@ public class MyTimer {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         System.out.println("Current exec time is : " + simpleDateFormat.format(calendar.getTime()));
 
-        calendar.add(Calendar.SECOND,3);
+        calendar.add(Calendar.SECOND, 3);
 
         // schedule的四种用法
         /**

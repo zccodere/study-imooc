@@ -1,12 +1,16 @@
-package com.myimooc.timer;
+package com.myimooc.java.timer;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Timer;
 
 /**
- * 机器人执行类
- * Created by ChangComputer on 2017/5/24.
+ * <br>
+ * 标题: 机器人执行类<br>
+ * 描述: 机器人执行类<br>
+ * 时间: 2017/05/24<br>
+ *
+ * @author zc
  */
 public class RobotExecutor {
 

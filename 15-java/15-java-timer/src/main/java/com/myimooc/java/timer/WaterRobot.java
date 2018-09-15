@@ -1,17 +1,23 @@
-package com.myimooc.timer;
+package com.myimooc.java.timer;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * 灌水机器人
- * Created by ChangComputer on 2017/5/24.
+ * <br>
+ * 标题: 灌水机器人<br>
+ * 描述: 灌水机器人<br>
+ * 时间: 2017/05/24<br>
+ *
+ * @author zc
  */
 public class WaterRobot extends TimerTask{
 
     private Timer timer;
 
-    // 桶容量，最大容量为5
+    /**
+     * 桶容量，最大容量为5
+     */
     private Integer bucketCapacity = 0;
 
     public WaterRobot(Timer timer){
@@ -21,7 +27,8 @@ public class WaterRobot extends TimerTask{
     @Override
     public void run() {
         // 灌水直至桶满为止
-        if (this.bucketCapacity < 5) {
+        int count = 5;
+        if (this.bucketCapacity < count) {
             System.out.println("Add 1L water into the bucket!");
             bucketCapacity++;
         }else{

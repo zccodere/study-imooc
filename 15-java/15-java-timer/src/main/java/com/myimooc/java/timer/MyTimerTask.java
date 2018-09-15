@@ -1,27 +1,35 @@
-package com.myimooc.timer;
+package com.myimooc.java.timer;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimerTask;
 
 /**
- * 需定时调度的业务逻辑类
- * Created by ChangComputer on 2017/5/24.
+ * <br>
+ * 标题: 需定时调度的业务逻辑类<br>
+ * 描述: 继承 TimerTask 类<br>
+ * 时间: 2017/05/24<br>
+ *
+ * @author zc
  */
-// 继承 TimerTask 类
 public class MyTimerTask extends TimerTask{
     private String name;
 
-    // 计数器，没执行一次加一
+    /**
+     * 计数器，没执行一次加一
+     */
     private Integer count = 0;
     public MyTimerTask(String name){
         this.name = name;
     }
 
-    // 重写 run 方法
+    /**
+     * 重写 run 方法
+     */
     @Override
     public void run() {
-        if (count < 3) {
+        int total = 3;
+        if (count < total) {
             // 以yyyy-MM-dd HH:mm:ss的格式打印当前执行时间
             // 如2016-11-11 00:00:00
             Calendar calendar = Calendar.getInstance();
