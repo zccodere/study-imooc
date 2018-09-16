@@ -10,7 +10,7 @@
 ### 2017-2017011801：02-my-myspringtransactions<br>
 慕课网《Spring事务管理》学习源码
 
-### 2017-2017011801：03-my-myspringmvcstudy<br>
+### 2017-2017011801：03-spring-mvc<br>
 慕课网《SpringMVC起步》学习源码
 
 ### 2017-2017011801：04-my-spring-mvc<br>

@@ -1,19 +1,17 @@
-package com.myimooc.springmvc.web.controller;
+package com.myimooc.spring.mvc.simple.web.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import com.myimooc.spring.mvc.simple.service.CourseService;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,11 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.myimooc.springmvc.model.entity.Course;
-import com.myimooc.springmvc.service.CourseService;
+import com.myimooc.spring.mvc.simple.model.entity.Course;
 
 /**
  * 课程相关控制器
@@ -114,7 +110,6 @@ public class CourseController {
             log.debug("正在处理文件："+file.getOriginalFilename());
             File fileTemp = new File("/upload",System.currentTimeMillis()+file.getOriginalFilename());
             
-//            File fileTemp = new File(request.getServletContext().getRealPath("/WEB-INF/classes/upload"),System.currentTimeMillis()+file.getOriginalFilename());
             log.debug(fileTemp.getAbsolutePath());
             FileUtils.copyInputStreamToFile(file.getInputStream(),fileTemp);
         }

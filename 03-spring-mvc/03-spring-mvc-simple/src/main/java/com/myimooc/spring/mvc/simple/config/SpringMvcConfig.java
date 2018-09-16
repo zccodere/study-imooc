@@ -1,4 +1,4 @@
-package com.myimooc.springmvc.config;
+package com.myimooc.spring.mvc.simple.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

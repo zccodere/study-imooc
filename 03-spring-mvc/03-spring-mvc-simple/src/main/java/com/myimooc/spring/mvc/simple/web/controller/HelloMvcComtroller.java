@@ -1,11 +1,10 @@
-package com.myimooc.springmvc.web.controller;
+package com.myimooc.spring.mvc.simple.web.controller;
 
 import javax.annotation.Resource;
 
+import com.myimooc.spring.mvc.simple.service.HelloService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.myimooc.springmvc.service.HelloService;
 
 /**
  * 测试控制器

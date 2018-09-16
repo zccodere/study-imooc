@@ -13,8 +13,9 @@
 
     <modules>
 
-        <!--TODO ZC 20180909 20180930 重构模块01-03-->
+        <!--TODO ZC 20180909 20180930 重构模块01-02-->
 
+        <module>03-spring-mvc</module>
         <module>04-spring-mvc</module>
         <module>05-boot</module>
 
