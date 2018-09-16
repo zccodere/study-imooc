@@ -1,5 +1,7 @@
-package com.myimooc.springmvc.config;
+package com.myimooc.spring.mvc.interceptor.config;
 
+import com.myimooc.spring.mvc.interceptor.web.interceptor.Test1Interceptor;
+import com.myimooc.spring.mvc.interceptor.web.interceptor.Test2Interceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,9 +13,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-import com.myimooc.springmvc.web.interceptor.Test1Interceptor;
-import com.myimooc.springmvc.web.interceptor.Test2Interceptor;
-
 /**
  * Web项目SpringMvc配置
  * @author zhangcheng
@@ -22,7 +21,7 @@ import com.myimooc.springmvc.web.interceptor.Test2Interceptor;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.myimooc.springmvc")
+@ComponentScan("com.myimooc.spring.mvc.interceptor")
 public class SpringMvcConfig extends WebMvcConfigurerAdapter{
     
     /**
@@ -86,7 +85,7 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter{
         
 //        InterceptorRegistration interceptorRegistration = registry.addInterceptor(test1Interceptor());
 //        interceptorRegistration.addPathPatterns("/viewall");
-        registry.addInterceptor(test1Interceptor());
+//        registry.addInterceptor(test1Interceptor());
 //        registry.addInterceptor(test2Interceptor());
     }
     

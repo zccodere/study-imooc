@@ -1,4 +1,4 @@
-package com.myimooc.springmvc.config;
+package com.myimooc.spring.mvc.interceptor.config;
 
 import java.util.EnumSet;
 

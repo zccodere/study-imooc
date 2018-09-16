@@ -1,13 +1,12 @@
-﻿package com.myimooc.springmvc.service.impl;
+package com.myimooc.spring.mvc.interceptor.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.myimooc.spring.mvc.interceptor.model.entity.Chapter;
+import com.myimooc.spring.mvc.interceptor.model.entity.Course;
+import com.myimooc.spring.mvc.interceptor.service.CourseService;
 import org.springframework.stereotype.Service;
-
-import com.myimooc.springmvc.model.entity.Chapter;
-import com.myimooc.springmvc.model.entity.Course;
-import com.myimooc.springmvc.service.CourseService;
 
 /**
  * 课程业务功能实现类
@@ -29,7 +28,7 @@ public class CourseServiceImpl implements CourseService {
 		course.setLearningNum(12345);
 		course.setLevel(2);
 		course.setLevelDesc("中级");
-		course.setDuration(7200l);
+		course.setDuration(7200L);
 		course.setDescr("多线程是日常开发中的常用知识，也是难用知识。bala bala...");
 		
 		List<Chapter> chapterList = new ArrayList<Chapter>();
@@ -83,8 +82,4 @@ public class CourseServiceImpl implements CourseService {
 		chapterList.add(chapter);
 		
 	}
-
-
-
-
 }

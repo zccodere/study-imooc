@@ -1,4 +1,4 @@
-package com.myimooc.springmvc.web.controller;
+package com.myimooc.spring.mvc.interceptor.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -8,6 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+/**
+ * 测试控制器
+ * @author ChengComputer
+ * @version v1.0 2017-02-17
+ */
 @Controller
 @RequestMapping("/")
 public class TestController {

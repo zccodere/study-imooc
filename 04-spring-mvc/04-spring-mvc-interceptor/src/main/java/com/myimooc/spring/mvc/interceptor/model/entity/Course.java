@@ -1,4 +1,4 @@
-package com.myimooc.springmvc.model.entity;
+package com.myimooc.spring.mvc.interceptor.model.entity;
 
 import java.util.List;
 

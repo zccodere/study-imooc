@@ -13,7 +13,7 @@
 ### 2017-2017011801：03-my-myspringmvcstudy<br>
 慕课网《SpringMVC起步》学习源码
 
-### 2017-2017011801：04-my-myspringmvcinterceptor<br>
+### 2017-2017011801：04-my-spring-mvc<br>
 慕课网《SpringMVC拦截器》学习源码
 
 ### 2017-2017021801：05-boot<br>
