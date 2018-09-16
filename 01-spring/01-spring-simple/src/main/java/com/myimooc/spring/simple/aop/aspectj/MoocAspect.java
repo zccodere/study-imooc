@@ -41,7 +41,7 @@ public class MoocAspect {
     }
 
     @Before("pointcut() && @annotation(moocMethod)")
-    public void beforeWithAnnotaion(com.myimooc.spring.aop.aspectj.MoocMethod moocMethod) {
+    public void beforeWithAnnotaion(MoocMethod moocMethod) {
         System.out.println("BeforeWithAnnotation." + moocMethod.value());
     }
 
