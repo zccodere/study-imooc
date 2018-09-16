@@ -22,7 +22,7 @@
 ### 2017-2017021901：06-my-myspringmvcbind<br>
 慕课网《SpringMVC数据绑定入门》学习源码
 
-### 2017-2017031901：07-my-myspringbootweb<br>
+### 2017-2017031901：07-boot<br>
 慕课网《SpringBoot进阶之Web进阶》学习源码
 
 ### 2017-2017031902：08-freemarker<br>
