@@ -1,6 +1,6 @@
-package com.myimooc.springboot.repository;
+package com.myimooc.boot.simple.repository;
 
-import com.myimooc.springboot.model.entity.Girl;
+import com.myimooc.boot.simple.model.entity.Girl;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

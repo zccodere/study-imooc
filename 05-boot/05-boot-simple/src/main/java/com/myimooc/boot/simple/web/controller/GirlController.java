@@ -1,8 +1,8 @@
-package com.myimooc.springboot.web.controller;
+package com.myimooc.boot.simple.web.controller;
 
-import com.myimooc.springboot.model.entity.Girl;
-import com.myimooc.springboot.repository.GirlRepository;
-import com.myimooc.springboot.service.GirlService;
+import com.myimooc.boot.simple.model.entity.Girl;
+import com.myimooc.boot.simple.repository.GirlRepository;
+import com.myimooc.boot.simple.service.GirlService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

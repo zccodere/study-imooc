@@ -1,11 +1,16 @@
-package com.myimooc.springboot.model.entity;
+package com.myimooc.boot.simple.model.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
- * Created by ChengComputer on 2017/2/18.
+ * <br>
+ * 标题: 实体<br>
+ * 描述: 实体<br>
+ * 时间: 2017/02/18<br>
+ *
+ * @author zc
  */
 @Entity
 public class Girl {

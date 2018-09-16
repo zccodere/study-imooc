@@ -16,7 +16,7 @@
 ### 2017-2017011801：04-my-myspringmvcinterceptor<br>
 慕课网《SpringMVC拦截器》学习源码
 
-### 2017-2017021801：05-my-myspringboot<br>
+### 2017-2017021801：05-boot<br>
 慕课网《2小时学会SpringBoot》学习源码
 
 ### 2017-2017021901：06-spring-mvc<br>

@@ -9,7 +9,7 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/boot
     username: root
-    password: root5770
+    password: root
   jpa:
     hibernate:
       ddl-auto: update

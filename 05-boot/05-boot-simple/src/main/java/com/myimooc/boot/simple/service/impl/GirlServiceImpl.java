@@ -1,30 +1,35 @@
-package com.myimooc.springboot.service.impl;
+package com.myimooc.boot.simple.service.impl;
 
-import com.myimooc.springboot.model.entity.Girl;
-import com.myimooc.springboot.repository.GirlRepository;
-import com.myimooc.springboot.service.GirlService;
+import com.myimooc.boot.simple.model.entity.Girl;
+import com.myimooc.boot.simple.service.GirlService;
+import com.myimooc.boot.simple.repository.GirlRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Created by ChengComputer on 2017/2/18.
+ * <br>
+ * 标题: 服务实现<br>
+ * 描述: 服务实现<br>
+ * 时间: 2017/02/18<br>
+ *
+ * @author zc
  */
 @Service
-public class GirlServiceImpl implements GirlService{
+public class GirlServiceImpl implements GirlService {
 
     @Autowired
     private GirlRepository girlRepository;
 
     /**
-     * 插入两个女生信息
+     * 保存两个女生信息
      */
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public void saveTwo() {
         Girl girlA = new Girl();
-        girlA.setAge(18);
         girlA.setCupSize("A");
+        girlA.setAge(18);
         girlRepository.save(girlA);
 
         Girl girlB = new Girl();
