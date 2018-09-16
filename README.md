@@ -19,7 +19,7 @@
 ### 2017-2017021801：05-my-myspringboot<br>
 慕课网《2小时学会SpringBoot》学习源码
 
-### 2017-2017021901：06-my-myspringmvcbind<br>
+### 2017-2017021901：06-spring-mvc<br>
 慕课网《SpringMVC数据绑定入门》学习源码
 
 ### 2017-2017031901：07-boot<br>
