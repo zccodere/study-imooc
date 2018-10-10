@@ -71,6 +71,7 @@
         <module>47-rabbitmq</module>
         <module>48-boot-mail</module>
         <module>49-kafka</module>
+        <module>50-boot</module>
 
     </modules>
 
