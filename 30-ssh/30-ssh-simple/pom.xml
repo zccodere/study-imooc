@@ -12,7 +12,7 @@
     <packaging>war</packaging>
 
     <properties>
-        <struts2.version>2.5.12</struts2.version>
+        <struts2.version>2.5.18</struts2.version>
         <spring.version>4.3.9.RELEASE</spring.version>
         <aspectj.version>1.8.10</aspectj.version>
         <aopalliance.version>1.0</aopalliance.version>
@@ -156,19 +156,11 @@
             <artifactId>log4j</artifactId>
             <version>${log4j.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.9.0</version>
+            <version>2.9.7</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.9.0</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
