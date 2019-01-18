@@ -1,0 +1,5 @@
+rootProject.name = 'todo-app'
+include 'todo-app-model'
+include 'todo-app-dao'
+include 'todo-app-web'
+

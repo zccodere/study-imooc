@@ -1,0 +1,39 @@
+/* pages/list/list.wxss */
+
+.widget {
+  position: relative;
+  margin-top: 5rpx;
+  margin-bottom: 5rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  border: #ddd 1px solid;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: table;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  text-align: center;
+}
+
+.column {
+  width: 4rem;
+  display: table-cell;
+}
+
+.link-column {
+  width: 6rem;
+  display: table-cell;
+}
+
+.link {
+  color: blue;
+  display: inline-table;
+}
