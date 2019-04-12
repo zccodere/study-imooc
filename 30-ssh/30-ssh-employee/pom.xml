@@ -12,7 +12,7 @@
     <packaging>war</packaging>
 
     <properties>
-        <struts2.version>2.5.12</struts2.version>
+        <struts2.version>2.5.18</struts2.version>
         <spring.version>4.3.9.RELEASE</spring.version>
         <aspectj.version>1.8.10</aspectj.version>
         <aopalliance.version>1.0</aopalliance.version>
