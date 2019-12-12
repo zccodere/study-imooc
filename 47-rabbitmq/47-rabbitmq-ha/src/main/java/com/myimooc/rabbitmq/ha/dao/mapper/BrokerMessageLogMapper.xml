@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.myimooc.rabbitmq.ha.dao.mapper.BrokerMessageLogMapper">
+
+    <resultMap id="BaseResultMap" type="com.myimooc.rabbitmq.ha.dao.po.BrokerMessageLogPO">
+        <id column="message_id" property="messageId" jdbcType="VARCHAR"/>
+        <result column="message" property="message" jdbcType="VARCHAR"/>
+        <result column="try_count" property="tryCount" jdbcType="INTEGER"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+        <result column="next_retry" property="nextRetry" jdbcType="TIMESTAMP"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="BaseColumnSelect">
+        message_id,message,try_count,status,next_retry,create_time,update_time
+    </sql>
+
+    <sql id="BaseColumnInsert">
+        message_id,message,try_count,status,next_retry,create_time,update_time
+    </sql>
+
+    <insert id="insert" parameterType="com.myimooc.rabbitmq.ha.dao.po.BrokerMessageLogPO">
+        insert into broker_message_log(<include refid="BaseColumnInsert"/>)
+        values(
+        #{messageId,jdbcType=VARCHAR},
+        #{message,jdbcType=VARCHAR},
+        #{tryCount,jdbcType=INTEGER},
+        #{status,jdbcType=VARCHAR},
+        #{nextRetry,jdbcType=TIMESTAMP},
+        sysdate(),
+        sysdate()
+        )
+    </insert>
+
+    <update id="changeBrokerMessageLogStatus" parameterType="com.myimooc.rabbitmq.ha.dao.po.BrokerMessageLogPO">
+        update broker_message_log
+        set status = #{status,jdbcType=VARCHAR},
+            update_time = sysdate()
+        where message_id = #{messageId,jdbcType=VARCHAR}
+    </update>
+
+    <update id="updateRetryCount" parameterType="com.myimooc.rabbitmq.ha.dao.po.BrokerMessageLogPO">
+        update broker_message_log
+        set try_count = try_count + 1,
+            update_time = sysdate()
+        where message_id = #{messageId,jdbcType=VARCHAR}
+    </update>
+
+    <select id="listSendFailureAndTimeoutMessage" resultMap="BaseResultMap">
+        select
+        <include refid="BaseColumnSelect"/>
+        from broker_message_log
+        where status = '0' and next_retry <![CDATA[<=]]> sysdate()
+    </select>
+
+</mapper>

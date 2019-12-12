@@ -1,0 +1,44 @@
+group 'com.myimooc'
+version '1.0-SNAPSHOT'
+
+// 对所有项目进行配置
+allprojects{
+    apply plugin: 'java'
+    sourceCompatibility = 1.8
+
+    // 发布插件
+    apply plugin: 'maven-publish'
+
+    publishing {
+        publications {
+            myPublish(MavenPublication){
+                from components.java
+            }
+        }
+        repositories {
+            maven {
+                name 'myRepo'
+                url ''
+            }
+        }
+    }
+}
+// 对所有子项目进行配置
+subprojects{
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        compile 'ch.qos.logback:logback-classic:1.2.3'
+        testCompile group: 'junit', name: 'junit', version: '4.11'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+//TODO 所有项目中应用Java插件
+//TODO web子项目打包成war
+//TODO 所有项目添加logback日志功能
+//TODO 统一配置group和version

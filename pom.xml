@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="
+         http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.myimooc</groupId>
+    <artifactId>study-imooc</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+
+        <module>01-spring</module>
+        <module>02-spring</module>
+        <module>03-spring-mvc</module>
+        <module>04-spring-mvc</module>
+        <module>05-boot</module>
+
+        <module>06-spring-mvc</module>
+        <module>07-boot</module>
+        <module>08-freemarker</module>
+        <module>09-sso</module>
+        <module>10-java</module>
+
+        <module>11-spring</module>
+        <module>12-gradle</module>
+        <module>13-json</module>
+        <module>14-redis</module>
+        <module>15-java</module>
+
+        <module>16-mail</module>
+        <module>17-qrcode</module>
+        <module>18-quartz</module>
+        <module>19-excel</module>
+        <module>20-thread</module>
+
+        <module>21-java</module>
+        <module>22-java</module>
+        <module>23-hibernate</module>
+        <module>24-hibernate-anno</module>
+        <module>25-java</module>
+
+        <module>26-java</module>
+        <module>27-activemq</module>
+        <module>28-small</module>
+        <module>29-amap</module>
+        <module>30-ssh</module>
+
+        <module>31-spring</module>
+        <module>32-spring</module>
+        <module>33-java</module>
+        <module>34-spring-aop</module>
+        <module>35-boot-es</module>
+
+        <module>36-guice</module>
+        <module>37-rxjava</module>
+        <module>38-boot-deploy</module>
+        <module>39-boot</module>
+        <module>40-netty</module>
+
+        <module>41-boot-small</module>
+        <module>42-ajax</module>
+        <module>43-boot</module>
+        <module>44-shiro</module>
+        <module>45-java-sms</module>
+
+        <module>46-hbase</module>
+        <module>47-rabbitmq</module>
+        <module>48-boot-mail</module>
+        <module>49-kafka</module>
+        <module>50-boot</module>
+
+    </modules>
+
+    <repositories>
+        <repository>
+            <id>aliyun</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+        <repository>
+            <id>huaweicloud</id>
+            <url>https://mirrors.huaweicloud.com/repository/maven/</url>
+        </repository>
+    </repositories>
+
+</project>

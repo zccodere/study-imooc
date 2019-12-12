@@ -1,0 +1,41 @@
+package com.myimooc.spring.simple.beanannotation;
+
+import com.myimooc.spring.simple.AbstractUnitTestSupport;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.BlockJUnit4ClassRunner;
+
+/**
+ * <br>
+ * 标题: 使用@Component测试<br>
+ * 描述: 使用@Component测试<br>
+ * 时间: 2017/01/18<br>
+ *
+ * @author zc
+ */
+@RunWith(BlockJUnit4ClassRunner.class)
+public class BeanAnnotationTest extends AbstractUnitTestSupport {
+
+    public BeanAnnotationTest() {
+        super("classpath*:spring-beanannotation.xml");
+    }
+
+    @Test
+    public void testSay() {
+        BeanAnnotation bean = super.getBean("beanAnnotation");
+        bean.say("This is test.");
+
+        bean = super.getBean("beanAnnotation");
+        bean.say("This is test.");
+    }
+
+    @Test
+    public void testScpoe() {
+        BeanAnnotation bean = super.getBean("beanAnnotation");
+        bean.myHashCode();
+
+        bean = super.getBean("beanAnnotation");
+        bean.myHashCode();
+    }
+
+}
