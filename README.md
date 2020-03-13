@@ -5,7 +5,7 @@
 
 欢迎关注我的公众号
 
-![image](https://github.com/zccodere/study-imooc/zccoder-wx-gzh.jpg)
+<img src="zccoder-wx-gzh.jpg" width="50%" height="50%" />
 
 # 简介 
 
