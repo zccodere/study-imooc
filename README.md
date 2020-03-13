@@ -1,8 +1,19 @@
+
+# 关于我
+
+一名热爱学习技术的程序员。
+
+欢迎关注我的公众号
+
+![image](https://github.com/zccodere/study-imooc/zccoder-wx-gzh.jpg)
+
 # 简介 
 
 学习的所有源代码均保存在该资源库中。
 
 # 目录 
+
+[TOC]
 
 ### 2017-2017011801：01-spring<br>
 慕课网《Spring入门篇》学习源码
