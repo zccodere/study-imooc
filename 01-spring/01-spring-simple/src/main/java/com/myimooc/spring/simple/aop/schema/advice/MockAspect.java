@@ -3,37 +3,34 @@ package com.myimooc.spring.simple.aop.schema.advice;
 import org.aspectj.lang.ProceedingJoinPoint;
 
 /**
- * <br>
- * 标题: Mooc切面<br>
- * 描述: Mooc切面<br>
- * 时间: 2017/01/18<br>
+ * Mock 切面
  *
- * @author zc
+ * @author zc 2017-01-18
  */
-public class MoocAspect {
+public class MockAspect {
 
     public void before() {
-        System.out.println("MoocAspect before.");
+        System.out.println("MockAspect before.");
     }
 
     public void afterReturning() {
-        System.out.println("MoocAspect afterReturning.");
+        System.out.println("MockAspect afterReturning.");
     }
 
     public void afterThrowing() {
-        System.out.println("MoocAspect afterThrowing.");
+        System.out.println("MockAspect afterThrowing.");
     }
 
     public void after() {
-        System.out.println("MoocAspect after.");
+        System.out.println("MockAspect after.");
     }
 
     public Object around(ProceedingJoinPoint pjp) {
         Object obj = null;
         try {
-            System.out.println("MoocAspect around 1.");
+            System.out.println("MockAspect around 1.");
             obj = pjp.proceed();
-            System.out.println("MoocAspect around 2.");
+            System.out.println("MockAspect around 2.");
         } catch (Throwable e) {
             e.printStackTrace();
         }
@@ -44,9 +41,9 @@ public class MoocAspect {
         System.out.println(bizName + "   " + times);
         Object obj = null;
         try {
-            System.out.println("MoocAspect aroundInit 1.");
+            System.out.println("MockAspect aroundInit 1.");
             obj = pjp.proceed();
-            System.out.println("MoocAspect aroundInit 2.");
+            System.out.println("MockAspect aroundInit 2.");
         } catch (Throwable e) {
             e.printStackTrace();
         }

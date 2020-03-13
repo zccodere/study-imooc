@@ -1,11 +1,11 @@
-package com.myimooc.spring.simple.ioc.injection.service;
+package com.myimooc.spring.simple.ioc.injection.dao;
 
 /**
- * 服务接口
+ * DAO接口
  *
  * @author zc 2017-01-18
  */
-public interface InjectionService {
+public interface InjectionDao {
 
     /**
      * 保存

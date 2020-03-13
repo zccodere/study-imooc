@@ -7,23 +7,20 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.util.StringUtils;
 
 /**
- * <br>
- * 标题: 支持单元测试抽象基类<br>
- * 描述: 支持单元测试抽象基类<br>
- * 时间: 2017/01/18<br>
+ * 支持单元测试抽象基类
  *
- * @author zc
+ * @author zc 2017-01-18
  */
-public abstract class AbstractUnitTestSupport {
+public abstract class AbstractTestSupport {
 
     private ClassPathXmlApplicationContext context;
 
     private String springXmlPath;
 
-    public AbstractUnitTestSupport() {
+    public AbstractTestSupport() {
     }
 
-    public AbstractUnitTestSupport(String springXmlPath) {
+    public AbstractTestSupport(String springXmlPath) {
         this.springXmlPath = springXmlPath;
     }
 
@@ -42,24 +39,22 @@ public abstract class AbstractUnitTestSupport {
 
     @After
     public void after() {
-        context.destroy();
+        context.close();
     }
 
-    protected <T extends Object> T getBean(String beanId) {
+    protected <T> T getBean(String beanId, Class<T> typeClass) {
         try {
-            return (T) context.getBean(beanId);
+            return context.getBean(beanId, typeClass);
         } catch (BeansException e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException("获取Bean异常：", e);
         }
     }
 
-    protected <T extends Object> T getBean(Class<T> clazz) {
+    protected <T> T getBean(Class<T> clazz) {
         try {
             return context.getBean(clazz);
         } catch (BeansException e) {
-            e.printStackTrace();
-            return null;
+            throw new RuntimeException("获取Bean异常：", e);
         }
     }
 }

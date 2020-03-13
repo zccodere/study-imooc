@@ -4,8 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="moocApplicationContext" class="com.myimooc.spring.simple.aware.MoocApplicationContext"/>
+    <bean id="mockApplicationContext"
+          class="com.myimooc.spring.simple.aware.MockApplicationContext"/>
 
-    <bean id="moocBeanName" class="com.myimooc.spring.simple.aware.MoocBeanName"/>
+    <bean id="mockBeanName" class="com.myimooc.spring.simple.aware.MockBeanName"/>
 
 </beans>

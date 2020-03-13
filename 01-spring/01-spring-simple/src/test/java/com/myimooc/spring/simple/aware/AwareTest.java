@@ -1,33 +1,31 @@
 package com.myimooc.spring.simple.aware;
 
-import com.myimooc.spring.simple.AbstractUnitTestSupport;
+import com.myimooc.spring.simple.AbstractTestSupport;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 
 /**
- * <br>
- * 标题: Aware接口测试<br>
- * 描述: Aware接口测试<br>
- * 时间: 2017/01/18<br>
+ * Aware接口测试
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 @RunWith(BlockJUnit4ClassRunner.class)
-public class AwareTest extends AbstractUnitTestSupport {
+public class AwareTest extends AbstractTestSupport {
 
     public AwareTest() {
-        super("classpath:spring-aware.xml");
+        super("spring-aware.xml");
     }
 
-	@Test
-	public void testMoocApplicationContext() {
-		System.out.println("testMoocApplicationContext : " + super.getBean("moocApplicationContext").hashCode());
-	}
+    @Test
+    public void testMockApplicationContext() {
+        System.out.println("testMockApplicationContext : " + super.getBean("mockApplicationContext", MockApplicationContext.class).hashCode());
+    }
 
     @Test
-    public void textMoocBeanName() {
-        System.out.println("textMoocBeanName : " + super.getBean("moocBeanName").hashCode());
+    public void textMockBeanName() {
+        System.out.println("textMockBeanName : " + super.getBean("mockBeanName", MockBeanName.class).hashCode());
     }
 
 }

@@ -3,17 +3,14 @@ package com.myimooc.spring.simple.lifecycle;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
- * <br>
- * 标题: Bean初始化时执行<br>
- * 描述: Bean初始化时执行<br>
- * 时间: 2017/01/18<br>
+ * Bean初始化时执行
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 public class ExampleInitializingBean implements InitializingBean {
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         System.out.println(this.getClass().getName() + "：initializing");
     }
 

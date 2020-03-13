@@ -4,6 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="moocResource" class="com.myimooc.spring.simple.resource.MoocResource"/>
+    <bean id="mockResource" class="com.myimooc.spring.simple.resource.MockResource"/>
 
 </beans>

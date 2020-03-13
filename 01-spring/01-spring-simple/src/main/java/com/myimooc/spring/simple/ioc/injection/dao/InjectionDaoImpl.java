@@ -1,14 +1,11 @@
 package com.myimooc.spring.simple.ioc.injection.dao;
 
 /**
- * <br>
- * 标题: DAO实现<br>
- * 描述: DAO接口<br>
- * 时间: 2017/01/18<br>
+ * DAO接口实现
  *
- * @author zc
+ * @author zc 2017-01-18
  */
-public class InjectionDAOImpl implements InjectionDAO {
+public class InjectionDaoImpl implements InjectionDao {
 
     @Override
     public void save(String arg) {

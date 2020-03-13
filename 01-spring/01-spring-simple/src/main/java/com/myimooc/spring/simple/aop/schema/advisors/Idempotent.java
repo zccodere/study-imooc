@@ -4,14 +4,11 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * <br>
- * 标题: 自定义注解<br>
- * 描述: 自定义注解<br>
- * 时间: 2017/01/18<br>
+ * 自定义注解；仅用作标记注解
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Idempotent {
-    // marker annotation
+
 }

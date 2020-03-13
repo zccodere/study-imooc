@@ -1,12 +1,9 @@
 package com.myimooc.spring.simple.aop.api;
 
 /**
- * <br>
- * 标题: 业务逻辑实现<br>
- * 描述: 业务逻辑实现<br>
- * 时间: 2017/01/18<br>
+ * 业务逻辑实现
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 public class BizLogicImpl implements BizLogic {
 
@@ -14,7 +11,7 @@ public class BizLogicImpl implements BizLogic {
     public String save() {
         System.out.println("BizLogicImpl : BizLogicImpl save.");
         return "BizLogicImpl save.";
-//		throw new RuntimeException();
+        // throw new RuntimeException();
     }
 
 }

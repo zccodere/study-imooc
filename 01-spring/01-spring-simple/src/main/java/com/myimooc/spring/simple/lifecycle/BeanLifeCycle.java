@@ -4,17 +4,14 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
- * <br>
- * 标题: Bean生命周期<br>
- * 描述: Bean生命周期<br>
- * 时间: 2017/01/18<br>
+ * Bean生命周期
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 public class BeanLifeCycle implements InitializingBean, DisposableBean {
 
-    public void defautInit() {
-        System.out.println("Bean defautInit.");
+    public void defaultInit() {
+        System.out.println("Bean defaultInit.");
     }
 
     public void defaultDestroy() {
@@ -22,12 +19,12 @@ public class BeanLifeCycle implements InitializingBean, DisposableBean {
     }
 
     @Override
-    public void destroy() throws Exception {
+    public void destroy() {
         System.out.println("Bean destroy.");
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         System.out.println("Bean afterPropertiesSet.");
     }
 

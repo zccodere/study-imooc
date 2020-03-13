@@ -1,35 +1,28 @@
 package com.myimooc.spring.simple.ioc.injection.service;
 
-import com.myimooc.spring.simple.ioc.injection.dao.InjectionDAO;
+import com.myimooc.spring.simple.ioc.injection.dao.InjectionDao;
 
 /**
- * <br>
- * 标题: 服务实现<br>
- * 描述: 服务实现<br>
- * 时间: 2017/01/18<br>
+ * 服务接口实现
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 public class InjectionServiceImpl implements InjectionService {
 
-    private InjectionDAO injectionDAO;
+    private InjectionDao injectionDao;
 
     /**
      * 构造器注入
-     *
-     * @param injectionDAO
      */
-    public InjectionServiceImpl(InjectionDAO injectionDAO) {
-        this.injectionDAO = injectionDAO;
+    public InjectionServiceImpl(InjectionDao injectionDao) {
+        this.injectionDao = injectionDao;
     }
 
     /**
      * 设值注入
-     *
-     * @param injectionDAO
      */
-    public void setInjectionDAO(InjectionDAO injectionDAO) {
-        this.injectionDAO = injectionDAO;
+    public void setInjectionDao(InjectionDao injectionDao) {
+        this.injectionDao = injectionDao;
     }
 
     @Override
@@ -37,7 +30,7 @@ public class InjectionServiceImpl implements InjectionService {
         //模拟业务操作
         System.out.println("Service接收参数：" + arg);
         arg = arg + ":" + this.hashCode();
-        injectionDAO.save(arg);
+        injectionDao.save(arg);
     }
 
 }

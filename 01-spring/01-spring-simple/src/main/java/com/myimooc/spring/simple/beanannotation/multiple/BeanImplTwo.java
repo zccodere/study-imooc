@@ -1,15 +1,12 @@
-package com.myimooc.spring.simple.beanannotation.multibean;
+package com.myimooc.spring.simple.beanannotation.multiple;
 
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
- * <br>
- * 标题: 接口实现<br>
- * 描述: 接口实现<br>
- * 时间: 2017/01/18<br>
+ * 接口实现
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 @Order(1)
 @Component

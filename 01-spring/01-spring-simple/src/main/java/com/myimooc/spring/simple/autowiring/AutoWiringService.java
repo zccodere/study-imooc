@@ -1,23 +1,20 @@
 package com.myimooc.spring.simple.autowiring;
 
 /**
- * <br>
- * 标题: 服务<br>
- * 描述: 服务<br>
- * 时间: 2017/01/18<br>
+ * 服务
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 public class AutoWiringService {
 
-    private AutoWiringDAO autoWiringDAO;
+    private AutoWiringDao autoWiringDAO;
 
-    public AutoWiringService(AutoWiringDAO autoWiringDAO) {
+    public AutoWiringService(AutoWiringDao autoWiringDAO) {
         System.out.println("AutoWiringService");
         this.autoWiringDAO = autoWiringDAO;
     }
 
-    public void setAutoWiringDAO(AutoWiringDAO autoWiringDAO) {
+    public void setAutoWiringDAO(AutoWiringDao autoWiringDAO) {
         System.out.println("setAutoWiringDAO");
         this.autoWiringDAO = autoWiringDAO;
     }

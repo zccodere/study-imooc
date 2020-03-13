@@ -1,26 +1,22 @@
-package com.myimooc.spring.simple.beanannotation.multibean;
-
-import java.util.List;
-import java.util.Map;
+package com.myimooc.spring.simple.beanannotation.multiple;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.Map;
+
 /**
- * <br>
- * 标题: 执行<br>
- * 描述: 执行<br>
- * 时间: 2017/01/18<br>
+ * 执行
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 @Component
 public class BeanInvoker {
 
     @Autowired
     private List<BeanInterface> list;
-
     @Autowired
     private Map<String, BeanInterface> map;
 
@@ -55,7 +51,6 @@ public class BeanInvoker {
         } else {
             System.out.println("beanInterface is null...");
         }
-
 
     }
 

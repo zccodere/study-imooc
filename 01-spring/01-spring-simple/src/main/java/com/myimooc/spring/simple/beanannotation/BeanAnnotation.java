@@ -4,12 +4,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
- * <br>
- * 标题: 使用@Component<br>
- * 描述: 使用@Component<br>
- * 时间: 2017/01/18<br>
+ * 使用@Component
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 @Scope
 @Component
@@ -19,7 +16,7 @@ public class BeanAnnotation {
         System.out.println("BeanAnnotation : " + arg);
     }
 
-    public void myHashCode() {
+    void myHashCode() {
         System.out.println("BeanAnnotation : " + this.hashCode());
     }
 

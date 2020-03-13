@@ -1,20 +1,14 @@
 package com.myimooc.spring.simple.beanannotation.javabased;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
 
 /**
- * <br>
- * 标题: 配置<br>
- * 描述: 配置<br>
- * 时间: 2017/01/18<br>
+ * 配置
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 @Configuration
 @ImportResource("classpath:config.xml")
@@ -36,12 +30,11 @@ public class StoreConfig {
         return new IntegerStore();
     }
 
-//	@Bean(name = "stringStoreTest")
-//	public Store stringStoreTest() {
-//		System.out.println("s1 : " + s1.getClass().getName());
-//		System.out.println("s2 : " + s2.getClass().getName());
-//		return new StringStore();
-//	}
-
+//    @Bean(name = "stringStoreTest")
+//    public Store stringStoreTest() {
+//        System.out.println("s1 : " + s1.getClass().getName());
+//        System.out.println("s2 : " + s2.getClass().getName());
+//        return new StringStore();
+//    }
 
 }

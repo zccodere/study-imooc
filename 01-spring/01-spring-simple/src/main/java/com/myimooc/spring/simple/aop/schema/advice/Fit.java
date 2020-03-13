@@ -1,14 +1,12 @@
 package com.myimooc.spring.simple.aop.schema.advice;
 
 /**
- * <br>
- * 标题: 接口<br>
- * 描述: 接口<br>
- * 时间: 2017/01/18<br>
+ * 接口
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 public interface Fit {
+
     /**
      * 过滤
      */

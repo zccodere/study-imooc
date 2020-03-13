@@ -2,15 +2,11 @@ package com.myimooc.spring.simple.aop.schema.advisors;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.springframework.core.Ordered;
-import org.springframework.dao.PessimisticLockingFailureException;
 
 /**
- * <br>
- * 标题: 执行<br>
- * 描述: 执行<br>
- * 时间: 2017/01/18<br>
+ * 执行
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 public class ConcurrentOperationExecutor implements Ordered {
 
@@ -35,17 +31,17 @@ public class ConcurrentOperationExecutor implements Ordered {
 
     public Object doConcurrentOperation(ProceedingJoinPoint pjp) throws Throwable {
         int numAttempts = 0;
-        PessimisticLockingFailureException lockFailureException;
+        RuntimeException exception;
         do {
             numAttempts++;
             System.out.println("Try times : " + numAttempts);
             try {
                 return pjp.proceed();
-            } catch (PessimisticLockingFailureException ex) {
-                lockFailureException = ex;
+            } catch (RuntimeException ex) {
+                exception = ex;
             }
         } while (numAttempts <= this.maxRetries);
         System.out.println("Try error : " + numAttempts);
-        throw lockFailureException;
+        throw exception;
     }
 }

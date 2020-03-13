@@ -8,6 +8,6 @@
     <bean id="beanScope" class="com.myimooc.spring.simple.bean.BeanScope" scope="prototype"/>
 
     <!--默认值：作用域：单例；只生成一个实例-->
-    <bean id="beanScopeSingleton" class="com.myimooc.spring.simple.bean.BeanScope" scope="singleton"/>
+    <bean id="beanScopeSingleton" class="com.myimooc.spring.simple.bean.BeanScope"/>
 
 </beans>

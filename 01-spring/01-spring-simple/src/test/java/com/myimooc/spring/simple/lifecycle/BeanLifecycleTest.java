@@ -1,29 +1,29 @@
 package com.myimooc.spring.simple.lifecycle;
 
 
-import com.myimooc.spring.simple.AbstractUnitTestSupport;
+import com.myimooc.spring.simple.AbstractTestSupport;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 
 /**
- * <br>
- * 标题: Bean生命周期测试<br>
- * 描述: Bean生命周期测试<br>
- * 时间: 2017/01/18<br>
+ * Bean生命周期测试
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 @RunWith(BlockJUnit4ClassRunner.class)
-public class BeanLifecycleTest extends AbstractUnitTestSupport {
+public class BeanLifecycleTest extends AbstractTestSupport {
 
     public BeanLifecycleTest() {
-        super("classpath:spring-lifecycle.xml");
+        super("spring-lifecycle.xml");
     }
 
     @Test
     public void test1() {
-        super.getBean("beanLifeCycle");
+        super.getBean("beanLifeCycle", BeanLifeCycle.class);
+        super.getBean(ExampleInitializingBean.class);
+        super.getBean(ExampleDisposableBean.class);
     }
 
 }

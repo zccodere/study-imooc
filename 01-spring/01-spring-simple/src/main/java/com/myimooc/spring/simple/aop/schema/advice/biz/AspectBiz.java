@@ -1,12 +1,9 @@
 package com.myimooc.spring.simple.aop.schema.advice.biz;
 
 /**
- * <br>
- * 标题: 业务方法<br>
- * 描述: 业务方法<br>
- * 时间: 2017/01/18<br>
+ * 务方法
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 public class AspectBiz {
 

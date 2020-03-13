@@ -11,16 +11,13 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 /**
- * <br>
- * 标题: Mooc切面<br>
- * 描述: Mooc切面<br>
- * 时间: 2017/01/18<br>
+ * Mock切面
  *
- * @author zc
+ * @author zc 2017-01-18
  */
-@Component
 @Aspect
-public class MoocAspect {
+@Component
+public class MockAspect {
 
     @Pointcut("execution(* com.myimooc.spring.simple.aop.aspectj.biz.*Biz.*(..))")
     public void pointcut() {
@@ -40,9 +37,9 @@ public class MoocAspect {
         System.out.println("BeforeWithParam." + arg);
     }
 
-    @Before("pointcut() && @annotation(moocMethod)")
-    public void beforeWithAnnotaion(MoocMethod moocMethod) {
-        System.out.println("BeforeWithAnnotation." + moocMethod.value());
+    @Before("pointcut() && @annotation(mockMethod)")
+    public void beforeWithAnnotation(MockMethod mockMethod) {
+        System.out.println("BeforeWithAnnotation." + mockMethod.value());
     }
 
     @AfterReturning(pointcut = "bizPointcut()", returning = "returnValue")
