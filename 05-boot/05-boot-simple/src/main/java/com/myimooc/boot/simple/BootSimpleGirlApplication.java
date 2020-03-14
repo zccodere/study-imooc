@@ -4,17 +4,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * <br>
- * 标题: 启动类<br>
- * 描述: 启动类<br>
- * 时间: 2017/02/18<br>
+ * 启动类
  *
- * @author zc
+ * @author zc 2017-02-18
  */
 @SpringBootApplication
-public class BootSimpleApplication {
+public class BootSimpleGirlApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BootSimpleApplication.class, args);
+        SpringApplication.run(BootSimpleGirlApplication.class, args);
     }
 }

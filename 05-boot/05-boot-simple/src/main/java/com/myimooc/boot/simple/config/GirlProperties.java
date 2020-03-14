@@ -1,16 +1,12 @@
-package com.myimooc.boot.simple.web.controller;
+package com.myimooc.boot.simple.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 /**
- * <br>
- * 标题: 配置类<br>
- * 描述: 配置类<br>
- * 时间: 2017/02/18<br>
+ * 配置类
  *
- * @author zc
+ * @author zc 2017-02-18
  */
 @Component
 @ConfigurationProperties(prefix = "girl")
