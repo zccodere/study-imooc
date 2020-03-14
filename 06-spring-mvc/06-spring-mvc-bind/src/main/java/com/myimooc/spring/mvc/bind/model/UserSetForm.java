@@ -4,19 +4,25 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 /**
- * Created by ChengComputer on 2017/2/19.
- * @author zhangcheng
- * @version v1.0
- * @date 2017-02-19
+ * 用户Set表单实体类
+ *
+ * @author zc 2017-02-19
  */
 public class UserSetForm {
 
     private Set<User> users;
 
-    private UserSetForm(){
-        users = new LinkedHashSet<User>();
+    private UserSetForm() {
+        users = new LinkedHashSet<>();
         users.add(new User());
         users.add(new User());
+    }
+
+    @Override
+    public String toString() {
+        return "UserSetForm{" +
+                "users=" + users +
+                '}';
     }
 
     public Set<User> getUsers() {
@@ -25,12 +31,5 @@ public class UserSetForm {
 
     public void setUsers(Set<User> users) {
         this.users = users;
-    }
-
-    @Override
-    public String toString() {
-        return "UserSetForm{" +
-                "users=" + users +
-                '}';
     }
 }

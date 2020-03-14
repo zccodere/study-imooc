@@ -1,19 +1,54 @@
 package com.myimooc.spring.mvc.bind.model;
 
+import java.util.Objects;
+
 /**
- * Created by ChengComputer on 2017/2/19.
+ * 用户实体类
  *
- * @author zhangcheng
- * @version v1.0
- * @date 2017-02-19
+ * @author zc 2017-02-19
  */
 public class User {
 
+    /**
+     * 名称
+     */
     private String name;
-
+    /**
+     * 年龄
+     */
     private Integer age;
-
+    /**
+     * 联系方式
+     */
     private ContactInfo contactInfo;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        User user = (User) o;
+        return Objects.equals(name, user.name) &&
+                Objects.equals(age, user.age) &&
+                Objects.equals(contactInfo, user.contactInfo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, contactInfo);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", contactInfo=" + contactInfo +
+                '}';
+    }
 
     public ContactInfo getContactInfo() {
         return contactInfo;
@@ -37,39 +72,5 @@ public class User {
 
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", contactInfo=" + contactInfo +
-                '}';
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-
-        User user = (User) o;
-
-        if (name != null ? !name.equals(user.name) : user.name != null) {
-            return false;
-        }
-        return age != null ? age.equals(user.age) : user.age == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (age != null ? age.hashCode() : 0);
-        return result;
     }
 }

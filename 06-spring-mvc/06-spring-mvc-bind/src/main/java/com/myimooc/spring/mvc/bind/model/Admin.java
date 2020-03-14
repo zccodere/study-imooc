@@ -1,22 +1,35 @@
 package com.myimooc.spring.mvc.bind.model;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 /**
- * Created by ChengComputer on 2017/2/19.
- * @author zhangcheng
- * @version v1.0
- * @date 2017-02-19
+ * 管理员实体类
+ *
+ * @author zc 2020-03-14
  */
-@XmlRootElement(name="admin")
+@JacksonXmlRootElement(localName = "admin")
 public class Admin {
 
+    /**
+     * 名称
+     */
+    @JacksonXmlProperty(localName = "name")
     private String name;
-
+    /**
+     * 年龄
+     */
+    @JacksonXmlProperty(localName = "age")
     private Integer age;
 
-    @XmlElement(name="name")
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+
     public String getName() {
         return name;
     }
@@ -25,20 +38,11 @@ public class Admin {
         this.name = name;
     }
 
-    @XmlElement(name="age")
     public Integer getAge() {
         return age;
     }
 
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "Admin{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
     }
 }
