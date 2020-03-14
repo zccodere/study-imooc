@@ -5,8 +5,7 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 /**
  * 账户DAO实现
  *
- * @author zc
- * @version v1.0 2017-02-16
+ * @author zc 2017-02-16
  */
 public class AccountDaoImpl extends JdbcDaoSupport implements AccountDao {
 

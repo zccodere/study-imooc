@@ -3,8 +3,7 @@ package com.myimooc.spring.tx.demo2;
 /**
  * 账户服务实现
  *
- * @author zc
- * @version v1.0 2017-02-16
+ * @author zc  2017-02-16
  */
 public class AccountServiceImpl implements AccountService {
 

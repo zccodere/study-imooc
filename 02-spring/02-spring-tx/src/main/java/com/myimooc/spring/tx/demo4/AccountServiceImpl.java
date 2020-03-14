@@ -5,8 +5,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * 转账服务实现
  *
- * @author zc
- * @version v1.0 2017-02-16
+ * @author zc 2017-02-16
  */
 @Transactional(rollbackFor = Exception.class)
 public class AccountServiceImpl implements AccountService {
