@@ -5,8 +5,7 @@ import org.springframework.stereotype.Service;
 /**
  * helloService
  *
- * @author ChengComputer
- * @version v1.0 2017-02-17
+ * @author zc 2017-02-18
  */
 @Service("helloService")
 public class HelloService {

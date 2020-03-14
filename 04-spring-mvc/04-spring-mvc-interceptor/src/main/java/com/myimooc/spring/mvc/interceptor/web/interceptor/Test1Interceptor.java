@@ -1,71 +1,62 @@
 package com.myimooc.spring.mvc.interceptor.web.interceptor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
- * 
- * @author zhangcheng
- * @version v1.0
- * @date 2017-02-18
+ * 拦截器一
  *
+ * @author zc 2017-02-18
  */
-public class Test1Interceptor implements HandlerInterceptor{
-    
-    private Logger log = LoggerFactory.getLogger(Test1Interceptor.class);
+public class Test1Interceptor implements HandlerInterceptor {
 
-    @Override
-    public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3)
-            throws Exception {
-        
-        log.debug("执行到了afterCompletion1方法");
-        
-    }
+    private Logger logger = LoggerFactory.getLogger(Test1Interceptor.class);
 
-    @Override
-    public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView mv)
-            throws Exception {
-        
-        //可以通过ModelAndView参数来改变显示的视图，或修改发往视图的方法。
-        
-        log.debug("执行到了postHandle1方法");
-        
-//        mv.addObject("msg","这里传回的是被拦截器修改之后的消息！");
-//        mv.setViewName("/hello2");
-    }
-    
     /**
-     * 返回值：表示我们是否需要将当期的请求拦截下来
-     * false：请求会被终止
-     * true：请求会被继续运行
-     * Object object:表示的是被拦截的请求的目标对象
+     * 返回值：表示我们是否需要将当期的请求拦截下来；false：请求会被终止 true：请求会被继续运行 Object object:表示的是被拦截的请求的目标对象
      */
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object object) throws Exception {
-        log.debug("执行到了preHandle1方法");
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        logger.debug("执行到了preHandle1方法");
         String path = request.getServletPath();
-        String pathLogin = "pathLogin";
-        String pathViewWall = "viewall";
+        String pathLogin = "/login";
+        String pathViewWall = "/view/all";
+        String errorPath = "/error";
         String user = "user";
-        if(pathLogin.equalsIgnoreCase(path)){
+        if (pathLogin.equalsIgnoreCase(path)) {
             return true;
         }
-        if(pathViewWall.equalsIgnoreCase(path)){
+        if (errorPath.equalsIgnoreCase(path)) {
             return true;
         }
-        if(request.getSession().getAttribute(user) == null){
-            //如果用户没有登录，就终止请求，并发送到登录页面
+        if (pathViewWall.equalsIgnoreCase(path)) {
+            return true;
+        }
+        if (request.getSession().getAttribute(user) == null) {
+            // 如果用户没有登录，就终止请求，并发送到登录页面
             request.getRequestDispatcher("/login").forward(request, response);
             return false;
         }
-        
-        
         return true;
     }
 
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) {
+
+        // 可以通过ModelAndView参数来改变显示的视图，或修改发往视图的方法。
+        logger.debug("执行到了postHandle1方法");
+
+        // modelAndView.addObject("msg","这里传回的是被拦截器修改之后的消息！");
+        // modelAndView.setViewName("/hello2");
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
+        logger.debug("执行到了afterCompletion1方法");
+    }
 }

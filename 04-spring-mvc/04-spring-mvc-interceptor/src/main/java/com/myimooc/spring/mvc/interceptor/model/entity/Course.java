@@ -4,30 +4,62 @@ import java.util.List;
 
 /**
  * 课程实体类
- * @author zhangcheng
- * @version v1.0 2017-02-18
  *
+ * @author zc 2017-02-18
  */
 public class Course {
-    
-    /** 课程ID */
+
+    /**
+     * 课程ID
+     */
     private Integer courseId;
-    /** 课程名称 */
+    /**
+     * 课程名称
+     */
     private String title;
-    /** 图片路径 */
+    /**
+     * 图片路径
+     */
     private String imgPath;
-    /** 学习人数 */
-    private Integer learningNum;
-    /** 课程时长 */
+    /**
+     * 学习人数
+     */
+    private Integer learnNum;
+    /**
+     * 课程时长
+     */
     private Long duration;
-    /** 课程难度 */
+    /**
+     * 课程难度
+     */
     private Integer level;
-    /** 课程难度描述 */
+    /**
+     * 课程难度描述
+     */
     private String levelDesc;
-    /** 课程介绍 */
-    private String descr;
-    
+    /**
+     * 课程介绍
+     */
+    private String description;
+    /**
+     * 章节列表
+     */
     private List<Chapter> chapterList;
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "courseId=" + courseId +
+                ", title='" + title + '\'' +
+                ", imgPath='" + imgPath + '\'' +
+                ", learnNum=" + learnNum +
+                ", duration=" + duration +
+                ", level=" + level +
+                ", levelDesc='" + levelDesc + '\'' +
+                ", description='" + description + '\'' +
+                ", chapterList=" + chapterList +
+                '}';
+    }
 
     public Integer getCourseId() {
         return courseId;
@@ -53,12 +85,12 @@ public class Course {
         this.imgPath = imgPath;
     }
 
-    public Integer getLearningNum() {
-        return learningNum;
+    public Integer getLearnNum() {
+        return learnNum;
     }
 
-    public void setLearningNum(Integer learingNum) {
-        this.learningNum = learingNum;
+    public void setLearnNum(Integer learnNum) {
+        this.learnNum = learnNum;
     }
 
     public Long getDuration() {
@@ -85,12 +117,12 @@ public class Course {
         this.levelDesc = levelDesc;
     }
 
-    public String getDescr() {
-        return descr;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescr(String descr) {
-        this.descr = descr;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public List<Chapter> getChapterList() {
@@ -100,13 +132,4 @@ public class Course {
     public void setChapterList(List<Chapter> chapterList) {
         this.chapterList = chapterList;
     }
-
-    @Override
-    public String toString() {
-        return "Course [courseId=" + courseId + ", title=" + title + ", imgPath=" + imgPath + ", learningNum="
-                + learningNum + ", duration=" + duration + ", level=" + level + ", levelDesc=" + levelDesc + ", descr="
-                + descr + ", chapterList=" + chapterList + "]";
-    }
-    
-    
 }

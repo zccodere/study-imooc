@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="/static/css/main.css" type="text/css"/>
+    <meta charset="UTF-8">
+    <title>我不是真正的慕课网</title>
+</head>
+
+<body>
+<div id="main">
+    <div class="new-container" id="course_intro">
+
+        <div class="course-title"><span th:text="${course.title}"></span>
+        </div>
+
+        <div class="course_info">
+            <div class="course-embed l">
+                <div id="js-course-img" class="img-wrap">
+                    <img th:src="'/'+${course.imgPath}" width="600" height="340" alt=""
+                         class="course_video"/>
+                </div>
+                <div id="js-video-wrap" class="video" style="display: none">
+                    <div class="video_box" id="js-video"></div>
+                </div>
+            </div>
+            <div class="course_state">
+                <ul>
+                    <li><span>学习人数</span> <em th:text="${course.learnNum}"></em></li>
+                    <li class="course_hour"><span>课程时长</span> <em
+                            class="ft-adjust"><span th:text="${course.duration}"></span>秒</em></li>
+                    <li><span>课程难度</span> <em th:text="${course.levelDesc}"></em></li>
+                </ul>
+            </div>
+            <div class="course_intro">
+                <div class="concerned_course add_concerned_course">
+                    <a href="javascript:void(0)" data-id="202"
+                       class="btn-add-follow js-btn-follow"> <i></i> <em
+                            class="concerned-icon">关注此课程</em>
+                    </a>
+                </div>
+                <div class="curse_btn">
+                    <a href="#">开始学习</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="course_list">
+            <div class="outline">
+                <h3 class="chapter_introduces">课程介绍</h3>
+                <div class="course_short_description"><span th:text="${course.description}"></span>
+                </div>
+                <h3 class="chapter_catalog">课程提纲</h3>
+                <ul id="couList">
+                    <th th:each="chapter : ${course.chapterList}">
+                        <li class="clear_fix open"><a href="#"></a>
+                            <div class="open_icon"></div>
+                            <div class="outline_list l">
+                                <!-- <em class="outline_zt"></em> -->
+                                <h5 class="outline_name"><span th:text="${chapter.title}"></span>
+                                </h5>
+                                <p class="outline_description"><span
+                                        th:text="${chapter.description}"></span></p>
+                            </div>
+                        </li>
+                    </th>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
