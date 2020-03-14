@@ -101,6 +101,7 @@
         <commons.io.version>2.6</commons.io.version>
         <commons.lang3.version>3.8.1</commons.lang3.version>
         <commons.collections4.version>4.4</commons.collections4.version>
+        <commons.fileupload.version>1.4</commons.fileupload.version>
 
         <fastjson.version>1.2.66</fastjson.version>
     </properties>

@@ -1,24 +1,24 @@
  package com.imooc.pattern.template;
 
 /*
- * ¾ßÌå×ÓÀà£¬Ìá¹©ÁËÖÆ±¸²èµÄ¾ßÌåÊµÏÖ
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à£¬ï¿½á¹©ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½Êµï¿½ï¿½
  */
 public class Tea extends RefreshBeverage {
 
 	@Override
 	protected void brew() {
-		System.out.println("ÓÃ80¶ÈµÄÈÈË®½şÅİ²èÒ¶5·ÖÖÓ");
+		System.out.println("ï¿½ï¿½80ï¿½Èµï¿½ï¿½ï¿½Ë®ï¿½ï¿½ï¿½İ²ï¿½Ò¶5ï¿½ï¿½ï¿½ï¿½");
 	}
 
 	@Override
 	protected void addCondiments() {
-		System.out.println("¼ÓÈëÄûÃÊ");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	}
 
 	@Override
 	/*
-	 * ×ÓÀàÍ¨¹ı¸²¸ÇµÄĞÎÊ½Ñ¡Ôñ¹ÒÔØ¹³×Óº¯Êı
-	 * @see com.imooc.pattern.template.RefreshBeverage#isCustomerWantsCondiments()
+	 * ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½Ê½Ñ¡ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½Óºï¿½ï¿½ï¿½
+	 * @see com.imooc.pattern.templates.RefreshBeverage#isCustomerWantsCondiments()
 	 */
 	protected boolean isCustomerWantsCondiments(){
 		return false;

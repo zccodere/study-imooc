@@ -30,7 +30,7 @@ jQuery(function($){
 			$("#learningNum").text(course.learningNum);
 			$("#duration").text(course.duration);
 			$("#levelDesc").text(course.levelDesc);
-			$(".course_shortdecription").html(course.descr);
+			$(".course_shortdecription").html(course.description);
 			
 			var chapterList = course.chapterList;
 			var chapter;
@@ -40,7 +40,7 @@ jQuery(function($){
 				
 				var liObj = $("li",$("#chapterTemplate")).clone();				 
 				$(".outline_name", liObj).text(chapter.title);
-				$(".outline_descr", liObj).text(chapter.descr);				
+				$(".outline_descr", liObj).text(chapter.description);
 				liObj.appendTo("#couList");				
 			}// ~ end for			
 		}

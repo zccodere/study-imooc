@@ -28,7 +28,7 @@
 	<!-- 扩充了注解驱动，可以将请求参数绑定到控制器参数 -->
 	<mvc:annotation-driven />
 
-	<!-- 静态资源处理， css， js， imgs -->
+	<!-- 静态资源处理， css， js， img -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 
 

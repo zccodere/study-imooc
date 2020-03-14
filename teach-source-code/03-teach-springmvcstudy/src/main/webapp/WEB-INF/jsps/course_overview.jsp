@@ -54,7 +54,7 @@
 			<div class="course_list">
 				<div class="outline">
 					<h3 class="chapter_introduces">课程介绍</h3>
-					<div class="course_shortdecription">${course.descr}</div>
+					<div class="course_shortdecription">${course.description}</div>
 
 					<h3 class="chapter_catalog">课程提纲</h3>
 					<ul id="couList">
@@ -64,7 +64,7 @@
 									<div class="outline_list l">
 										<!-- <em class="outline_zt"></em> -->
 										<h5 class="outline_name">${chapter.title }</h5>
-										<p class="outline_descr">${chapter.descr }</p>
+										<p class="outline_descr">${chapter.description }</p>
 									</div>
 							</a></li>
 						</c:forEach>

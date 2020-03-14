@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>我不是真正的慕课网</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css"/>
+</head>
+
+<body>
+<div id="main">
+    <div class="new-container" id="course_intro">
+        <form name="mainForm" action="/course/save" method="post">
+            <div>
+                <label for="title">课程名称:</label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div>
+                <label for="duration">课程时长:</label>
+                <input type="text" id="duration" name="duration"> 秒
+            </div>
+            <div>
+                <label for="level">课程难度：</label>
+                <select id="level" name="level">
+                    <option value="0">初级</option>
+                    <option value="1" selected="selected">中级</option>
+                    <option value="2">高级</option>
+                </select>
+            </div>
+            <div>
+                <label for="description">课程介绍：</label>
+                <textarea id="description" name="description"
+                          rows="5"
+                          style="width:480px"></textarea>
+            </div>
+            <div>
+                <input type="submit" id="btnPass" value="提交"/>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>
