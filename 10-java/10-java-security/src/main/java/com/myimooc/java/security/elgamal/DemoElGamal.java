@@ -3,31 +3,32 @@ package com.myimooc.java.security.elgamal;
 import org.apache.commons.codec.binary.Base64;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
-import javax.crypto.Cipher;
+import java.security.AlgorithmParameterGenerator;
+import java.security.AlgorithmParameters;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.security.Security;
+
 import javax.crypto.spec.DHParameterSpec;
-import java.security.*;
-import java.security.spec.PKCS8EncodedKeySpec;
-import java.security.spec.X509EncodedKeySpec;
 
 /**
- * <br>
- * 标题: ELGamal非对称加密演示<br>
- * 描述: ELGamal非对称加密演示<br>
- * 时间: 2017/04/13<br>
+ * ELGamal非对称加密演示
  *
- * @author zc
+ * @author zc 2017-04-13
  */
 public class DemoElGamal {
 
-    /** 待加密字符串 */
-    private static String src="imooc security elgamal";
-
-    public static void main(String[] args)throws Exception{
+    public static void main(String[] args) throws Exception {
         bcELGamal();
     }
 
-    /** 使用 BouncyCastle 实现 ELGamal 加解密 */
-    public static void bcELGamal()throws Exception{
+    /**
+     * 使用 BouncyCastle 实现 ELGamal 加解密
+     */
+    private static void bcELGamal() throws Exception {
         // 公钥加密，私钥解密
         Security.addProvider(new BouncyCastleProvider());
 
@@ -35,15 +36,13 @@ public class DemoElGamal {
         AlgorithmParameterGenerator algorithmParameterGenerator = AlgorithmParameterGenerator.getInstance("ELGamal");
         algorithmParameterGenerator.init(256);
         AlgorithmParameters algorithmParameters = algorithmParameterGenerator.generateParameters();
-        DHParameterSpec dhParameterSpec = (DHParameterSpec) algorithmParameters.getParameterSpec(DHParameterSpec.class);
+        DHParameterSpec dhParameterSpec = algorithmParameters.getParameterSpec(DHParameterSpec.class);
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("ELGamal");
-        keyPairGenerator.initialize(dhParameterSpec,new SecureRandom());
+        keyPairGenerator.initialize(dhParameterSpec, new SecureRandom());
         KeyPair keyPair = keyPairGenerator.generateKeyPair();
         PublicKey publicKey = keyPair.getPublic();
         PrivateKey privateKey = keyPair.getPrivate();
-        System.out.println("Public Key:"+ Base64.encodeBase64String(publicKey.getEncoded()));
-        System.out.println("Private Key:"+ Base64.encodeBase64String(privateKey.getEncoded()));
-
+        System.out.println("Public Key:" + Base64.encodeBase64String(publicKey.getEncoded()));
+        System.out.println("Private Key:" + Base64.encodeBase64String(privateKey.getEncoded()));
     }
-
 }
