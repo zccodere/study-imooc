@@ -24,7 +24,7 @@ public class DemoSha {
     private static String src = "imooc security sha";
 
     public static void main(String[] args) {
-        jdkSHA1();
+        jdkSha1();
         bcSha1();
         bcSha224();
         bcSha2242();
@@ -34,7 +34,7 @@ public class DemoSha {
     /**
      * 通过 JDK 实现SHA-1 加密
      */
-    private static void jdkSHA1() {
+    private static void jdkSha1() {
         try {
             MessageDigest md = MessageDigest.getInstance("SHA");
             md.update(src.getBytes());

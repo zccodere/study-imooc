@@ -40,8 +40,8 @@ public class DemoMac {
         // 初始化 MAC
         mac.init(restoreSecretKey);
         // 执行摘要
-        byte[] hmacMD5Bytes = mac.doFinal(src.getBytes());
-        System.out.println("jdk hmacMD5:" + Hex.encodeHexString(hmacMD5Bytes));
+        byte[] hmacMd5Bytes = mac.doFinal(src.getBytes());
+        System.out.println("jdk hmacMD5:" + Hex.encodeHexString(hmacMd5Bytes));
     }
 
     /**
@@ -53,8 +53,8 @@ public class DemoMac {
         hmac.init(new KeyParameter(org.bouncycastle.util.encoders.Hex.decode(bytes)));
         hmac.update(src.getBytes(), 0, src.getBytes().length);
         // 执行摘要
-        byte[] hmacMD5Bytes = new byte[hmac.getMacSize()];
-        hmac.doFinal(hmacMD5Bytes, 0);
-        System.out.println("bc hmacMD5:" + org.bouncycastle.util.encoders.Hex.toHexString(hmacMD5Bytes));
+        byte[] hmacMd5Bytes = new byte[hmac.getMacSize()];
+        hmac.doFinal(hmacMd5Bytes, 0);
+        System.out.println("bc hmacMD5:" + org.bouncycastle.util.encoders.Hex.toHexString(hmacMd5Bytes));
     }
 }

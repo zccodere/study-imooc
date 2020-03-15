@@ -19,16 +19,16 @@ import javax.crypto.spec.DHParameterSpec;
  *
  * @author zc 2017-04-13
  */
-public class DemoElGamal {
+public class DemoElgamal {
 
     public static void main(String[] args) throws Exception {
-        bcELGamal();
+        bcElgamal();
     }
 
     /**
      * 使用 BouncyCastle 实现 ELGamal 加解密
      */
-    private static void bcELGamal() throws Exception {
+    private static void bcElgamal() throws Exception {
         // 公钥加密，私钥解密
         Security.addProvider(new BouncyCastleProvider());
 
