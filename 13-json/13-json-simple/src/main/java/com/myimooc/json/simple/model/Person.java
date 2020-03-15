@@ -3,18 +3,16 @@ package com.myimooc.json.simple.model;
 import java.util.Arrays;
 
 /**
- * <br>
- * 标题: 人物实体<br>
- * 描述: 人物实体<br>
- * 时间: 2017/05/21<br>
+ * 人物实体类
  *
- * @author zc
+ * @author zc 2017-05-21
  */
-public class Diaosi {
+public class Person {
+
     private String name;
     private String school;
-    private boolean hasGirlfriend;
-    private double age;
+    private Boolean hasGirlfriend;
+    private Double age;
     private Object car;
     private Object house;
     private String[] major;
@@ -25,12 +23,20 @@ public class Diaosi {
      */
     private transient String ignore;
 
-    public String getIgnore() {
-        return ignore;
-    }
-
-    public void setIgnore(String ignore) {
-        this.ignore = ignore;
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", school='" + school + '\'' +
+                ", hasGirlfriend=" + hasGirlfriend +
+                ", age=" + age +
+                ", car=" + car +
+                ", house=" + house +
+                ", major=" + Arrays.toString(major) +
+                ", comment='" + comment + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", ignore='" + ignore + '\'' +
+                '}';
     }
 
     public String getName() {
@@ -49,19 +55,19 @@ public class Diaosi {
         this.school = school;
     }
 
-    public boolean isHasGirlfriend() {
+    public Boolean getHasGirlfriend() {
         return hasGirlfriend;
     }
 
-    public void setHasGirlfriend(boolean hasGirlfriend) {
+    public void setHasGirlfriend(Boolean hasGirlfriend) {
         this.hasGirlfriend = hasGirlfriend;
     }
 
-    public double getAge() {
+    public Double getAge() {
         return age;
     }
 
-    public void setAge(double age) {
+    public void setAge(Double age) {
         this.age = age;
     }
 
@@ -105,19 +111,11 @@ public class Diaosi {
         this.birthday = birthday;
     }
 
-    @Override
-    public String toString() {
-        return "Diaosi{" +
-                "name='" + name + '\'' +
-                ", school='" + school + '\'' +
-                ", hasGirlfriend=" + hasGirlfriend +
-                ", age=" + age +
-                ", car=" + car +
-                ", house=" + house +
-                ", major=" + Arrays.toString(major) +
-                ", comment='" + comment + '\'' +
-                ", birthday='" + birthday + '\'' +
-                ", ignore='" + ignore + '\'' +
-                '}';
+    public String getIgnore() {
+        return ignore;
+    }
+
+    public void setIgnore(String ignore) {
+        this.ignore = ignore;
     }
 }

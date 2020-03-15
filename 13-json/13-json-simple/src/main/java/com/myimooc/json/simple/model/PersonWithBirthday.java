@@ -4,18 +4,16 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * <br>
- * 标题: 生日信息<br>
- * 描述: 生日信息<br>
- * 时间: 2017/05/21<br>
+ * 生日信息实体类
  *
- * @author zc
+ * @author zc 2017-05-21
  */
-public class DiaosiWithBirthday {
+public class PersonWithBirthday {
+
     private String name;
     private String school;
-    private boolean hasGirlfriend;
-    private double age;
+    private Boolean hasGirlfriend;
+    private Double age;
     private Object car;
     private Object house;
     /**
@@ -29,12 +27,20 @@ public class DiaosiWithBirthday {
      */
     private transient String ignore;
 
-    public String getIgnore() {
-        return ignore;
-    }
-
-    public void setIgnore(String ignore) {
-        this.ignore = ignore;
+    @Override
+    public String toString() {
+        return "PersonWithBirthday{" +
+                "name='" + name + '\'' +
+                ", school='" + school + '\'' +
+                ", hasGirlfriend=" + hasGirlfriend +
+                ", age=" + age +
+                ", car=" + car +
+                ", house=" + house +
+                ", major=" + major +
+                ", comment='" + comment + '\'' +
+                ", birthday=" + birthday +
+                ", ignore='" + ignore + '\'' +
+                '}';
     }
 
     public String getName() {
@@ -53,19 +59,19 @@ public class DiaosiWithBirthday {
         this.school = school;
     }
 
-    public boolean isHasGirlfriend() {
+    public Boolean getHasGirlfriend() {
         return hasGirlfriend;
     }
 
-    public void setHasGirlfriend(boolean hasGirlfriend) {
+    public void setHasGirlfriend(Boolean hasGirlfriend) {
         this.hasGirlfriend = hasGirlfriend;
     }
 
-    public double getAge() {
+    public Double getAge() {
         return age;
     }
 
-    public void setAge(double age) {
+    public void setAge(Double age) {
         this.age = age;
     }
 
@@ -109,19 +115,11 @@ public class DiaosiWithBirthday {
         this.birthday = birthday;
     }
 
-    @Override
-    public String toString() {
-        return "DiaosiWithBirthday{" +
-                "name='" + name + '\'' +
-                ", school='" + school + '\'' +
-                ", hasGirlfriend=" + hasGirlfriend +
-                ", age=" + age +
-                ", car=" + car +
-                ", house=" + house +
-                ", major=" + major +
-                ", comment='" + comment + '\'' +
-                ", birthday=" + birthday +
-                ", ignore='" + ignore + '\'' +
-                '}';
+    public String getIgnore() {
+        return ignore;
+    }
+
+    public void setIgnore(String ignore) {
+        this.ignore = ignore;
     }
 }
