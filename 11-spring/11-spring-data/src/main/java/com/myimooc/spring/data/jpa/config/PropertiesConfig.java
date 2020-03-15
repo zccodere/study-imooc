@@ -5,16 +5,14 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 /**
- * <br>
- * 标题: 配置<br>
- * 描述: 配置<br>
- * 时间: 2017/04/24<br>
+ * 配置
  *
- * @author zc
+ * @author zc 2017-04-24
  */
-@PropertySource(value = "classpath:db.properties")
+@PropertySource("classpath:db.properties")
 @Component
 public class PropertiesConfig {
+
     @Value("${jdbc.driverClass}")
     private String jdbcDriverClass;
     @Value("${jdbc.url}")

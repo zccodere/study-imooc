@@ -11,28 +11,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <br>
- * 标题: StudentDAO访问接口实现类：通过最原始的JDBC的方式操作<br>
- * 描述: StudentDAO访问接口实现类：通过最原始的JDBC的方式操作<br>
- * 时间: 2017/04/24<br>
+ * StudentDAO访问接口实现类：通过最原始的JDBC的方式操作
  *
- * @author zc
+ * @author zc 2017-04-24
  */
 public class StudentDaoImpl implements StudentDao {
 
     @Override
     public List<Student> listStudent() {
-        List<Student> studentList = new ArrayList<Student>();
-
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-        String sql = "select id,name,age from student";
+        String sql = "select id,name,age from test_student";
         try {
             connection = JdbcUtils.getConnection();
             preparedStatement = connection.prepareStatement(sql);
             resultSet = preparedStatement.executeQuery();
 
+            List<Student> studentList = new ArrayList<>();
             while (resultSet.next()) {
                 Integer id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
@@ -45,31 +41,29 @@ public class StudentDaoImpl implements StudentDao {
 
                 studentList.add(student);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            return studentList;
+        } catch (Exception ex) {
+            throw new RuntimeException("查询学生列表异常：", ex);
         } finally {
             JdbcUtils.release(resultSet, preparedStatement, connection);
         }
-        return studentList;
     }
 
     @Override
     public void saveStudent(Student student) {
         Connection connection = null;
         PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        String sql = "insert into student(name,age) values(?,?)";
+        String sql = "insert into test_student(name,age) values(?,?)";
         try {
             connection = JdbcUtils.getConnection();
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, student.getName());
             preparedStatement.setInt(2, student.getAge());
-
             preparedStatement.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (Exception ex) {
+            throw new RuntimeException("保存学生异常：", ex);
         } finally {
-            JdbcUtils.release(resultSet, preparedStatement, connection);
+            JdbcUtils.release(null, preparedStatement, connection);
         }
     }
 }

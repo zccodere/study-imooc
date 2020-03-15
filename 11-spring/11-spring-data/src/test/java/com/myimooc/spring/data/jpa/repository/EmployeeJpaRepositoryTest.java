@@ -1,42 +1,25 @@
 package com.myimooc.spring.data.jpa.repository;
 
-import com.myimooc.spring.data.jpa.config.SpringConfig;
+import com.myimooc.spring.data.jpa.AbstractTestSupport;
 import com.myimooc.spring.data.jpa.domain.Employee;
-import org.junit.After;
-import org.junit.Before;
+
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
- * PagingAndSortingRepository 单元测试类
- * Created by ZC on 2017/4/26.
+ * PagingAndSortingRepository 测试类
+ *
+ * @author zc 2017-04-26
  */
-public class EmployeeJpaRepositoryTest {
-
-    private ApplicationContext ctx = null;
-    private EmployeeJpaRepository employeeJpaRepository = null;
-
-    @Before
-    public void init(){
-        ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
-        employeeJpaRepository = ctx.getBean(EmployeeJpaRepository.class);
-    }
-
-    @After
-    public void destroy(){
-        ctx = null;
-    }
+public class EmployeeJpaRepositoryTest extends AbstractTestSupport {
 
     @Test
-    public void findTest(){
-        Employee employee = employeeJpaRepository.findOne(99);
-        System.out.println("employee"+employee.toString());
+    public void findTest() {
+        EmployeeJpaRepository repository = super.ctx.getBean(EmployeeJpaRepository.class);
 
-        System.out.println("employee(10)"+employeeJpaRepository.exists(10));
-        System.out.println("employee(102)"+employeeJpaRepository.exists(102));
+        Employee employee = repository.findById(99).orElse(new Employee());
+        System.out.println("employee" + employee.toString());
 
-
+        System.out.println("employee(10)" + repository.existsById(10));
+        System.out.println("employee(102)" + repository.existsById(102));
     }
-
 }

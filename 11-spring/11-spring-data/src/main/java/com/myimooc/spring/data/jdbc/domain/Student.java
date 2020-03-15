@@ -1,20 +1,24 @@
 package com.myimooc.spring.data.jdbc.domain;
 
 /**
- * <br>
- * 标题: Student实体类<br>
- * 描述: Student实体类<br>
- * 时间: 2017/04/24<br>
+ * Student实体类
  *
- * @author zc
+ * @author zc 2017-04-24
  */
 public class Student {
-    /** 主键ID */
+
+    /**
+     * 主键ID
+     */
     private Integer id;
-    /** 姓名 */
+    /**
+     * 姓名
+     */
     private String name;
-    /** 年龄 */
-    private int age;
+    /**
+     * 年龄
+     */
+    private Integer age;
 
     @Override
     public String toString() {
@@ -41,11 +45,11 @@ public class Student {
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 }

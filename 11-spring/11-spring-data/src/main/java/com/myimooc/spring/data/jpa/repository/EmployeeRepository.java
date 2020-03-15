@@ -1,6 +1,7 @@
 package com.myimooc.spring.data.jpa.repository;
 
 import com.myimooc.spring.data.jpa.domain.Employee;
+
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
@@ -10,23 +11,21 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * <br>
- * 标题: 使用 Repository 接口<br>
- * 描述: 使用 Repository 接口<br>
- * 时间: 2017/04/26<br>
- * // 方式二：使用 @RepositoryDefinition 注解
- * //  @RepositoryDefinition(domainClass = Employee.class,idClass = Integer.class)
- * //方式一：继承 Repository 接口
+ * 使用 Repository 接口
+ * <p>
+ * 方式一：继承 Repository 接口 <br/> 方式二：使用 @RepositoryDefinition 注解 <br/>示例：@RepositoryDefinition(domainClass
+ * = Employee.class,idClass = Integer.class)
+ * </p>
  *
- * @author zc
+ * @author zc 2017-04-26
  */
 public interface EmployeeRepository extends Repository<Employee, Integer> {
 
     /**
      * 获取雇员对象通过名称
      *
-     * @param name
-     * @return
+     * @param name 姓名
+     * @return 雇员
      */
     Employee findByName(String name);
 
@@ -35,36 +34,36 @@ public interface EmployeeRepository extends Repository<Employee, Integer> {
     /**
      * where name like ?% and age < ?
      *
-     * @param name
-     * @param age
-     * @return
+     * @param name 姓名
+     * @param age  年龄
+     * @return 雇员列表
      */
     List<Employee> findByNameStartingWithAndAgeLessThan(String name, Integer age);
 
     /**
      * where name like %? and age < ?
      *
-     * @param name
-     * @param age
-     * @return
+     * @param name 姓名
+     * @param age  年龄
+     * @return 雇员列表
      */
     List<Employee> findByNameEndingWithAndAgeLessThan(String name, Integer age);
 
     /**
      * where name in (?,?...) or age < ?
      *
-     * @param name
-     * @param age
-     * @return
+     * @param name 姓名
+     * @param age  年龄
+     * @return 雇员列表
      */
     List<Employee> findByNameInOrAgeLessThan(List<String> name, Integer age);
 
     /**
      * where name in (?,?...) and age < ?
      *
-     * @param name
-     * @param age
-     * @return
+     * @param name 姓名
+     * @param age  年龄
+     * @return 雇员列表
      */
     List<Employee> findByNameInAndAgeLessThan(List<String> name, Integer age);
 
@@ -72,6 +71,7 @@ public interface EmployeeRepository extends Repository<Employee, Integer> {
 
     /**
      * 自定义查询SQL
+     *
      * @return 雇员
      */
     @Query("select o from Employee o where id=(select max(id) from Employee t1)")
@@ -118,9 +118,9 @@ public interface EmployeeRepository extends Repository<Employee, Integer> {
     /**
      * 使用原生态SQL查询
      *
-     * @return
+     * @return 总数
      */
-    @Query(nativeQuery = true, value = "select count(1) from employee")
+    @Query(nativeQuery = true, value = "select count(1) from test_employee")
     long getCount();
 
     /**

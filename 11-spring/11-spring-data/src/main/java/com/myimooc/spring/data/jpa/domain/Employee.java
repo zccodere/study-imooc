@@ -1,25 +1,34 @@
 package com.myimooc.spring.data.jpa.domain;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
- * <br>
- * 标题: 雇员实体类<br>
- * 描述: 雇员实体类<br>
- * 时间: 2017/04/24<br>
+ * 雇员实体类
  *
- * @author zc
+ * @author zc 2017-04-24
  */
 @Entity
 @Table(name = "test_employee")
 public class Employee {
+
+    /**
+     * 主键ID
+     */
     @Id
     @GeneratedValue
     private Integer id;
-
+    /**
+     * 姓名
+     */
     @Column(length = 20)
     private String name;
-
+    /**
+     * 年龄
+     */
     private Integer age;
 
     @Override

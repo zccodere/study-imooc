@@ -1,19 +1,23 @@
 package com.myimooc.spring.data.jpa.domain;
 
 /**
- * <br>
- * 标题: Student实体类<br>
- * 描述: Student实体类<br>
- * 时间: 2017/04/24<br>
+ * Student实体类
  *
- * @author zc
+ * @author zc 2017-04-24
  */
 public class Student {
-    /** 主键ID */
+
+    /**
+     * 主键ID
+     */
     private Integer id;
-    /** 姓名 */
+    /**
+     * 姓名
+     */
     private String name;
-    /** 年龄 */
+    /**
+     * 年龄
+     */
     private int age;
 
     @Override
