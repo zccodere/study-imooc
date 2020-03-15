@@ -1,42 +1,34 @@
 package com.myimooc.sso.same.father.config;
 
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.support.config.FastJsonConfig;
+import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
+import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
+
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.http.MediaType;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
-import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
-import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
-
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.alibaba.fastjson.support.config.FastJsonConfig;
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-
 /**
  * Web项目SpringMvc配置
- * 
- * @author ZhangCheng
- * @date 2017-03-19
- * @version V1.0
+ *
+ * @author zc 2017-03-19
  */
 @Configuration
-@EnableWebMvc
-@ComponentScan("com.myimooc.sso")
-public class SpringMvcConfig extends WebMvcConfigurerAdapter {
+public class SpringMvcConfig implements WebMvcConfigurer {
 
     /**
      * 配置视图解析器
-     * 
-     * @return
      */
     @Bean
     public FreeMarkerViewResolver getFreeMarkerViewResolver() {
@@ -61,9 +53,7 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter {
     }
 
     /**
-     * 配置FASTJSON
-     * 
-     * @return
+     * 配置 fastJson
      */
     @Bean
     public FastJsonHttpMessageConverter fastJsonHttpMessageConverters() {
@@ -74,7 +64,7 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter {
         fastJsonConfig.setCharset(Charset.forName("UTF-8"));
         fastJsonConfig.setDateFormat("yyyy-MM-dd HH:mm:ss");
 
-        List<MediaType> supportedMediaTypes = new ArrayList<MediaType>();
+        List<MediaType> supportedMediaTypes = new ArrayList<>(4);
         supportedMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
 
         fastConverter.setSupportedMediaTypes(supportedMediaTypes);
@@ -84,8 +74,6 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter {
 
     /**
      * 配置FreeMarker
-     * 
-     * @return
      */
     @Bean
     public FreeMarkerConfigurer getFreeMarkerConfigurer() {
@@ -118,7 +106,6 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter {
      */
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-        super.configureMessageConverters(converters);
         converters.add(this.fastJsonHttpMessageConverters());
     }
 }
