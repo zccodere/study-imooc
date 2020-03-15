@@ -1,112 +1,112 @@
 package com.myimooc.boot.web.controller;
 
+import com.myimooc.boot.web.model.entity.Girl;
+import com.myimooc.boot.web.model.entity.Result;
 import com.myimooc.boot.web.repository.GirlRepository;
 import com.myimooc.boot.web.service.GirlService;
 import com.myimooc.boot.web.utils.ResultUtil;
-import com.myimooc.boot.web.model.entity.Girl;
-import com.myimooc.boot.web.model.entity.Result;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+import java.util.Objects;
 
 import javax.validation.Valid;
-import java.util.List;
 
 /**
- * Created by ChengComputer on 2017/2/18.
+ * Girl 控制层
  *
- * @author zhangcheng
- * @version v1.0
- * @date 2017-02-18
+ * @author zc 2017-02-18
  */
 @RestController
+@RequestMapping("/girls")
 public class GirlController {
 
     @Autowired
     private GirlRepository girlRepository;
-
     @Autowired
     private GirlService girlService;
 
     /**
      * 查询所有女生列表
-     * @return
      */
-    @GetMapping(value="/girls")
-    public List<Girl> listGirl(){
+    @GetMapping
+    public List<Girl> listGirl() {
         return girlRepository.findAll();
     }
 
     /**
      * 添加一个女生
-     * @return
      */
-    @PostMapping(value="/girls")
-    public Result<Girl> girlAdd(@Valid Girl girl, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
-            return ResultUtil.error(ResultUtil.RESPCODE_ERROR_PARAM,bindingResult.getFieldError().getDefaultMessage());
+    @PostMapping
+    public Result<Girl> girlAdd(@Valid Girl girl, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            FieldError fieldError = bindingResult.getFieldError();
+            if (Objects.nonNull(fieldError)) {
+                return ResultUtil.error(ResultUtil.RESPONSE_CODE_ERROR_PARAM, fieldError.getDefaultMessage());
+            }
+            return ResultUtil.error(ResultUtil.RESPONSE_CODE_ERROR_PARAM, "未知参数错误");
         }
         girl.setCupSize(girl.getCupSize());
         girl.setAge(girl.getAge());
         return ResultUtil.success(girlRepository.save(girl));
-
     }
 
     /**
      * 查询一个女生
-     * @param id
-     * @return
      */
-    @GetMapping(value="/girls/{id}")
-    public Girl getGirlById(@PathVariable("id") Integer id){
-        return girlRepository.findOne(id);
+    @GetMapping("/{id}")
+    public Girl getGirlById(@PathVariable("id") Integer id) {
+        return girlRepository.findById(id).orElse(null);
     }
 
     /**
      * 更新女生信息
-     * @param id
-     * @param cupSize
-     * @param age
-     * @return
      */
-    @PutMapping(value="/girls/{id}")
+    @PutMapping("/{id}")
     public Girl updateGirlById(@PathVariable("id") Integer id,
                                @RequestParam("cupSize") String cupSize,
-                               @RequestParam("age") Integer age){
+                               @RequestParam("age") Integer age) {
         Girl girl = new Girl();
         girl.setId(id);
         girl.setCupSize(cupSize);
         girl.setAge(age);
         return girlRepository.save(girl);
-
     }
 
     /**
      * 删除女生信息
-     * @param id
      */
-    @DeleteMapping(value="/girls/{id}")
-    public void removeGirl(@PathVariable("id") Integer id){
-        girlRepository.delete(id);
+    @DeleteMapping("/{id}")
+    public void removeGirl(@PathVariable("id") Integer id) {
+        girlRepository.deleteById(id);
     }
 
     /**
      * 通过年龄查询女生列表
-     * @param age
-     * @return
      */
-    @GetMapping(value="/girls/age/{age}")
-    public List<Girl> listGirlByAge(@PathVariable("age") Integer age){
+    @GetMapping("/age/{age}")
+    public List<Girl> listGirlByAge(@PathVariable("age") Integer age) {
         return girlRepository.findByAge(age);
     }
 
-    @PostMapping(value="/girls/two")
-    public void saveGirlTwo(){
+    @PostMapping("/two")
+    public void saveGirlTwo() {
         girlService.saveTwo();
     }
 
-    @GetMapping(value = "girls/getAge/{id}")
-    public void getAge(@PathVariable("id") Integer id)throws Exception{
+    @GetMapping(value = "/getAge/{id}")
+    public void getAge(@PathVariable("id") Integer id) {
         girlService.getAge(id);
     }
 

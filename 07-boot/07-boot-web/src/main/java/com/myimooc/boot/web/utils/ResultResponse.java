@@ -3,11 +3,10 @@ package com.myimooc.boot.web.utils;
 /**
  * http请求返回的消息响应编号
  *
- * @author ZhangCheng
- * @version V1.0
- * @date 2017-03-19
+ * @author zc 2017-03-19
  */
-public enum ResultResp {
+public enum ResultResponse {
+
     /**
      * 成功
      */
@@ -24,11 +23,12 @@ public enum ResultResp {
      * 你可能在上初中
      */
     MIDDLE_SCHOOL(101, "你可能在上初中");
+
     private Integer respCode;
 
     private String respMsg;
 
-    ResultResp(Integer respCode, String respMsg) {
+    ResultResponse(Integer respCode, String respMsg) {
         this.respCode = respCode;
         this.respMsg = respMsg;
     }

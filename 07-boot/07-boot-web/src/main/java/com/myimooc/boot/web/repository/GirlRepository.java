@@ -1,22 +1,23 @@
 package com.myimooc.boot.web.repository;
 
 import com.myimooc.boot.web.model.entity.Girl;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
 /**
- * Created by ChengComputer on 2017/2/18.
- * @author zhangcheng
- * @version v1.0
- * @date 2017-02-18
+ * 资源层
+ *
+ * @author zc 2020-03-15
  */
-public interface GirlRepository extends JpaRepository<Girl,Integer>{
+public interface GirlRepository extends JpaRepository<Girl, Integer> {
 
     /**
-     * 通过年龄来查询
-     * @param age
-     * @return
+     * 通过年龄来查询女生
+     *
+     * @param age 年龄
+     * @return 女生
      */
-    public List<Girl> findByAge(Integer age);
+    List<Girl> findByAge(Integer age);
 }
