@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * 控制器
+ * 控制层
  *
- * @author ZhangCheng on 2017-06-23
+ * @author zc 2017-06-23
  */
 @Controller
 public class DemoController {
@@ -16,5 +16,4 @@ public class DemoController {
     public ModelAndView qrcode() {
         return new ModelAndView("/qrcode");
     }
-
 }
