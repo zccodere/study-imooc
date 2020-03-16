@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadFactory;
 /**
  * 主类-启动线程类
  *
- * @author ZhangCheng on 2017-07-08
+ * @author zc 2017-07-08
  */
 public class TicketsRunnable {
 
