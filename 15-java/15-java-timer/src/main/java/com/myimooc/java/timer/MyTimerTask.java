@@ -5,21 +5,20 @@ import java.util.Calendar;
 import java.util.TimerTask;
 
 /**
- * <br>
- * 标题: 需定时调度的业务逻辑类<br>
- * 描述: 继承 TimerTask 类<br>
- * 时间: 2017/05/24<br>
+ * 需定时调度的业务逻辑类；继承 TimerTask 类
  *
- * @author zc
+ * @author zc 2017-05-24
  */
-public class MyTimerTask extends TimerTask{
+public class MyTimerTask extends TimerTask {
+
     private String name;
 
     /**
      * 计数器，没执行一次加一
      */
     private Integer count = 0;
-    public MyTimerTask(String name){
+
+    MyTimerTask(String name) {
         this.name = name;
     }
 
@@ -41,19 +40,10 @@ public class MyTimerTask extends TimerTask{
             System.out.println("Current exec name is : " + name);
 
             count++;
-        }else{
+        } else {
             // 取消任务执行
             cancel();
             System.out.println("Task cancel!");
         }
-
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

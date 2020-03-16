@@ -1,0 +1,20 @@
+group 'com.myimooc'
+version '1.0.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+compileOptions {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'redis.clients', name: 'jedis', version: '3.2.0'
+    compile group: 'org.apache.commons', name: 'commons-pool2', version: '2.6.2'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.11.2'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-slf4j-impl', version: '2.11.2'
+}

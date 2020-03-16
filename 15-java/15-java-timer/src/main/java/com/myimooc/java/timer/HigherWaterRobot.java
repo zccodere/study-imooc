@@ -1,28 +1,20 @@
 package com.myimooc.java.timer;
 
-import java.util.TimerTask;
+import java.util.concurrent.ScheduledFuture;
 
 /**
- * 灌水机器人
- * <p>Timer 已经过时，如想要查看运行效果，放开下面注释即可</p>
+ * 高级灌水机器人
  *
- * @author zc 2017-05-24
+ * @author zc 2020-03-16
  */
-public class WaterRobot extends TimerTask {
+public class HigherWaterRobot implements Runnable {
 
-    @Override
-    public void run() {
-        // 什么也不做，如果要查看运行效果，请注释该方法
-    }
+    private ScheduledFuture scheduledFuture;
 
-/*
-    private Timer timer;
-
+    /**
+     * 桶容量，最大容量为5
+     */
     private Integer bucketCapacity = 0;
-
-    WaterRobot(Timer timer) {
-        this.timer = timer;
-    }
 
     @Override
     public void run() {
@@ -32,11 +24,11 @@ public class WaterRobot extends TimerTask {
             System.out.println("Add 1L water into the bucket!");
             bucketCapacity++;
         } else {
-            System.out.println("The number of canceled task in timer is : " + timer.purge());
+            System.out.println("The number of canceled task in timer is : " + scheduledFuture.toString());
             // 水满之后就停止执行
-            cancel();
+            scheduledFuture.cancel(true);
             System.out.println("The waterRobot has been aborted");
-            System.out.println("The number of canceled task in timer is : " + timer.purge());
+            System.out.println("The number of canceled task in timer is : " + scheduledFuture.toString());
             System.out.println("Current water is : " + bucketCapacity);
             // 等待两秒钟，终止timer里面的所有内容
             try {
@@ -44,7 +36,11 @@ public class WaterRobot extends TimerTask {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            timer.cancel();
+            scheduledFuture.cancel(true);
         }
-    }*/
+    }
+
+    void setScheduledFuture(ScheduledFuture scheduledFuture) {
+        this.scheduledFuture = scheduledFuture;
+    }
 }

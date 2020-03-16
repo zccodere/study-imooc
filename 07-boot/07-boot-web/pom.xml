@@ -59,6 +59,7 @@
 
     <build>
         <plugins>
+            <!-- 子模块必须显式声明 -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

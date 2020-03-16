@@ -6,16 +6,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * <br>
- * 标题: schedule和scheduleAtFixedRate的区别 测试类<br>
- * 描述: schedule和scheduleAtFixedRate的区别 测试类<br>
- * 时间: 2017/05/24<br>
+ * schedule和scheduleAtFixedRate的区别 测试类
+ * <p>Timer 已经过时，如想要查看运行效果，放开下面注释即可</p>
  *
- * @author zc
+ * @author zc 2017-05-24
  */
 public class DifferenceTest {
-
-    public static void main(String[] args){
+/*
+    public static void main(String[] args) {
         // 定义时间格式
         final SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         // 获取当前的具体时间
@@ -24,7 +22,7 @@ public class DifferenceTest {
         System.out.println("Current time is : " + sf.format(calendar.getTime()));
         // 设置成6秒前的时间，若当前时间为2016-12-28 00:00:06
         // 那么设置之后时间变成2016-12-28 00:00:00
-        calendar.add(Calendar.SECOND,-6);
+        calendar.add(Calendar.SECOND, -6);
 
         Timer timer = new Timer();
 
@@ -39,6 +37,5 @@ public class DifferenceTest {
             }
         }, calendar.getTime(), 2000);
 
-    }
-
+    }*/
 }

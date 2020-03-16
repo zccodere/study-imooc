@@ -1,14 +1,17 @@
 group 'com.myimooc'
-version '1.0-SNAPSHOT'
+version '1.0.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
+compileOptions {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
 }

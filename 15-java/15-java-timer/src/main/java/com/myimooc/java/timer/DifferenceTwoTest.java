@@ -6,16 +6,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * <br>
- * 标题: schedule和scheduleAtFixedRate的区别 测试类<br>
- * 描述: schedule和scheduleAtFixedRate的区别 测试类<br>
- * 时间: 2017/05/24<br>
+ * schedule和scheduleAtFixedRate的区别 测试类
+ * <p>Timer 已经过时，如想要查看运行效果，放开下面注释即可</p>
  *
- * @author zc
+ * @author zc 2020-03-16
  */
 public class DifferenceTwoTest {
-
-    public static void main(String[] args){
+/*
+    public static void main(String[] args) {
         // 定义时间格式
         final SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         // 获取当前的具体时间
@@ -36,6 +34,5 @@ public class DifferenceTwoTest {
                 System.out.println("Task is being executed!");
             }
         }, calendar.getTime(), 2000);
-    }
-
+    }*/
 }
