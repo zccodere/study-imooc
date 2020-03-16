@@ -1,30 +1,30 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <excel id="student" code="student" name="学生信息导入2">
     <colgroup>
-        <col index="A" width='17em'></col>
-        <col index="B" width='17em'></col>
-        <col index="C" width='17em'></col>
-        <col index="D" width='17em'></col>            
+        <col index="A" width='17em'/>
+        <col index="B" width='17em'/>
+        <col index="C" width='17em'/>
+        <col index="D" width='17em'/>
     </colgroup>
     <title>
         <tr height="16px">
-            <td rowspan="1" colspan="4" value="学生信息导入2" />
+            <td rowspan="1" colspan="4" value="学生信息导入2"/>
         </tr>
     </title>
     <thead>
         <tr height="16px">
-        	<th value="编号" />
-            <th value="姓名" />
-            <th value="年龄" />
-            <th value="性别" />
+            <th value="编号"/>
+            <th value="姓名"/>
+            <th value="年龄"/>
+            <th value="性别"/>
         </tr>
     </thead>
     <tbody>
         <tr height="16px" firstrow="2" firstcol="0" repeat="5">
-            <td type="string" isnullable="false" maxlength="30" /><!--用户编号 -->
-            <td type="string" isnullable="false" maxlength="50" /><!--姓名 -->
-            <td type="numeric" format="##0" isnullable="false" /><!--年龄 -->
-            <td type="enum" format="男,女" isnullable="true" /><!--性别 -->
+            <td type="string" isnullable="false" maxlength="30"/><!--用户编号 -->
+            <td type="string" isnullable="false" maxlength="50"/><!--姓名 -->
+            <td type="numeric" format="##0" isnullable="false"/><!--年龄 -->
+            <td type="enum" format="男,女" isnullable="true"/><!--性别 -->
         </tr>
     </tbody>
 </excel>

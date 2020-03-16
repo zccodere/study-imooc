@@ -1,13 +1,13 @@
 package com.myimooc.excel.boot.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.myimooc.excel.boot.domain.model.Student;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 /**
- * 学生信息资源接口
- * @author ZhangCheng on 2017-07-08
+ * 学生信息资源层
  *
+ * @author zc 2017-07-08
  */
 public interface StudentRepository extends JpaRepository<Student, Long> {
 

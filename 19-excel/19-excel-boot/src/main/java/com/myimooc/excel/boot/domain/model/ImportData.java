@@ -8,7 +8,7 @@ import javax.persistence.Table;
 /**
  * 导入数据主表
  *
- * @author ZhangCheng on 2017-07-08
+ * @author zc 2017-07-08
  */
 @Entity
 @Table(name = "import_data")
@@ -44,6 +44,18 @@ public class ImportData {
      */
     @Column(name = "dealStatus")
     private String dealStatus;
+
+    @Override
+    public String toString() {
+        return "ImportData{" +
+                "id=" + id +
+                ", importDataType='" + importDataType + '\'' +
+                ", importDate='" + importDate + '\'' +
+                ", importStatus='" + importStatus + '\'' +
+                ", dealDate='" + dealDate + '\'' +
+                ", dealStatus='" + dealStatus + '\'' +
+                '}';
+    }
 
     public Long getId() {
         return id;
@@ -91,12 +103,5 @@ public class ImportData {
 
     public void setDealStatus(String dealStatus) {
         this.dealStatus = dealStatus;
-    }
-
-    @Override
-    public String toString() {
-        return "ImportData [id=" + id + ", importDataType=" + importDataType + ", importDate=" + importDate
-                + ", importStatus=" + importStatus + ", dealDate=" + dealDate + ", dealStatus=" + dealStatus
-                + "]";
     }
 }

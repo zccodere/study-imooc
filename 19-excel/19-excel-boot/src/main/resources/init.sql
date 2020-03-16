@@ -1,20 +1,3 @@
-/*
-Navicat MySQL Data Transfer
-
-Source Server         : 127.0.0.1@root
-Source Server Version : 80000
-Source Host           : localhost:3306
-Source Database       : excelweb
-
-Target Server Type    : MYSQL
-Target Server Version : 80000
-File Encoding         : 65001
-
-Date: 2017-07-08 18:34:39
-*/
-
-SET FOREIGN_KEY_CHECKS=0;
-
 -- ----------------------------
 -- Table structure for import_data
 -- ----------------------------
@@ -67,12 +50,12 @@ CREATE TABLE `import_data_detail` (
 DROP TABLE IF EXISTS `student`;
 CREATE TABLE `student` (
   `id` bigint(20) NOT NULL,
-  `stuage` varchar(255) DEFAULT NULL,
-  `stubirthday` varchar(255) DEFAULT NULL,
-  `stuhobby` varchar(255) DEFAULT NULL,
-  `stuname` varchar(255) DEFAULT NULL,
-  `stunum` varchar(255) DEFAULT NULL,
-  `stusex` varchar(255) DEFAULT NULL,
+  `age` varchar(255) DEFAULT NULL,
+  `birthday` varchar(255) DEFAULT NULL,
+  `hobby` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `num` varchar(255) DEFAULT NULL,
+  `sex` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
