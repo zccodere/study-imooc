@@ -1,35 +1,64 @@
 package com.myimooc.mail.register.domain;
 
+import com.myimooc.mail.register.enums.UserStateEnum;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
- * <br>
- * 标题: 用户实体<br>
- * 描述: 用户实体<br>
- * 时间: 2017/06/07<br>
+ * 用户实体类
  *
- * @author zc
+ * @author zc 2017-06-07
  */
 @Entity
 public class User {
-    
+
+    /**
+     * 用户ID
+     */
     @Id
     @GeneratedValue
     private Integer uid;
-    
+    /**
+     * 用户
+     */
     private String username;
-    
+    /**
+     * 密码
+     */
     private String password;
-    
+    /**
+     * 昵称
+     */
     private String nickname;
-    
+    /**
+     * 邮箱地址
+     */
     private String email;
-    
+    /**
+     * 状态
+     *
+     * @see UserStateEnum
+     */
     private Integer state;
-    
+    /**
+     * 激活校验码
+     */
     private String code;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "uid=" + uid +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", email='" + email + '\'' +
+                ", state=" + state +
+                ", code='" + code + '\'' +
+                '}';
+    }
 
     public Integer getUid() {
         return uid;
@@ -86,7 +115,4 @@ public class User {
     public void setCode(String code) {
         this.code = code;
     }
-    
-    
-    
 }

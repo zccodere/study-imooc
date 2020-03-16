@@ -3,12 +3,9 @@ package com.myimooc.mail.register.util;
 import java.util.UUID;
 
 /**
- * <br>
- * 标题: 生成随机字符串工具类<br>
- * 描述: 生成随机字符串工具类<br>
- * 时间: 2017/06/07<br>
+ * 生成随机字符串工具类
  *
- * @author zc
+ * @author zc 2017-06-07
  */
 public class UuidUtils {
 

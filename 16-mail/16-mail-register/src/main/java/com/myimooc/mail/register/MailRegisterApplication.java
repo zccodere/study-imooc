@@ -4,12 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * <br>
- * 标题: 启动类<br>
- * 描述: 启动类<br>
- * 时间: 2017/06/07<br>
+ * 启动类
  *
- * @author zc
+ * @author zc 2017-06-07
  */
 @SpringBootApplication
 public class MailRegisterApplication {

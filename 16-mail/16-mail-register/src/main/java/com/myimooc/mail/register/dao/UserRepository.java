@@ -1,18 +1,16 @@
 package com.myimooc.mail.register.dao;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.myimooc.mail.register.domain.User;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 /**
- * <br>
- * 标题: 用户资源类<br>
- * 描述: 用户资源类<br>
- * 时间: 2017/06/07<br>
+ * 用户资源层
  *
- * @author zc
+ * @author zc 2017-06-07
  */
 public interface UserRepository extends JpaRepository<User, Integer> {
+
     /**
      * 通过code查询用户
      *
