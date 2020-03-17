@@ -3,7 +3,7 @@ package com.myimooc.java.sync;
 /**
  * 程序主类
  *
- * @author ZhangCheng on 2017-07-09
+ * @author zc 2017-07-09
  */
 public class SynchronizedDemo {
 
@@ -17,7 +17,7 @@ public class SynchronizedDemo {
     /**
      * 写操作
      */
-    public synchronized void write() {
+    private synchronized void write() {
         //1.1
         ready = true;
         //1.2
@@ -27,7 +27,7 @@ public class SynchronizedDemo {
     /**
      * 读操作
      */
-    public synchronized void read() {
+    private synchronized void read() {
         //2.1
         if (ready) {
             //2.2
@@ -45,7 +45,7 @@ public class SynchronizedDemo {
          */
         private boolean flag;
 
-        public ReadWriteThread(boolean flag) {
+        ReadWriteThread(boolean flag) {
             this.flag = flag;
         }
 
@@ -73,5 +73,4 @@ public class SynchronizedDemo {
         //启动线程执行读操作
         synDemo.new ReadWriteThread(false).start();
     }
-
 }
