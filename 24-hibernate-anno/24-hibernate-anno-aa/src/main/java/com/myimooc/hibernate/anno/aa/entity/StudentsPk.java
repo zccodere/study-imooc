@@ -1,6 +1,7 @@
 package com.myimooc.hibernate.anno.aa.entity;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -8,12 +9,10 @@ import javax.persistence.Embeddable;
 /**
  * 学生主键类
  *
- * @author ZhangCheng on 2017-07-12
+ * @author zc 2017-07-12
  */
 @Embeddable
 public class StudentsPk implements Serializable {
-
-    private static final long serialVersionUID = 1L;
 
     /**
      * 省份证号码
@@ -26,50 +25,30 @@ public class StudentsPk implements Serializable {
     @Column(length = 10)
     private String sid;
 
-    public StudentsPk() {
-    }
-
     @Override
-    public String toString() {
-        return "StudentsPk [id=" + id + ", sid=" + sid + "]";
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        StudentsPk that = (StudentsPk) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(sid, that.sid);
     }
 
     @Override
     public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + ((sid == null) ? 0 : sid.hashCode());
-        return result;
+        return Objects.hash(id, sid);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        StudentsPk other = (StudentsPk) obj;
-        if (id == null) {
-            if (other.id != null) {
-                return false;
-            }
-        } else if (!id.equals(other.id)) {
-            return false;
-        }
-        if (sid == null) {
-            if (other.sid != null) {
-                return false;
-            }
-        } else if (!sid.equals(other.sid)) {
-            return false;
-        }
-        return true;
+    public String toString() {
+        return "StudentsPk{" +
+                "id='" + id + '\'' +
+                ", sid='" + sid + '\'' +
+                '}';
     }
 
     public String getId() {
@@ -87,6 +66,4 @@ public class StudentsPk implements Serializable {
     public void setSid(String sid) {
         this.sid = sid;
     }
-
-
 }

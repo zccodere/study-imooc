@@ -1,5 +1,7 @@
 package com.myimooc.hibernate.anno.ra.manytomanybfk;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import java.util.Objects;
 import java.util.Set;
 
@@ -9,16 +11,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-import org.hibernate.annotations.GenericGenerator;
-
 /**
- * 多对多双向外键关联
- * 教师实体类（多方）
+ * 多对多双向外键关联； 教师实体类（多方）
  *
- * @author ZhangCheng on 2017-07-13
+ * @author zc 2017-07-13
  */
 @Entity
 public class Teachers {
+
     /**
      * 教师编号
      */
@@ -85,6 +85,4 @@ public class Teachers {
     public void setTname(String tname) {
         this.tname = tname;
     }
-
-
 }

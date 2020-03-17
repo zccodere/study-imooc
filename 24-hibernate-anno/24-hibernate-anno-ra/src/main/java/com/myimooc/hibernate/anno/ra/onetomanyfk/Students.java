@@ -8,10 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
- * 一对多单向外键关联
- * 学生实体类（多方）
+ * 一对多单向外键关联 学生实体类（多方）；
  *
- * @author ZhangCheng on 2017-07-13
+ * @author zc 2017-07-13
  */
 @Entity
 public class Students {
