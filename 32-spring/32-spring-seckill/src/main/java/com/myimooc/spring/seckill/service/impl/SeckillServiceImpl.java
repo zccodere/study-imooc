@@ -12,6 +12,7 @@ import com.myimooc.spring.seckill.exception.RepeatKillException;
 import com.myimooc.spring.seckill.exception.SeckillCloseException;
 import com.myimooc.spring.seckill.exception.SeckillException;
 import com.myimooc.spring.seckill.service.SeckillService;
+
 import org.apache.commons.collections.MapUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,10 +27,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author zc
- * @version 1.0 2017-08-23
- * // @Component @Service @Dao @Controller
- * @describe 接口实现
+ * 接口实现 // @Component @Service @Dao @Controller
+ *
+ * @author zc 2017-08-23
  */
 @Service
 public class SeckillServiceImpl implements SeckillService {
@@ -44,14 +44,7 @@ public class SeckillServiceImpl implements SeckillService {
     private RedisDao redisDao;
 
     /**
-     * md5盐值字符串，用于混淆md5
-     */
-    private final String slat = "fdhasjfhu5GERGTEiweayrwe$%#$%$#546@wdasdfas";
-
-    /**
      * 查询所有秒杀记录
-     *
-     * @return
      */
     @Override
     public List<Seckill> getSeckillList() {
@@ -60,9 +53,6 @@ public class SeckillServiceImpl implements SeckillService {
 
     /**
      * 查询单个秒杀记录
-     *
-     * @param seckillId
-     * @return
      */
     @Override
     public Seckill getById(long seckillId) {
@@ -71,8 +61,6 @@ public class SeckillServiceImpl implements SeckillService {
 
     /**
      * 秒杀开启时输出秒杀接口地址，否则输出系统时间和秒杀时间
-     *
-     * @param seckillId
      */
     @Override
     public Exposer exportSeckillUrl(long seckillId) {
@@ -101,28 +89,22 @@ public class SeckillServiceImpl implements SeckillService {
         }
 
         // 转换特定字符串的过程，不可逆
-        String md5 = this.getMD5(seckillId);
+        String md5 = this.getMd5(seckillId);
 
         return new Exposer(true, md5, seckillId);
     }
 
     /**
      * 执行秒杀操作
-     *
-     * @param seckillId
-     * @param userPhone
-     * @param md5
+     * <p>使用注解控制事务方法的优点：
+     * 1：开发团结达成一致约定，明确标注事务方法的编程风格 2：保证事务方法的执行时间尽可能短，不要穿插其他网络操作，RPC/HTTP请求或者剥离到事务方法外部
+     * 3：不是所有的方法都需要事务，如只有一条修改操作，只读操作不需要事务控制
+     * </p>
      */
     @Transactional(rollbackFor = Exception.class)
-    /**
-     * 使用注解控制事务方法的优点：
-     * 1：开发团结达成一致约定，明确标注事务方法的编程风格
-     * 2：保证事务方法的执行时间尽可能短，不要穿插其他网络操作，RPC/HTTP请求或者剥离到事务方法外部
-     * 3：不是所有的方法都需要事务，如只有一条修改操作，只读操作不需要事务控制
-     */
     @Override
-    public SeckillExecution executeSeckill(long seckillId, long userPhone, String md5) throws SeckillException, RepeatKillException, SeckillCloseException {
-        if (null == md5 || !md5.equals(getMD5(seckillId))) {
+    public SeckillExecution executeSeckill(long seckillId, long userPhone, String md5) throws SeckillException {
+        if (null == md5 || !md5.equals(getMd5(seckillId))) {
             throw new SeckillException("seckill data rewrite");
         }
 
@@ -148,10 +130,8 @@ public class SeckillServiceImpl implements SeckillService {
                     return new SeckillExecution(seckillId, SeckillStatEnum.SUCCESS, successSeckilled);
                 }
             }
-        } catch (SeckillCloseException e1) {
+        } catch (SeckillCloseException | RepeatKillException e1) {
             throw e1;
-        } catch (RepeatKillException e2) {
-            throw e2;
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
             // 把所有编译期异常转化成运行期异常
@@ -161,14 +141,10 @@ public class SeckillServiceImpl implements SeckillService {
 
     /**
      * 执行秒杀操作，存储过程
-     *
-     * @param seckillId
-     * @param userPhone
-     * @param md5
      */
     @Override
     public SeckillExecution executeSeckillProcedure(long seckillId, long userPhone, String md5) {
-        if (md5 == null || !md5.equals(getMD5(seckillId))) {
+        if (md5 == null || !md5.equals(getMd5(seckillId))) {
             return new SeckillExecution(seckillId, SeckillStatEnum.DATA_REWRITE);
         }
         Date killTime = new Date();
@@ -194,9 +170,10 @@ public class SeckillServiceImpl implements SeckillService {
         }
     }
 
-    private String getMD5(long seckillId) {
+    private String getMd5(long seckillId) {
+        // md5盐值字符串，用于混淆md5
+        String slat = "hello$world$HELLO$%#$%$#546@wdasdfas";
         String base = seckillId + "/" + slat;
-        String md5 = DigestUtils.md5DigestAsHex(base.getBytes());
-        return md5;
+        return DigestUtils.md5DigestAsHex(base.getBytes());
     }
 }

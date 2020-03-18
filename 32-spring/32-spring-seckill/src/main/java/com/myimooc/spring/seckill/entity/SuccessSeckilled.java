@@ -3,9 +3,9 @@ package com.myimooc.spring.seckill.entity;
 import java.util.Date;
 
 /**
- * @describe 成功秒杀明细表
- * @author zc
- * @version 1.0 2017-08-22
+ * 成功秒杀明细表
+ *
+ * @author zc 2017-08-22
  */
 public class SuccessSeckilled {
 
@@ -29,7 +29,7 @@ public class SuccessSeckilled {
                 ", userPhone=" + userPhone +
                 ", state=" + state +
                 ", createTime=" + createTime +
-                ", seckill=" + String.valueOf(seckill) +
+                ", seckill=" + seckill +
                 '}';
     }
 

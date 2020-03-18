@@ -1,11 +1,12 @@
 package com.myimooc.spring.seckill.enums;
 
 /**
- * @author zc
- * @version 1.0 2017-08-23
- * @describe 使用枚举表述常量数据字典
+ * 使用枚举表述常量数据字典
+ *
+ * @author zc 2017-08-23
  */
 public enum SeckillStatEnum {
+
     /**
      * 秒杀成功
      */
@@ -44,12 +45,12 @@ public enum SeckillStatEnum {
         return stateInfo;
     }
 
-    public static SeckillStatEnum stateOf(int index) {
-        for (SeckillStatEnum state : values()) {
-            if (state.getState() == index) {
-                return state;
+    public static SeckillStatEnum stateOf(int state) {
+        for (SeckillStatEnum statEnum : values()) {
+            if (statEnum.getState() == state) {
+                return statEnum;
             }
         }
-        return null;
+        throw new RuntimeException("状态非法：" + state);
     }
 }

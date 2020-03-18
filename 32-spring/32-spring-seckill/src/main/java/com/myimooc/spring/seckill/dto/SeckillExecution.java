@@ -4,9 +4,9 @@ import com.myimooc.spring.seckill.entity.SuccessSeckilled;
 import com.myimooc.spring.seckill.enums.SeckillStatEnum;
 
 /**
- * @describe 封装秒杀执行后结果
- * @author zc
- * @version 1.0 2017-08-23
+ * 封装秒杀执行后结果
+ *
+ * @author zc 2017-08-23
  */
 public class SeckillExecution {
 
