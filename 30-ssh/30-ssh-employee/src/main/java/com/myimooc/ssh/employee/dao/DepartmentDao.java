@@ -1,13 +1,13 @@
 package com.myimooc.ssh.employee.dao;
 
-import java.util.List;
-
 import com.myimooc.ssh.employee.domain.Department;
+
+import java.util.List;
 
 /**
  * 部门管理的DAO的接口
  *
- * @author ZhangCheng on 2017-08-18
+ * @author zc 2017-08-18
  */
 public interface DepartmentDao {
 

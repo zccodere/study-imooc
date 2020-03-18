@@ -1,15 +1,16 @@
 package com.myimooc.ssh.employee.dao;
 
-import java.util.List;
-
 import com.myimooc.ssh.employee.domain.Employee;
+
+import java.util.List;
 
 /**
  * 员工管理的DAO的接口
  *
- * @author ZhangCheng on 2017-08-18
+ * @author zc 2017-08-18
  */
 public interface EmployeeDao {
+
     /**
      * 通过用户名和密码查询
      *
@@ -21,7 +22,7 @@ public interface EmployeeDao {
     /**
      * 查询总数
      *
-     * @return
+     * @return 总数
      */
     int findCount();
 
