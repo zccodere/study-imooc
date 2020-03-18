@@ -3,7 +3,7 @@ package com.myimooc.small.advanced.domain;
 /**
  * 消息回复
  *
- * @author ZhangCheng on 2017-08-12
+ * @author zc 2017-08-12
  */
 public class News {
 

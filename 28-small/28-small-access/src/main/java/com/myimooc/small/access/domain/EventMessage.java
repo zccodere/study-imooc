@@ -3,7 +3,7 @@ package com.myimooc.small.access.domain;
 /**
  * 事件推送-向微信接口发起请求Vo
  *
- * @author ZhangCheng on 2017-08-11
+ * @author zc 2017-08-11
  */
 public class EventMessage {
 

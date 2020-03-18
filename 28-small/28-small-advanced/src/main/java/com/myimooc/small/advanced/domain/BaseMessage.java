@@ -2,57 +2,56 @@ package com.myimooc.small.advanced.domain;
 
 /**
  * 基础消息
- * @author ZhangCheng on 2017-08-12
  *
+ * @author zc 2017-08-12
  */
 public class BaseMessage {
-	
-	private String toUserName;
-	
-	private String fromUserName;
-	
-	private String createTime;
-	
-	private String msgType;
-	
-	@Override
-	public String toString() {
-		return "BaseMessage [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime=" + createTime
-				+ ", msgType=" + msgType + "]";
-	}
 
-	public String getToUserName() {
-		return toUserName;
-	}
+    private String toUserName;
 
-	public void setToUserName(String toUserName) {
-		this.toUserName = toUserName;
-	}
+    private String fromUserName;
 
-	public String getFromUserName() {
-		return fromUserName;
-	}
+    private String createTime;
 
-	public void setFromUserName(String fromUserName) {
-		this.fromUserName = fromUserName;
-	}
+    private String msgType;
 
-	public String getCreateTime() {
-		return createTime;
-	}
+    @Override
+    public String toString() {
+        return "BaseMessage [toUserName=" + toUserName + ", fromUserName=" + fromUserName + ", createTime=" + createTime
+                + ", msgType=" + msgType + "]";
+    }
 
-	public void setCreateTime(String createTime) {
-		this.createTime = createTime;
-	}
+    public String getToUserName() {
+        return toUserName;
+    }
 
-	public String getMsgType() {
-		return msgType;
-	}
+    public void setToUserName(String toUserName) {
+        this.toUserName = toUserName;
+    }
 
-	public void setMsgType(String msgType) {
-		this.msgType = msgType;
-	}
-	
-	
-	
+    public String getFromUserName() {
+        return fromUserName;
+    }
+
+    public void setFromUserName(String fromUserName) {
+        this.fromUserName = fromUserName;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getMsgType() {
+        return msgType;
+    }
+
+    public void setMsgType(String msgType) {
+        this.msgType = msgType;
+    }
+
+
 }

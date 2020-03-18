@@ -1,13 +1,24 @@
 package com.myimooc.small.advanced.domain.trans;
 
+import java.util.Arrays;
+
 /**
  * 百度翻译API
  *
- * @author ZhangCheng on 2017-08-12
+ * @author zc 2017-08-12
  */
 public class Data {
+
     private String wordName;
     private Symbols[] symbols;
+
+    @Override
+    public String toString() {
+        return "Data{" +
+                "wordName='" + wordName + '\'' +
+                ", symbols=" + Arrays.toString(symbols) +
+                '}';
+    }
 
     public String getWordName() {
         return wordName;

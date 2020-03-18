@@ -8,7 +8,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.myimooc.small.access.domain.AccressReqVo;
+import com.myimooc.small.access.domain.AccessRequestVo;
 
 /**
  * 开发模式接入-服务器验证-校验工具类
@@ -27,7 +27,7 @@ public class CheckUtils {
 	/**
 	 * 功能：验证消息的确来自微信服务器
 	 */
-	public static boolean checkSignature(AccressReqVo vo){
+	public static boolean checkSignature(AccessRequestVo vo){
 		
 		logger.info("验证：{}",vo.toString());
 		

@@ -1,15 +1,28 @@
 package com.myimooc.small.advanced.domain.trans;
 
+import java.util.Arrays;
+
 /**
  * 百度翻译API
  *
- * @author ZhangCheng on 2017-08-12
+ * @author zc 2017-08-12
  */
 public class Symbols {
+
     private String phAm;
     private String phEn;
     private String phZh;
     private Parts[] parts;
+
+    @Override
+    public String toString() {
+        return "Symbols{" +
+                "phAm='" + phAm + '\'' +
+                ", phEn='" + phEn + '\'' +
+                ", phZh='" + phZh + '\'' +
+                ", parts=" + Arrays.toString(parts) +
+                '}';
+    }
 
     public String getPhAm() {
         return phAm;

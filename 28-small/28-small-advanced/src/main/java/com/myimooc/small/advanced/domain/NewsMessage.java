@@ -5,13 +5,21 @@ import java.util.List;
 /**
  * 消息回复-图文消息
  *
- * @author ZhangCheng on 2017-08-12
+ * @author zc 2017-08-12
  */
 public class NewsMessage extends BaseMessage {
 
     private int articleCount;
 
     private List<News> articles;
+
+    @Override
+    public String toString() {
+        return super.toString() + "NewsMessage{" +
+                "articleCount=" + articleCount +
+                ", articles=" + articles +
+                '}';
+    }
 
     public int getArticleCount() {
         return articleCount;

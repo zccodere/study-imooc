@@ -4,37 +4,35 @@ import java.io.Serializable;
 
 /**
  * 获取 access_token 微信接口响应对象
- * @author ZhangCheng on 2017-08-12
  *
+ * @author zc 2017-08-12
  */
-public class AccessToken implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
+public class AccessToken implements Serializable {
 
-	private String token;
-	
-	private int expiresIn;
+    private static final long serialVersionUID = 1L;
 
-	@Override
-	public String toString() {
-		return "AccessToken [token=" + token + ", expiresIn=" + expiresIn + "]";
-	}
+    private String token;
 
-	public String getToken() {
-		return token;
-	}
+    private int expiresIn;
 
-	public void setToken(String token) {
-		this.token = token;
-	}
+    @Override
+    public String toString() {
+        return "AccessToken [token=" + token + ", expiresIn=" + expiresIn + "]";
+    }
 
-	public int getExpiresIn() {
-		return expiresIn;
-	}
+    public String getToken() {
+        return token;
+    }
 
-	public void setExpiresIn(int expiresIn) {
-		this.expiresIn = expiresIn;
-	}
-	
-	
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public int getExpiresIn() {
+        return expiresIn;
+    }
+
+    public void setExpiresIn(int expiresIn) {
+        this.expiresIn = expiresIn;
+    }
 }
