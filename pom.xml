@@ -111,6 +111,7 @@
         <guava.version>19.0</guava.version>
 
         <jedis.version>3.2.0</jedis.version>
+        <activemq.version>5.15.11</activemq.version>
 
     </properties>
 
