@@ -1,12 +1,12 @@
 package com.myimooc.java.design.pattern.singleton;
 
 /**
- * @author zc
- * @version 1.0 2017-08-27
- * @describe 单例模式Singleton-饿汉模式：当类被加载时，就创建实例
- * 应用场合：有些对象只需要一个就足够了，古古代皇帝
- * 作用：保证整个应用程序中某个实例有且只有一个
- * 类型：饿汉模式、懒汉模式
+ * 单例模式Singleton-饿汉模式：当类被加载时，就创建实例
+ * <p>
+ * 应用场合：有些对象只需要一个就足够了，古古代皇帝； 作用：保证整个应用程序中某个实例有且只有一个； 类型：饿汉模式、懒汉模式。
+ * </p>
+ *
+ * @author zc 2017-08-27
  */
 public class Singleton {
 
@@ -14,7 +14,6 @@ public class Singleton {
      * 1.将构造方法私有化，不允许外部直接创建对象
      */
     private Singleton() {
-
     }
 
     /**

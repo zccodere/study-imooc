@@ -1,9 +1,9 @@
 package com.myimooc.java.design.pattern.observer.weathercondition;
 
 /**
- * @author zc
- * @version 1.0 2017-08-29
- * @describe 观察者接口，定义一个更新的接口给那些在目标对象发生改变的时候被通知的对象
+ * 观察者接口，定义一个更新的接口给那些在目标对象发生改变的时候被通知的对象
+ *
+ * @author zc 2017-08-29
  */
 public interface Observer {
 

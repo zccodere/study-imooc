@@ -7,11 +7,11 @@ import com.myimooc.java.design.pattern.factory.hair.LeftHair;
 import com.myimooc.java.design.pattern.factory.hair.RightHair;
 
 /**
- * @author zc
- * @version 1.0 2017-08-27
- * @describe 模拟客户端实现
+ * 模拟客户端实现
+ *
+ * @author zc 2017-08-27
  */
-public class Test {
+public class Main {
 
     public static void main(String[] args) {
 
@@ -26,8 +26,7 @@ public class Test {
         HairInterface left1 = factory.getHair("left");
         left1.draw();
 
-
-        HairInterface left = factory.getHairByClass("com.myimooc.designpattern.factory.LeftHair");
+        HairInterface left = factory.getHairByClass("com.myimooc.java.design.pattern.factory.hair.LeftHair");
         left.draw();
 
         HairInterface hair = factory.getHairByClassKey("in");
@@ -44,6 +43,5 @@ public class Test {
         factory = new HnFactory();
         Boy boy = factory.getBoy();
         boy.drawMan();
-
     }
 }

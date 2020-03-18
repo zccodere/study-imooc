@@ -1,11 +1,11 @@
 package com.myimooc.java.design.pattern.singleton;
 
 /**
- * @author zc
- * @version 1.0 2017-08-27
- * 测试
+ * 启动类
+ *
+ * @author zc 2017-08-27
  */
-public class Test {
+public class Main {
 
     public static void main(String[] args) {
 

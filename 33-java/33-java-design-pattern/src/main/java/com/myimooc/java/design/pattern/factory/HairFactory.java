@@ -1,16 +1,16 @@
 package com.myimooc.java.design.pattern.factory;
 
-import java.util.Map;
-
 import com.myimooc.java.design.pattern.factory.hair.HairInterface;
 import com.myimooc.java.design.pattern.factory.hair.LeftHair;
 import com.myimooc.java.design.pattern.factory.hair.PropertiesReader;
 import com.myimooc.java.design.pattern.factory.hair.RightHair;
 
+import java.util.Map;
+
 /**
- * @author zc
- * @version 1.0 2017-08-27
- * @describe 发型工厂
+ * 发型工厂
+ *
+ * @author zc 2017-08-27
  */
 public class HairFactory {
 
@@ -19,9 +19,6 @@ public class HairFactory {
 
     /**
      * 根据类型来创建对象
-     *
-     * @param key
-     * @return
      */
     public HairInterface getHair(String key) {
         if (HAIR_LEFT.equals(key)) {
@@ -34,14 +31,10 @@ public class HairFactory {
 
     /**
      * 根据类的名称来生产对象
-     *
-     * @param className
-     * @return
      */
     public HairInterface getHairByClass(String className) {
         try {
-            HairInterface hair = (HairInterface) Class.forName(className).newInstance();
-            return hair;
+            return (HairInterface) Class.forName(className).newInstance();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,15 +43,11 @@ public class HairFactory {
 
     /**
      * 根据类的名称来生产对象
-     *
-     * @param key
-     * @return
      */
     public HairInterface getHairByClassKey(String key) {
         try {
             Map<String, String> map = new PropertiesReader().getProperties();
-            HairInterface hair = (HairInterface) Class.forName(map.get(key)).newInstance();
-            return hair;
+            return (HairInterface) Class.forName(map.get(key)).newInstance();
         } catch (Exception e) {
             e.printStackTrace();
         }
