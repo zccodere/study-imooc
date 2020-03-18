@@ -1,30 +1,28 @@
 package com.myimooc.spring.auth.config;
 
-import java.util.EnumSet;
-
-import javax.servlet.DispatcherType;
-import javax.servlet.FilterRegistration;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
+import com.myimooc.spring.auth.context.UserContextFilter;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import com.myimooc.spring.auth.context.UserContextFilter;
+import java.util.EnumSet;
+
+import javax.servlet.DispatcherType;
+import javax.servlet.FilterRegistration;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletRegistration;
 
 /**
  * Web项目启动类
- * 
- * @author zhangcheng
  *
+ * @author zc 2017-02-19
  */
 public class WebInitConfig implements WebApplicationInitializer {
 
     @Override
-    public void onStartup(ServletContext servletContext) throws ServletException {
+    public void onStartup(ServletContext servletContext) {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
 
         // 注册SpringMVC的配置类
@@ -45,10 +43,8 @@ public class WebInitConfig implements WebApplicationInitializer {
         dispatcherTypes.add(DispatcherType.FORWARD);
         encodingFilter.addMappingForUrlPatterns(dispatcherTypes, true, "*");
         encodingFilter.setInitParameter("encoding", "UTF-8");
-        
+
         FilterRegistration.Dynamic userContextFilter = servletContext.addFilter("usercontext", new UserContextFilter());
         userContextFilter.addMappingForUrlPatterns(dispatcherTypes, true, "*");
-        
     }
-
 }
