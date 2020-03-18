@@ -1,58 +1,57 @@
 package com.myimooc.amap.java.config;
 
-import java.util.Properties;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
+import java.util.Properties;
+
 /**
  * 项目配置类
- * @author ZhangCheng on 2017-08-12
+ *
+ * @author zc 2017-08-12
  */
 @Configuration
-public class AppConfig extends WebMvcConfigurerAdapter{
+public class AppConfig implements WebMvcConfigurer {
 
     /**
      * 启动的时候要注意，由于我们在controller中注入了RestTemplate，所以启动的时候需要实例化该类的一个实例
      */
-    @Autowired  
+    @Autowired
     private RestTemplateBuilder builder;
 
     /**
      * 使用RestTemplateBuilder来实例化RestTemplate对象，spring默认已经注入了RestTemplateBuilder实例
-     * @return
-     */
-    @Bean  
-    public RestTemplate restTemplate() {  
-        return builder.build();  
-    }
-	
-	/**
-     * 配置视图解析器
-     * @return
      */
     @Bean
-    public FreeMarkerViewResolver getFreeMarkerViewResolver(){
+    public RestTemplate restTemplate() {
+        return builder.build();
+    }
+
+    /**
+     * 配置视图解析器
+     */
+    @Bean
+    public FreeMarkerViewResolver getFreeMarkerViewResolver() {
         FreeMarkerViewResolver freeMarkerViewResolver = new FreeMarkerViewResolver();
-        
+
         freeMarkerViewResolver.setOrder(1);
         freeMarkerViewResolver.setSuffix(".html");
         freeMarkerViewResolver.setCache(false);
         freeMarkerViewResolver.setRequestContextAttribute("request");
         freeMarkerViewResolver.setContentType("text/html;charset=utf-8");
         freeMarkerViewResolver.setViewClass(FreeMarkerView.class);
-        
+
         return freeMarkerViewResolver;
     }
-    
+
     /**
      * 配置静态资源映射
      */
@@ -60,17 +59,16 @@ public class AppConfig extends WebMvcConfigurerAdapter{
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
-    
+
     /**
      * 配置FreeMarker
-     * @return
      */
     @Bean
-    public FreeMarkerConfigurer getFreeMarkerConfigurer(){
+    public FreeMarkerConfigurer getFreeMarkerConfigurer() {
         FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
         freeMarkerConfigurer.setDefaultEncoding("UTF-8");
         freeMarkerConfigurer.setTemplateLoaderPath("classpath:/templates/");
-        
+
         Properties settings = new Properties();
         settings.setProperty("template_update_delay", "5");
         settings.setProperty("url_escaping_charset", "UTF-8");
@@ -87,9 +85,7 @@ public class AppConfig extends WebMvcConfigurerAdapter{
         settings.setProperty("template_exception_handler", "ignore");
         settings.setProperty("auto_import", "/common/common.ftl as common");
         freeMarkerConfigurer.setFreemarkerSettings(settings);
-        
+
         return freeMarkerConfigurer;
     }
-    
-	
 }
