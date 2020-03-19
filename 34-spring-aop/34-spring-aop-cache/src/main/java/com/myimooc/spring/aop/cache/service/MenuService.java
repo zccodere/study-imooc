@@ -1,25 +1,23 @@
 package com.myimooc.spring.aop.cache.service;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
- * @title 菜单服务类
- * @describe 菜单业务服务
- * @author zc
- * @version 1.0 2017-09-13
+ * 菜单业务服务
+ *
+ * @author zc  2017-09-13
  */
 @Service
 public class MenuService {
-	
-	@Cacheable(cacheNames={"menu"})
-	public List<String> getMenuList(){
-		System.out.println("");
-		System.out.println("mock:get from db");
-		return Arrays.asList("article","comment","admin");
-	}
-	
+
+    @Cacheable(cacheNames = {"menu"})
+    public List<String> getMenuList() {
+        System.out.println("mock:get from db");
+        return Arrays.asList("article", "comment", "admin");
+    }
+
 }

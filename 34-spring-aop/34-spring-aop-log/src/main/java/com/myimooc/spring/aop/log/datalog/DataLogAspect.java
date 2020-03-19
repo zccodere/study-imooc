@@ -1,6 +1,7 @@
 package com.myimooc.spring.aop.log.datalog;
 
 import com.myimooc.spring.aop.log.dao.ActionDao;
+import com.myimooc.spring.aop.log.dao.ActionDaoImpl;
 import com.myimooc.spring.aop.log.domain.Action;
 import com.myimooc.spring.aop.log.domain.ActionType;
 import com.myimooc.spring.aop.log.domain.ChangeItem;
@@ -11,6 +12,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,16 +22,15 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author zc
- * @version 1.0 2017-09-13
- * @title 操作日志记录切面类
- * @describe 自动记录操作日志
+ * 操作日志记录切面类；自动记录操作日志
+ *
+ * @author zc 2017-09-13
  */
 @Aspect
 @Component
-public class DatalogAspect {
+public class DataLogAspect {
 
-    private static final Logger logger = LoggerFactory.getLogger(DatalogAspect.class);
+    private static final Logger logger = LoggerFactory.getLogger(DataLogAspect.class);
 
     private static final String METHOD_SAVE = "save";
     private static final String METHOD_DELETE = "delete";
@@ -37,32 +38,18 @@ public class DatalogAspect {
     @Autowired
     ActionDao actionDao;
 
-    @Pointcut("execution(public * com.myimooc.mydatalog.dao.*.save*(..))")
+    @Pointcut("execution(public * com.myimooc.spring.aop.log.dao.*.save*(..))")
     public void save() {
-
     }
 
-    @Pointcut("execution(public * com.myimooc.mydatalog.dao.*.delete*(..))")
+    @Pointcut("execution(public * com.myimooc.spring.aop.log.dao.*.delete*(..))")
     public void delete() {
-
     }
 
     /**
-     * 1\判断是什么类型的操作,增加\删除\还是更新
-     * 增加/更新 save(Product),通过id区分是增加还是更新
-     * 删除delete(id)
-     * 2\获取changeitem
-     * (1)新增操作,before直接获取,after记录下新增之后的id
-     * (2)更新操作,before获取操作之前的记录,after获取操作之后的记录,然后diff
-     * (3)删除操作,before根据id取记录
-     * 3\保存操作记录
-     * actionType
-     * objectId
-     * objectClass
-     *
-     * @param pjp
-     * @return
-     * @throws Throwable
+     * 1\判断是什么类型的操作,增加\删除\还是更新 增加/更新 save(Product),通过id区分是增加还是更新 删除delete(id) 2\获取change item
+     * (1)新增操作,before直接获取,after记录下新增之后的id (2)更新操作,before获取操作之前的记录,after获取操作之后的记录,然后diff
+     * (3)删除操作,before根据id取记录 3\保存操作记录 actionType objectId objectClass
      */
     @Around("save() || delete()")
     public Object addOperateLog(ProceedingJoinPoint pjp) throws Throwable {
@@ -111,7 +98,14 @@ public class DatalogAspect {
             // AFTER OPERATION save action
             action.setActionType(actionType);
             if (ActionType.INSERT == actionType) {
-                //new id
+                // 如果是保存操作日志，则直接返回
+                MethodSignature methodSignature = (MethodSignature) pjp.getSignature();
+                Class declaringType = methodSignature.getDeclaringType();
+                if (declaringType.equals(ActionDaoImpl.class)) {
+                    return returnObj;
+                }
+
+                // new id
                 Object newId = PropertyUtils.getProperty(returnObj, "id");
                 action.setObjectId(Long.valueOf(newId.toString()));
 
@@ -121,7 +115,7 @@ public class DatalogAspect {
                 action.getChanges().addAll(changeItems);
             }
 
-            //dynamic get from thread local session
+            // dynamic get from thread local session
             action.setOperator("admin");
             action.setOperateTime(new Date());
 

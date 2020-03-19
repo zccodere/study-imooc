@@ -10,10 +10,9 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
 /**
- * @author zc
- * @version 1.0 2017-09-03
- * @title Spring AOP 切点定义表达式
- * @describe Spring AOP 切点定义表达式
+ * Spring AOP 切点定义表达式
+ *
+ * @author zc 2017-09-03
  */
 public class Test {
 
@@ -148,12 +147,9 @@ public class Test {
             System.out.println("相当于@After");
         }
     }
-    
+
     /**
      * Advice中的参数及结果绑定
-     *
-     * @param joinPoint
-     * @param userId
      */
     @Before("annoTargetVsWithinDemo() && within(com.myimooc..*) && args(userId)")
     public void beforeWithArgs(JoinPoint joinPoint, Long userId) {

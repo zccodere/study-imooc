@@ -9,10 +9,9 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
- * @title 配置类
- * @describe 安全相关配置类
- * @author zc
- * @version 1.0 2017-09-13
+ * 配置类；安全相关配置类
+ *
+ * @author zc 2017-09-13
  */
 @Configuration
 @EnableWebSecurity
@@ -31,6 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logout()
                 .permitAll();
     }
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
@@ -40,4 +40,3 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("admin").password("admin").roles("ADMIN");
     }
 }
-

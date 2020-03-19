@@ -1,25 +1,24 @@
 package com.myimooc.spring.aop.proxy.chain;
 
 /**
- * @author zc
- * @version 1.0 2017-09-13
- * @title 责任链模式
- * @describe 抽象接口
+ * 责任链模式；抽象接口
+ *
+ * @author zc 2017-09-13
  */
 public abstract class AbstractHandler {
 
     /**
      * 后继Handler，是否有类进行处理
      */
-    private AbstractHandler sucessor;
+    private AbstractHandler process;
 
     /**
      * 对外暴露
      */
     public void execute() {
         handleProcess();
-        if (sucessor != null) {
-            sucessor.execute();
+        if (process != null) {
+            process.execute();
         }
     }
 
@@ -28,12 +27,12 @@ public abstract class AbstractHandler {
      */
     protected abstract void handleProcess();
 
-    public AbstractHandler getSucessor() {
-        return sucessor;
+    public AbstractHandler getProcess() {
+        return process;
     }
 
-    public void setSucessor(AbstractHandler sucessor) {
-        this.sucessor = sucessor;
+    public void setProcess(AbstractHandler process) {
+        this.process = process;
     }
 
 }

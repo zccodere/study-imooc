@@ -1,7 +1,7 @@
 package com.myimooc.spring.aop.log.util;
 
 import com.alibaba.fastjson.JSON;
-import com.myimooc.spring.aop.log.datalog.Datalog;
+import com.myimooc.spring.aop.log.datalog.DataLog;
 import com.myimooc.spring.aop.log.domain.ChangeItem;
 
 import org.apache.commons.beanutils.PropertyUtils;
@@ -13,29 +13,30 @@ import java.beans.BeanInfo;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 /**
- * @author zc
- * @version 1.0 2017-09-13
- * @title 字段变化工具类
- * @describe 字段取值等工具类
+ * 字段变化工具类；字段取值等工具类
+ *
+ * @author zc 2017-09-13
  */
 public class DiffUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(DiffUtil.class);
 
-    public static Object getObjectById(Object target, Object id)
-            throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public static Object getObjectById(Object target, Long id) throws Exception {
         Method findMethod = target.getClass().getDeclaredMethod("findById", Long.class);
-        Object oldObj = findMethod.invoke(target, id);
-        return oldObj;
+        return findMethod.invoke(target, id);
     }
 
     /**
@@ -45,8 +46,7 @@ public class DiffUtil {
      * @return change item list
      */
     public static List<ChangeItem> getInsertChangeItems(Object obj) {
-        Map<String, String> valueMap = getBeanSimpleFieldValueMap(obj,
-                true);
+        Map<String, String> valueMap = getBeanSimpleFieldValueMap(obj);
         Map<String, String> fieldCnNameMap = getFieldNameMap(obj.getClass());
         List<ChangeItem> items = new ArrayList<>();
         for (Map.Entry<String, String> entry : valueMap.entrySet()) {
@@ -84,10 +84,9 @@ public class DiffUtil {
      * @param newObj pojo object
      * @return change item list
      */
-    @SuppressWarnings("rawtypes")
     public static List<ChangeItem> getChangeItems(Object oldObj, Object newObj) {
         Class cl = oldObj.getClass();
-        List<ChangeItem> changeItems = new ArrayList<ChangeItem>();
+        List<ChangeItem> changeItems = new ArrayList<>();
         // 获取字段中文名称
         Map<String, String> fieldCnNameMap = getFieldNameMap(cl);
         try {
@@ -123,7 +122,7 @@ public class DiffUtil {
      * @param obj pojo object
      * @return 字符串
      */
-    public static String getValue(Object obj) {
+    private static String getValue(Object obj) {
         if (obj != null) {
             if (obj instanceof Date) {
                 return formatDateW3C((Date) obj);
@@ -141,11 +140,11 @@ public class DiffUtil {
      * @param clz class
      * @return 中文名
      */
-    public static Map<String, String> getFieldNameMap(Class<?> clz) {
+    private static Map<String, String> getFieldNameMap(Class<?> clz) {
         Map<String, String> map = new HashMap<>(64);
         for (Field field : clz.getDeclaredFields()) {
-            if (field.isAnnotationPresent(Datalog.class)) {
-                Datalog datalog = field.getAnnotation(Datalog.class);
+            if (field.isAnnotationPresent(DataLog.class)) {
+                DataLog datalog = field.getAnnotation(DataLog.class);
                 map.put(field.getName(), datalog.value());
             }
         }
@@ -158,20 +157,19 @@ public class DiffUtil {
      * @param date 日期
      * @return 字符串
      */
-    public static String formatDateW3C(Date date) {
+    private static String formatDateW3C(Date date) {
         DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
         String text = df.format(date);
-        String result = text.substring(0, 22) + ":" + text.substring(22);
-        return result;
+        return text.substring(0, 22) + ":" + text.substring(22);
     }
 
     /**
-     * 获取bean的fieldname和value 只获取简单类型，不获取复杂类型，包括集合
+     * 获取bean的field name和 value 只获取简单类型，不获取复杂类型，包括集合
      *
      * @param bean 实例
      * @return 字段和值的集合
      */
-    public static Map<String, String> getBeanSimpleFieldValueMap(Object bean, boolean filterNull) {
+    private static Map<String, String> getBeanSimpleFieldValueMap(Object bean) {
         Map<String, String> map = new HashMap<>(64);
         if (bean == null) {
             return map;
@@ -180,12 +178,12 @@ public class DiffUtil {
         try {
             // 不获取父类的字段
             Field[] fields = clazz.getDeclaredFields();
-            for (int i = 0; i < fields.length; i++) {
-                Class<?> fieldType = fields[i].getType();
-                String name = fields[i].getName();
+            for (Field field : fields) {
+                Class<?> fieldType = field.getType();
+                String name = field.getName();
                 Method method = clazz.getMethod("get" + name.substring(0, 1).toUpperCase() + name.substring(1));
                 Object value = method.invoke(bean);
-                if (filterNull && value == null) {
+                if (Objects.isNull(value)) {
                     continue;
                 }
                 if (isBaseDataType(fieldType)) {
@@ -206,8 +204,7 @@ public class DiffUtil {
      * @param type object
      * @return String
      */
-    @SuppressWarnings("rawtypes")
-    public static String getFieldStringValue(Class type, Object value) {
+    private static String getFieldStringValue(Class type, Object value) {
         if (type.equals(Date.class)) {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             return formatter.format((Date) value);
@@ -221,12 +218,19 @@ public class DiffUtil {
      * @param clazz 要判断的类。
      * @return true 表示为基本数据类型。
      */
-    @SuppressWarnings("rawtypes")
-    public static boolean isBaseDataType(Class clazz) throws Exception {
-        return (clazz.equals(String.class) || clazz.equals(Integer.class) || clazz.equals(Byte.class)
-                || clazz.equals(Long.class) || clazz.equals(Double.class) || clazz.equals(Float.class)
-                || clazz.equals(Character.class) || clazz.equals(Short.class) || clazz.equals(BigDecimal.class)
-                || clazz.equals(BigInteger.class) || clazz.equals(Boolean.class) || clazz.equals(Date.class)
+    private static boolean isBaseDataType(Class clazz) {
+        return (clazz.equals(String.class)
+                || clazz.equals(Integer.class)
+                || clazz.equals(Byte.class)
+                || clazz.equals(Long.class)
+                || clazz.equals(Double.class)
+                || clazz.equals(Float.class)
+                || clazz.equals(Character.class)
+                || clazz.equals(Short.class)
+                || clazz.equals(BigDecimal.class)
+                || clazz.equals(BigInteger.class)
+                || clazz.equals(Boolean.class)
+                || clazz.equals(Date.class)
                 || clazz.isPrimitive());
     }
 }

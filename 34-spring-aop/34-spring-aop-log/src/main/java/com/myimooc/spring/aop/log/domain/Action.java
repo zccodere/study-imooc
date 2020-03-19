@@ -5,33 +5,48 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @title 操作实体类
- * @describe 记录操作信息
- * @author zc
- * @version 1.0 2017-09-13
+ * 操作实体类；记录操作信息
+ *
+ * @author zc 2017-09-13
  */
 public class Action {
-    private Long id;
-    /** 操作对象ID */
-    private Long objectId;
-    /** 操作对象Class类 */
-    private String objectClass;
-    /** 操作人员 */
-    private String operator;
-    /** 操作时间 */
-    private Date operateTime;
-    /** 操作类型 */
-    private ActionType actionType;
-    /** 变化字段值集合 */
-    private List<ChangeItem> changes = new ArrayList<>();
-    
-    @Override
-	public String toString() {
-		return "Action [id=" + id + ", objectId=" + objectId + ", objectClass=" + objectClass + ", operator=" + operator
-				+ ", operateTime=" + operateTime + ", actionType=" + actionType + ", changes=" + changes + "]";
-	}
 
-	public Long getId() {
+    /**
+     * 主键
+     */
+    private Long id;
+    /**
+     * 操作对象ID
+     */
+    private Long objectId;
+    /**
+     * 操作对象Class类
+     */
+    private String objectClass;
+    /**
+     * 操作人员
+     */
+    private String operator;
+    /**
+     * 操作时间
+     */
+    private Date operateTime;
+    /**
+     * 操作类型
+     */
+    private ActionType actionType;
+    /**
+     * 变化字段值集合
+     */
+    private List<ChangeItem> changes = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "Action [id=" + id + ", objectId=" + objectId + ", objectClass=" + objectClass + ", operator=" + operator
+                + ", operateTime=" + operateTime + ", actionType=" + actionType + ", changes=" + changes + "]";
+    }
+
+    public Long getId() {
         return id;
     }
 
