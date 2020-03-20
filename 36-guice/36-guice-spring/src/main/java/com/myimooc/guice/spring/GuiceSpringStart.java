@@ -5,16 +5,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /**
- * @title 启动类
- * @describe Guice与SpringBoot协作
- * @author zc
- * @version 1.0 2017-10-15
+ * 启动类
+ *
+ * @author zc 2017-10-15
  */
 @SpringBootApplication
 @ServletComponentScan
 public class GuiceSpringStart {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         SpringApplication.run(GuiceSpringStart.class, args);
     }
 }
