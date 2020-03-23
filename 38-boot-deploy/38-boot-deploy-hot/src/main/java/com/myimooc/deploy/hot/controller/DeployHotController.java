@@ -1,15 +1,14 @@
 package com.myimooc.deploy.hot.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
- * @author zc
- * @version 1.0 2017-12-01
- * @title 控制器
- * @describe
+ * 控制器
+ *
+ * @author zc 2017-12-01
  */
 @Controller
 public class DeployHotController {

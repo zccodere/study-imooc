@@ -1,47 +1,50 @@
 package com.myimooc.deploy.classloader;
 
 /**
- * @title 类加载信息
- * @describe 封装加载类的信息
- * @author zc
- * @version 1.0 2017-12-01
+ * 类加载信息；封装加载类的信息
+ *
+ * @author zc 2017-12-01
  */
 public class LoadInfo {
-	
-	/** 自定义的类加载器 */
-	private MyClassLoader myLoader;
-	/** 记录要加载类的时间戳，加载的时间 */
-	private long loadTime;
-	
-	private BaseManager manager;
 
-	public LoadInfo(MyClassLoader myLoader, long loadTime) {
-		super();
-		this.myLoader = myLoader;
-		this.loadTime = loadTime;
-	}
+    /**
+     * 自定义的类加载器
+     */
+    private MyClassLoader myLoader;
+    /**
+     * 记录要加载类的时间戳，加载的时间
+     */
+    private long loadTime;
 
-	public MyClassLoader getMyLoader() {
-		return myLoader;
-	}
+    private BaseManager manager;
 
-	public void setMyLoader(MyClassLoader myLoader) {
-		this.myLoader = myLoader;
-	}
+    public LoadInfo(MyClassLoader myLoader, long loadTime) {
+        super();
+        this.myLoader = myLoader;
+        this.loadTime = loadTime;
+    }
 
-	public long getLoadTime() {
-		return loadTime;
-	}
+    public MyClassLoader getMyLoader() {
+        return myLoader;
+    }
 
-	public void setLoadTime(long loadTime) {
-		this.loadTime = loadTime;
-	}
+    public void setMyLoader(MyClassLoader myLoader) {
+        this.myLoader = myLoader;
+    }
 
-	public BaseManager getManager() {
-		return manager;
-	}
+    public long getLoadTime() {
+        return loadTime;
+    }
 
-	public void setManager(BaseManager manager) {
-		this.manager = manager;
-	}
+    public void setLoadTime(long loadTime) {
+        this.loadTime = loadTime;
+    }
+
+    public BaseManager getManager() {
+        return manager;
+    }
+
+    public void setManager(BaseManager manager) {
+        this.manager = manager;
+    }
 }
