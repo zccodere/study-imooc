@@ -3,14 +3,11 @@ package com.myimooc.ajax.server.vo;
 import java.io.Serializable;
 
 /**
- * <br>
- * 标题: REST请求响应POJO类<br>
- * 描述: 封装请求响应结果<br>
+ * REST请求响应POJO类；封装请求响应结果
  *
- * @author zc
- * @date 2018/04/18
+ * @author zc 2018-04-18
  */
-public class ResultBean implements Serializable{
+public class ResultBean implements Serializable {
 
     private static final long serialVersionUID = 7867107433319736719L;
 

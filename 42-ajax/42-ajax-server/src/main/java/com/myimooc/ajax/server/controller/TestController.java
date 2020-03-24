@@ -2,18 +2,25 @@ package com.myimooc.ajax.server.controller;
 
 import com.myimooc.ajax.server.vo.ResultBean;
 import com.myimooc.ajax.server.vo.User;
-import org.springframework.web.bind.annotation.*;
+
+import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
- * <br>
- * 标题: 测试控制器<br>
- * 描述: 提供REST服务<br>
+ * 测试控制器；提供REST服务
+ * <p>
  * 使用 @CrossOrigin 注解支持跨域，可以放到类或方法上面
- * //@CrossOrigin
+ * </p>
  *
- * @author zc
- * @date 2018/04/18
+ * @author zc 2018-04-18
  */
+@CrossOrigin
 @RestController
 @RequestMapping("/test")
 public class TestController {
