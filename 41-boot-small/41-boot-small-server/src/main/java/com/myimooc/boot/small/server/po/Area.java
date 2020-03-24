@@ -4,12 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * <br>
- * 标题: 区域表PO<br>
- * 描述: tb_area 表PO<br>
+ * 区域表PO
  *
- * @author zc
- * @date 2018/04/16
+ * @author zc 2018-04-16
  */
 public class Area implements Serializable {
 

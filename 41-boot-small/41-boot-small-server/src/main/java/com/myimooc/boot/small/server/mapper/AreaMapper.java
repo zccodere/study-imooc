@@ -1,20 +1,19 @@
 package com.myimooc.boot.small.server.mapper;
 
 import com.myimooc.boot.small.server.po.Area;
+
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
- * <br>
- * 标题: 区域表 DAO<br>
- * 描述: tb_area 表 DAO<br>
+ * 区域表 DAO
  *
- * @author zc
- * @date 2018/04/17
+ * @author zc 2018-04-17
  */
 @Repository
 public interface AreaMapper {
+
     /**
      * 批量查询
      *

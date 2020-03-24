@@ -5,12 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * <br>
- * 标题: Http请求响应基类<br>
- * 描述: 响应请求是否处理成功<br>
+ * Http请求响应基类
  *
- * @author zc
- * @date 2018/04/17
+ * @author zc 2018-04-17
  */
 public class BaseResponse implements Serializable {
 
@@ -26,20 +23,20 @@ public class BaseResponse implements Serializable {
     /**
      * 响应数据
      */
-    private Map<String,Object> data;
+    private Map<String, Object> data;
 
-    public void putData(String key,Object value){
+    public void putData(String key, Object value) {
         this.initData();
-        this.data.put(key,value);
+        this.data.put(key, value);
     }
 
-    public Object getData(String key){
+    public Object getData(String key) {
         this.initData();
         return this.data.get(key);
     }
 
-    private void initData(){
-        if (data == null){
+    private void initData() {
+        if (data == null) {
             data = new HashMap<>(16);
         }
     }

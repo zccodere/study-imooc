@@ -3,6 +3,7 @@ package com.myimooc.boot.small.server.service.impl;
 import com.myimooc.boot.small.server.mapper.AreaMapper;
 import com.myimooc.boot.small.server.po.Area;
 import com.myimooc.boot.small.server.service.AreaService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,12 +12,9 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * <br>
- * 标题: 区域业务服务实现<br>
- * 描述: 区域业务服务<br>
+ * 区域业务服务实现
  *
- * @author zc
- * @date 2018/04/17
+ * @author zc 2018-04-17
  */
 @Service
 public class AreaServiceImpl implements AreaService {
