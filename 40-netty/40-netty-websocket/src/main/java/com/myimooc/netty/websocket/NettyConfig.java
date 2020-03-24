@@ -5,12 +5,9 @@ import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
 
 /**
- * <br>
- * 标题: Netty 全局配置类<br>
- * 描述: 存储整个工程的全局配置<br>
+ * Netty 全局配置类；存储整个工程的全局配置
  *
- * @author zc
- * @date 2018/04/11
+ * @author zc 2018-04-11
  */
 public class NettyConfig {
 
