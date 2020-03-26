@@ -9,16 +9,14 @@ import org.junit.Test;
 
 /**
  * <br>
- * 标题: IniRealmTest测试类<br>
- * 描述: 讲解IniRealmbr<br>
+ * 标题: IniRealmTest测试类；讲解IniRealm
  *
- * @author zc
- * @date 2018/05/02
+ * @author zc 2018-05-02
  */
 public class IniRealmTest {
 
     @Test
-    public void  testAuthentication(){
+    public void testAuthentication() {
 
         // 使用IniRealm
         IniRealm iniRealm = new IniRealm("classpath:user.ini");
@@ -31,7 +29,7 @@ public class IniRealmTest {
         SecurityUtils.setSecurityManager(defaultSecurityManager);
         Subject subject = SecurityUtils.getSubject();
 
-        UsernamePasswordToken token = new UsernamePasswordToken("Mark","123456");
+        UsernamePasswordToken token = new UsernamePasswordToken("Mark", "123456");
         subject.login(token);
 
         // 是否认证

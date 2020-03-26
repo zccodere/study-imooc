@@ -1,12 +1,9 @@
 package com.myimooc.shiro.web.constant;
 
 /**
- * <br>
- * 标题: 常量类<br>
- * 描述: 常量类<br>
+ * 常量类
  *
- * @author zc
- * @date 2018/05/02
+ * @author zc 2018-05-02
  */
 public class Constants {
 
@@ -18,7 +15,6 @@ public class Constants {
          * 管理员
          */
         public static final String ADMIN = "admin";
-
     }
 
 }

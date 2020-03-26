@@ -1,6 +1,7 @@
 package com.myimooc.shiro.test;
 
 import com.myimooc.shiro.test.realm.CustomRealm;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
@@ -9,17 +10,14 @@ import org.apache.shiro.subject.Subject;
 import org.junit.Test;
 
 /**
- * <br>
- * 标题: 自定义Realm测试<br>
- * 描述: 测试自定义Realm<br>
+ * 自定义Realm测试；测试自定义Realm
  *
- * @author zc
- * @date 2018/05/02
+ * @author zc 2018-05-02
  */
 public class CustomRealmTest {
 
     @Test
-    public void  testAuthentication(){
+    public void testAuthentication() {
         CustomRealm customRealm = new CustomRealm();
 
         // 构建 SecurityManager
@@ -36,7 +34,7 @@ public class CustomRealmTest {
         SecurityUtils.setSecurityManager(defaultSecurityManager);
         Subject subject = SecurityUtils.getSubject();
 
-        UsernamePasswordToken token = new UsernamePasswordToken("Mark","123456");
+        UsernamePasswordToken token = new UsernamePasswordToken("Mark", "123456");
         subject.login(token);
 
         // 是否认证

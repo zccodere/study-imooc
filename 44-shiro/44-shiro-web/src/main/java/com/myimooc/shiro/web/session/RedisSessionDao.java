@@ -15,12 +15,9 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- * <br>
- * 标题: 使用redis管理session<br>
- * 描述: 重写session管理的方法<br>
+ * 使用redis管理session；重写session管理的方法
  *
- * @author zc
- * @date 2018/05/03
+ * @author zc 2018-05-03
  */
 public class RedisSessionDao extends AbstractSessionDAO {
 
@@ -78,7 +75,7 @@ public class RedisSessionDao extends AbstractSessionDAO {
     @Override
     public Collection<Session> getActiveSessions() {
         Set<byte[]> keys = redisTemplate.opsForValue().getOperations().keys(SHIRO_SESSION_PREFIX + "*");
-        Set<Session> sessions = new HashSet<Session>();
+        Set<Session> sessions = new HashSet<>();
         if (CollectionUtils.isEmpty(keys)) {
             return sessions;
         }

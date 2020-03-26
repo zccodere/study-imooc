@@ -1,17 +1,15 @@
 package com.myimooc.shiro.web.dao;
 
 import com.myimooc.shiro.web.vo.User;
+
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
- * <br>
- * 标题: 用户 mapper<br>
- * 描述: <br>
+ * 用户 mapper
  *
- * @author zc
- * @date 2018/05/02
+ * @author zc 2018-05-02
  */
 @Repository
 public interface UserMapper {
@@ -26,6 +24,7 @@ public interface UserMapper {
 
     /**
      * 通过用户名查询角色集合
+     *
      * @param userName 用户名
      * @return 角色集合
      */
