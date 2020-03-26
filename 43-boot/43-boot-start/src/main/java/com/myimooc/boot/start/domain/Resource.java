@@ -5,12 +5,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 /**
- * <br>
- * 标题: 配置属性实体类<br>
- * 描述: 从配置文件中获取属性值<br>
+ * 从配置文件中获取属性值
  *
- * @author zc
- * @date 2018/04/25
+ * @author zc 2018-04-25
  */
 @Configuration
 @ConfigurationProperties(prefix = "com.imooc.opensource")

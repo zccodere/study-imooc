@@ -1,6 +1,7 @@
 package com.myimooc.boot.start.controller;
 
 import com.myimooc.boot.start.domain.User;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,15 +12,12 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * <br>
- * 标题: Thymeleaf<br>
- * 描述: 整合 Thymeleaf<br>
+ * 整合 Thymeleaf
  *
- * @author zc
- * @date 2018/04/25
+ * @author zc 2018-04-25
  */
 @Controller
-@RequestMapping("th")
+@RequestMapping("/th")
 public class ThymeleafController {
 
     @RequestMapping("/index")
@@ -28,12 +26,12 @@ public class ThymeleafController {
         return "thymeleaf/index";
     }
 
-    @RequestMapping("center")
+    @RequestMapping("/center")
     public String center() {
         return "thymeleaf/center/center";
     }
 
-    @RequestMapping("test")
+    @RequestMapping("/test")
     public String test(ModelMap map) {
 
         User u = new User();

@@ -10,12 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <br>
- * 标题: 逆向生成mapper、po<br>
- * 描述: 根据数据库表结构生成代码<br>
+ * 逆向生成mapper、po；根据数据库表结构生成代码
  *
- * @author zc
- * @date 2018/04/26
+ * @author zc 2018-04-26
  */
 public class GeneratorDisplay {
 
@@ -31,11 +28,11 @@ public class GeneratorDisplay {
         myBatisGenerator.generate(null);
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
             GeneratorDisplay generatorSqlmap = new GeneratorDisplay();
             generatorSqlmap.generator();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

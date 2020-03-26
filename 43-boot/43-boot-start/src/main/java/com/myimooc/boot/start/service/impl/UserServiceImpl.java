@@ -5,22 +5,21 @@ import com.myimooc.boot.start.dao.mapper.SysUserMapper;
 import com.myimooc.boot.start.dao.mapper.SysUserMapperCustom;
 import com.myimooc.boot.start.dao.po.SysUser;
 import com.myimooc.boot.start.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.thymeleaf.util.StringUtils;
-import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
+import tk.mybatis.mapper.entity.Example;
+
 /**
- * <br>
- * 标题: 用户服务实现<br>
- * 描述: 用户服务<br>
+ * 用户服务实现
  *
- * @author zc
- * @date 2018/04/26
+ * @author zc 2018-04-26
  */
 @Service
 public class UserServiceImpl implements UserService {

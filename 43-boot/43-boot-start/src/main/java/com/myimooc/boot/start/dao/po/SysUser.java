@@ -1,103 +1,77 @@
 package com.myimooc.boot.start.dao.po;
 
 import java.util.Date;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
- * <br>
- * 标题: sys_user PO<br>
- * 描述: sys_user PO<br>
+ * sys_user PO
  *
- * @author zc
- * @date 2018/04/26
+ * @author zc 2018-04-26
  */
 @Table(name = "sys_user")
 public class SysUser {
+
     @Id
     private String id;
-
     /**
      * 用户名，登录名
      */
     private String username;
-
     /**
      * 密码
      */
     private String password;
-
     /**
      * 昵称
      */
     private String nickname;
-
     /**
      * 年龄
      */
     private Integer age;
-
     /**
-     * 性别
-     * 0：女
-     * 1：男
-     * 2：保密
+     * 性别 0：女 1：男 2：保密
      */
     private Integer sex;
-
     /**
-     * 职业类型：
-     * 1：Java开发
-     * 2：前端开发
-     * 3：大数据开发
-     * 4：ios开发
-     * 5：Android开发
-     * 6：Linux系统工程师
-     * 7：PHP开发
-     * 8：.net开发
-     * 9：C/C++
-     * 10：学生
+     * 职业类型： 1：Java开发 2：前端开发 3：大数据开发 4：ios开发 5：Android开发 6：Linux系统工程师 7：PHP开发 8：.net开发 9：C/C++ 10：学生
      * 11：其它
      */
     private Integer job;
-
     /**
      * 头像地址
      */
     @Column(name = "face_image")
     private String faceImage;
-
     /**
      * 省
      */
     private String province;
-
     /**
      * 市
      */
     private String city;
-
     /**
      * 区
      */
     private String district;
-
     /**
      * 详细地址
      */
     private String address;
-
     /**
      * 用于权限的“盐”
      */
     @Column(name = "auth_salt")
     private String authSalt;
-
     /**
      * 最后一次登录IP
      */
     @Column(name = "last_login_ip")
     private String lastLoginIp;
-
     /**
      * 最后一次登录时间
      */
@@ -118,7 +92,7 @@ public class SysUser {
     }
 
     /**
-     * @param id
+     *
      */
     public void setId(String id) {
         this.id = id;
@@ -197,92 +171,40 @@ public class SysUser {
     }
 
     /**
-     * 获取性别
-     * 0：女
-     * 1：男
-     * 2：保密
+     * 获取性别 0：女 1：男 2：保密
      *
-     * @return sex - 性别
-     * 0：女
-     * 1：男
-     * 2：保密
+     * @return sex - 性别 0：女 1：男 2：保密
      */
     public Integer getSex() {
         return sex;
     }
 
     /**
-     * 设置性别
-     * 0：女
-     * 1：男
-     * 2：保密
+     * 设置性别 0：女 1：男 2：保密
      *
-     * @param sex 性别
-     *            0：女
-     *            1：男
-     *            2：保密
+     * @param sex 性别 0：女 1：男 2：保密
      */
     public void setSex(Integer sex) {
         this.sex = sex;
     }
 
     /**
-     * 获取职业类型：
-     * 1：Java开发
-     * 2：前端开发
-     * 3：大数据开发
-     * 4：ios开发
-     * 5：Android开发
-     * 6：Linux系统工程师
-     * 7：PHP开发
-     * 8：.net开发
-     * 9：C/C++
-     * 10：学生
-     * 11：其它
+     * 获取职业类型： 1：Java开发 2：前端开发 3：大数据开发 4：ios开发 5：Android开发 6：Linux系统工程师 7：PHP开发 8：.net开发 9：C/C++
+     * 10：学生 11：其它
      *
-     * @return job - 职业类型：
-     * 1：Java开发
-     * 2：前端开发
-     * 3：大数据开发
-     * 4：ios开发
-     * 5：Android开发
-     * 6：Linux系统工程师
-     * 7：PHP开发
-     * 8：.net开发
-     * 9：C/C++
-     * 10：学生
-     * 11：其它
+     * @return job - 职业类型： 1：Java开发 2：前端开发 3：大数据开发 4：ios开发 5：Android开发 6：Linux系统工程师 7：PHP开发 8：.net开发
+     * 9：C/C++ 10：学生 11：其它
      */
     public Integer getJob() {
         return job;
     }
 
     /**
-     * 设置职业类型：
-     * 1：Java开发
-     * 2：前端开发
-     * 3：大数据开发
-     * 4：ios开发
-     * 5：Android开发
-     * 6：Linux系统工程师
-     * 7：PHP开发
-     * 8：.net开发
-     * 9：C/C++
-     * 10：学生
-     * 11：其它
+     * 设置职业类型： 1：Java开发 2：前端开发 3：大数据开发 4：ios开发 5：Android开发 6：Linux系统工程师 7：PHP开发 8：.net开发 9：C/C++
+     * 10：学生 11：其它
      *
-     * @param job 职业类型：
-     *            1：Java开发
-     *            2：前端开发
-     *            3：大数据开发
-     *            4：ios开发
-     *            5：Android开发
-     *            6：Linux系统工程师
-     *            7：PHP开发
-     *            8：.net开发
-     *            9：C/C++
-     *            10：学生
-     *            11：其它
+     * @param job 职业类型： 1：Java开发 2：前端开发 3：大数据开发 4：ios开发 5：Android开发 6：Linux系统工程师 7：PHP开发 8：.net开发
+     *            9：C/C++ 10：学生 11：其它
      */
     public void setJob(Integer job) {
         this.job = job;
@@ -440,7 +362,7 @@ public class SysUser {
     }
 
     /**
-     * @param isDelete
+     *
      */
     public void setIsDelete(Integer isDelete) {
         this.isDelete = isDelete;
@@ -454,7 +376,7 @@ public class SysUser {
     }
 
     /**
-     * @param registTime
+     *
      */
     public void setRegistTime(Date registTime) {
         this.registTime = registTime;

@@ -6,13 +6,9 @@ import com.myimooc.boot.start.domain.JsonResult;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * <br>
- * 标题: Ajax 请求 异常捕获<br>
- * 描述: Ajax 形式异常捕获<br>
- * //@RestControllerAdvice
+ * Ajax 请求 异常捕获；Ajax 形式异常捕获 //@RestControllerAdvice
  *
- * @author zc
- * @date 2018/04/25
+ * @author zc 2018-04-25
  */
 public class AjaxExceptionHandler {
 

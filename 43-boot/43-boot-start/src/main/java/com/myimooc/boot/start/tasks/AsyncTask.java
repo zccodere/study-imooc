@@ -7,12 +7,9 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.Future;
 
 /**
- * <br>
- * 标题: 自定义异步执行任务<br>
- * 描述: 异步方法需使用 @Async 注解<br>
- * 判断任务是否完成，必须返回 Future 接口
- * @author zc
- * @date 2018/04/26
+ * 自定义异步执行任务；异步方法需使用 @Async 注解；判断任务是否完成，必须返回 Future 接口
+ *
+ * @author zc 2018-04-26
  */
 @Component
 public class AsyncTask {

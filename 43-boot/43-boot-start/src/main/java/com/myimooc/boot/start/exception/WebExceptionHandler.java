@@ -6,13 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * <br>
- * 标题: Web请求 异常捕获<br>
- * 描述: 使用 @ControllerAdvice 声明当前是助手类<br>
- * //@ControllerAdvice
+ * Web请求 异常捕获；使用 @ControllerAdvice 声明当前是助手类；//@ControllerAdvice
  *
- * @author zc
- * @date 2018/04/25
+ * @author zc 2018-04-25
  */
 public class WebExceptionHandler {
 
