@@ -5,9 +5,7 @@ import java.util.Objects;
 import java.util.Scanner;
 
 /**
- * <br>
- * 标题: 程序入口<br>
- * 描述: 程序入口<br>
+ * 程序入口
  *
  * @author zc
  * @date 2018/05/29
@@ -20,9 +18,9 @@ public class Main {
         CommandRunner commandRunner = new CommandRunner();
         Scanner scanner = new Scanner(System.in);
         String line;
-        while (!Objects.equals((line = scanner.nextLine()), QUIT_TEXT)){
+        while (!Objects.equals((line = scanner.nextLine()), QUIT_TEXT)) {
             String[] inputs = line.split("\\W");
-            commandRunner.run(inputs[0],inputs[1], Arrays.asList(Arrays.copyOfRange(inputs,2,inputs.length)));
+            commandRunner.run(inputs[0], inputs[1], Arrays.asList(Arrays.copyOfRange(inputs, 2, inputs.length)));
         }
     }
 }

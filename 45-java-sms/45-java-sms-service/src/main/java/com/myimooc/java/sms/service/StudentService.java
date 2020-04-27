@@ -6,9 +6,7 @@ import com.myimooc.java.sms.model.Student;
 import java.util.List;
 
 /**
- * <br>
- * 标题: 学生服务类<br>
- * 描述: 学生服务类<br>
+ * 学生服务类
  *
  * @author zc
  * @date 2018/05/29
@@ -42,8 +40,9 @@ public interface StudentService {
 
     /**
      * 创建学生信息
-     * @param id ID
-     * @param name 名称
+     *
+     * @param id    ID
+     * @param name  名称
      * @param group 班级
      * @throws ServiceException 业务服务异常
      */

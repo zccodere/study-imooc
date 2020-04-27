@@ -1,4 +1,4 @@
-package com.myimooc.java.sms.filestore;
+package com.myimooc.java.sms.file;
 
 
 import com.myimooc.java.sms.model.BaseEntity;
@@ -16,9 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <br>
- * 标题: 持久化到文件<br>
- * 描述: 持久化到文件<br>
+ * 持久化到文件
  *
  * @author zc
  * @date 2018/05/29
@@ -31,7 +29,7 @@ public class PersistenceServiceImpl implements PersistenceService {
     public <T extends BaseEntity> List<T> list(Class<T> type) throws PersistenceException {
         List<T> results = new ArrayList<>(16);
         try {
-            DirectoryStream<Path> directoryStream = Files.newDirectoryStream(getEntityPath(type,"*.bin"));
+            DirectoryStream<Path> directoryStream = Files.newDirectoryStream(getEntityPath(type, "*.bin"));
             for (Path path : directoryStream) {
                 results.add(readEntity(path));
             }
@@ -44,7 +42,7 @@ public class PersistenceServiceImpl implements PersistenceService {
     @Override
     public <T extends BaseEntity> T getOne(Class<T> type, String id) throws PersistenceException {
         try {
-            return readEntity(getEntityPath(type,id));
+            return readEntity(getEntityPath(type, id));
         } catch (IOException | ClassNotFoundException e) {
             throw new PersistenceException(e);
         }
@@ -62,7 +60,7 @@ public class PersistenceServiceImpl implements PersistenceService {
     @Override
     public <T extends BaseEntity> void remove(Class<T> type, String id) throws PersistenceException {
         try {
-            this.readEntity(getEntityPath(type,id));
+            this.readEntity(getEntityPath(type, id));
         } catch (IOException | ClassNotFoundException e) {
             throw new PersistenceException(e);
         }
@@ -81,13 +79,13 @@ public class PersistenceServiceImpl implements PersistenceService {
         return (T) objectInputStream.readObject();
     }
 
-    private void saveEntity(BaseEntity entity)throws IOException{
-        Path path = getEntityPath(entity.getClass(),entity.getId());
+    private void saveEntity(BaseEntity entity) throws IOException {
+        Path path = getEntityPath(entity.getClass(), entity.getId());
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(Files.newOutputStream(path));
         objectOutputStream.writeObject(entity);
     }
 
-    private void removeEntity(Class<? extends BaseEntity> type, String id)throws IOException{
-        Files.deleteIfExists(getEntityPath(type,id));
+    private void removeEntity(Class<? extends BaseEntity> type, String id) throws IOException {
+        Files.deleteIfExists(getEntityPath(type, id));
     }
 }

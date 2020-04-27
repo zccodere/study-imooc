@@ -1,9 +1,7 @@
 package com.myimooc.java.sms.persistence;
 
 /**
- * <br>
- * 标题: 持久化层异常<br>
- * 描述: 持久化层异常<br>
+ * 持久化层异常
  *
  * @author zc
  * @date 2018/05/29

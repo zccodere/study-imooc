@@ -75,7 +75,8 @@
         <module>42-ajax</module>
         <module>43-boot</module>
         <module>44-shiro</module>
-        <module>45-java-sms</module>
+        <!--如果你有JDK9的环境，则可以取消屏蔽-->
+        <!--<module>45-java-sms</module>-->
 
         <module>46-hbase</module>
         <module>47-rabbitmq</module>
