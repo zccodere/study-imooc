@@ -4,18 +4,17 @@ import com.myimooc.rabbitmq.entity.Order;
 import com.myimooc.rabbitmq.ha.constant.Constants;
 import com.myimooc.rabbitmq.ha.dao.mapper.BrokerMessageLogMapper;
 import com.myimooc.rabbitmq.ha.dao.po.BrokerMessageLogPO;
+
+import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.amqp.rabbit.support.CorrelationData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
- * <br>
- * 标题: 订单消息发送者<br>
- * 描述: 订单消息发送者<br>
- * 时间: 2018/09/06<br>
+ * 订单消息发送者
  *
  * @author zc
+ * @date 2018/09/06
  */
 @Component
 public class OrderSender {
@@ -24,6 +23,7 @@ public class OrderSender {
     private RabbitTemplate rabbitTemplate;
     @Autowired
     private BrokerMessageLogMapper brokerMessageLogMapper;
+
     /**
      * 回调方法：confirm确认
      */

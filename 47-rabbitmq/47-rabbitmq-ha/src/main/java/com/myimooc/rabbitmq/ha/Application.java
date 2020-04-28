@@ -6,12 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * <br>
- * 标题: 启动类<br>
- * 描述: 启动类<br>
- * 时间: 2018/09/06<br>
+ * 启动类
  *
  * @author zc
+ * @date 2018/09/06
  */
 @SpringBootApplication
 @MapperScan("com.myimooc.rabbitmq.ha.dao.mapper")

@@ -1,24 +1,22 @@
 package com.myimooc.rabbitmq.ha.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.sql.DataSource;
 import java.sql.SQLException;
 
+import javax.sql.DataSource;
+
 /**
- * <br>
- * 标题: Druid数据源配置<br>
- * 描述: Druid数据源配置<br>
- * 时间: 2018/09/06<br>
+ * Druid数据源配置
  *
  * @author zc
+ * @date 2018/09/06
  */
 @Configuration
 @EnableTransactionManagement

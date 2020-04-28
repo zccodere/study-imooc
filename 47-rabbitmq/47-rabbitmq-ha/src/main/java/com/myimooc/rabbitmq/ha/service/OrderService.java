@@ -7,6 +7,7 @@ import com.myimooc.rabbitmq.ha.dao.mapper.OrderMapper;
 import com.myimooc.rabbitmq.ha.dao.po.BrokerMessageLogPO;
 import com.myimooc.rabbitmq.ha.producer.OrderSender;
 import com.myimooc.rabbitmq.ha.util.FastJsonConvertUtils;
+
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,12 +15,10 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 
 /**
- * <br>
- * 标题: 订单服务<br>
- * 描述: 订单服务<br>
- * 时间: 2018/09/07<br>
+ * 订单服务
  *
  * @author zc
+ * @date 2018/09/07
  */
 @Service
 public class OrderService {
@@ -42,13 +41,13 @@ public class OrderService {
         // 业务数据入库
         this.orderMapper.insert(order);
         // 消息日志入库
-        BrokerMessageLogPO messageLogPO = new BrokerMessageLogPO();
-        messageLogPO.setMessageId(order.getMessageId());
-        messageLogPO.setMessage(FastJsonConvertUtils.convertObjectToJson(order));
-        messageLogPO.setTryCount(0);
-        messageLogPO.setStatus(Constants.OrderSendStatus.SENDING);
-        messageLogPO.setNextRetry(DateUtils.addMinutes(orderTime, Constants.ORDER_TIMEOUT));
-        this.brokerMessageLogMapper.insert(messageLogPO);
+        BrokerMessageLogPO messageLog = new BrokerMessageLogPO();
+        messageLog.setMessageId(order.getMessageId());
+        messageLog.setMessage(FastJsonConvertUtils.convertObjectToJson(order));
+        messageLog.setTryCount(0);
+        messageLog.setStatus(Constants.OrderSendStatus.SENDING);
+        messageLog.setNextRetry(DateUtils.addMinutes(orderTime, Constants.ORDER_TIMEOUT));
+        this.brokerMessageLogMapper.insert(messageLog);
         // 发送消息
         this.orderSender.send(order);
     }

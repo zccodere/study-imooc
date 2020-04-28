@@ -4,12 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * <br>
- * 标题: 消息日志<br>
- * 描述: 消息日志<br>
- * 时间: 2018/09/06<br>
+ * 消息日志
  *
  * @author zc
+ * @date 2018/09/06
  */
 public class BrokerMessageLogPO implements Serializable {
 

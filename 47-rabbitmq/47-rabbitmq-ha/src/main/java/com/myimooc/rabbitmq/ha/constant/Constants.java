@@ -1,12 +1,10 @@
 package com.myimooc.rabbitmq.ha.constant;
 
 /**
- * <br>
- * 标题: 常量类<br>
- * 描述: 常量类<br>
- * 时间: 2018/09/06<br>
+ * 常量类
  *
  * @author zc
+ * @date 2018/09/06
  */
 public class Constants {
 

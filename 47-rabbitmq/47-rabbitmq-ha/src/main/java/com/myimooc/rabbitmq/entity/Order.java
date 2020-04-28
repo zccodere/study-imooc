@@ -3,14 +3,12 @@ package com.myimooc.rabbitmq.entity;
 import java.io.Serializable;
 
 /**
- * <br>
- * 标题: 订单实体<br>
- * 描述: 订单实体<br>
- * 时间: 2018/09/06<br>
+ * 订单实体
  *
  * @author zc
+ * @date 2018/09/06
  */
-public class Order implements Serializable{
+public class Order implements Serializable {
 
     private static final long serialVersionUID = 6771608755338249746L;
 
