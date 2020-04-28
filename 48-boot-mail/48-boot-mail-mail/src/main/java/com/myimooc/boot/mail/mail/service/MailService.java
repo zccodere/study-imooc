@@ -9,19 +9,17 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-import org.thymeleaf.standard.expression.MessageExpression;
+
+import java.io.File;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import java.io.File;
 
 /**
- * <br>
- * 标题: 邮件服务<br>
- * 描述: 邮件服务<br>
- * 时间: 2018/09/08<br>
+ * 邮件服务
  *
  * @author zc
+ * @date 2018/09/08
  */
 @Service
 public class MailService {
@@ -131,7 +129,7 @@ public class MailService {
             this.mailSender.send(message);
             logger.info("发送图片邮件成功！");
         } catch (MessagingException ex) {
-            logger.error("发送图片邮件异常：{}", ex);
+            logger.error("发送图片邮件异常：", ex);
         }
     }
 }

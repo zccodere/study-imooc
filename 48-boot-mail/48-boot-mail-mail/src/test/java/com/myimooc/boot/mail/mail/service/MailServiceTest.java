@@ -8,15 +8,11 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 
-import static org.junit.Assert.*;
-
 /**
- * <br>
- * 标题: 邮件服务测试<br>
- * 描述: 邮件服务测试<br>
- * 时间: 2018/09/08<br>
+ * 邮件服务测试
  *
  * @author zc
+ * @date 2018/09/08
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -25,7 +21,7 @@ public class MailServiceTest {
     /**
      * 收件邮箱地址
      */
-    private static final String TO = "zccodere@163.com";
+    private static final String TO = "you mail address";
 
     @Autowired
     private MailService mailService;
@@ -60,8 +56,8 @@ public class MailServiceTest {
         content.append("<html\n>");
         content.append("<body>\n");
         content.append("<h3> 这是有图片的邮件</h3>\n");
-        content.append("<img src=\'cid:" + rscId + "\'></img>\n");
-        content.append("<img src=\'cid:" + rscId + "\'></img>\n");
+        content.append("<img src=\'cid:").append(rscId).append("\'></img>\n");
+        content.append("<img src=\'cid:").append(rscId).append("\'></img>\n");
         content.append("</body>\n");
         content.append("</html>");
         this.mailService.sendInlineResourceMail(TO, "这是一封带图片的邮件", content.toString(), rscPath, rscId);
