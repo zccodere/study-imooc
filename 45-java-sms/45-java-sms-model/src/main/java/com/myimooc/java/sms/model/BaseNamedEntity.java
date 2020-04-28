@@ -1,9 +1,7 @@
 package com.myimooc.java.sms.model;
 
 /**
- * <br>
- * 标题: 包含名称的实体类<br>
- * 描述: 包含名称的实体类<br>
+ * 包含名称的实体类
  *
  * @author zc
  * @date 2018/05/29

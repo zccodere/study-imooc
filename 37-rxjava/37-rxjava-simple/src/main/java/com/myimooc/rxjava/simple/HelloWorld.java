@@ -1,47 +1,49 @@
 package com.myimooc.rxjava.simple;
 
-import rx.Observable;
-import rx.Observable.OnSubscribe;
-import rx.Subscriber;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 
 /**
- * @title HelloWorld类
- * @describe 3-1 入门案例HelloWorld
- * @author zc
- * @version 1.0 2017-10-16
+ * HelloWorld类；入门案例HelloWorld
+ *
+ * @author zc 2020-03-21
  */
-public class HelloWorld 
-{
-    @SuppressWarnings({ "deprecation", "rawtypes", "unchecked" })
-	public static void main( String[] args )
-    {
-        
-    	// 1.创建被观察者
-    	Observable myObservable = Observable.unsafeCreate(new OnSubscribe<String>(){
-			@Override
-			public void call(Subscriber<? super String> subscriber) {
-				subscriber.onNext("hello World!");
-				throw new NullPointerException("出错啦");
-			}
-    	});
-    	
-    	// 2.创建观察者
-    	Subscriber mySubscriber = new Subscriber<String>(){
-			@Override
-			public void onCompleted() {
-				System.out.println("onCompleted()");
-			}
-			@Override
-			public void onError(Throwable arg0) {
-				System.out.println("onError()");
-			}
-			@Override
-			public void onNext(String str) {
-				System.out.println("onNext() " + str);
-			}
-    	};
-    	
-    	// 3.订阅事件
-    	myObservable.subscribe(mySubscriber);
+public class HelloWorld {
+
+    public static void main(String[] args) {
+
+        // 1.创建被观察者
+        Observable<String> myObservable = Observable.unsafeCreate(observer -> {
+            observer.onNext("hello World!");
+            throw new NullPointerException("出错啦");
+        });
+
+        // 2.创建观察者
+        Observer<String> mySubscriber = new Observer<String>() {
+
+            @Override
+            public void onError(Throwable arg0) {
+                System.out.println("onError()");
+            }
+
+            @Override
+            public void onComplete() {
+                System.out.println("onComplete()");
+            }
+
+            @Override
+            public void onSubscribe(Disposable disposable) {
+                System.out.println("onSubscribe()");
+            }
+
+            @Override
+            public void onNext(String str) {
+                System.out.println("onNext() " + str);
+            }
+        };
+
+        // 3.订阅事件
+        myObservable.subscribe(mySubscriber);
     }
 }

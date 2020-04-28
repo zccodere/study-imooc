@@ -1,16 +1,17 @@
 package com.myimooc.ssh.employee.service;
 
-import java.util.List;
-
 import com.myimooc.ssh.employee.domain.Department;
 import com.myimooc.ssh.employee.domain.PageBean;
+
+import java.util.List;
 
 /**
  * 部门管理的业务层的接口
  *
- * @author ZhangCheng on 2017-08-18
+ * @author zc 2017-08-18
  */
 public interface DepartmentService {
+
     /**
      * 分页查询
      *

@@ -1,8 +1,13 @@
 package com.myimooc.rabbitmq.consumer.consumer;
 
-import com.rabbitmq.client.Channel;
 import com.myimooc.rabbitmq.entity.Order;
-import org.springframework.amqp.rabbit.annotation.*;
+import com.rabbitmq.client.Channel;
+
+import org.springframework.amqp.rabbit.annotation.Exchange;
+import org.springframework.amqp.rabbit.annotation.Queue;
+import org.springframework.amqp.rabbit.annotation.QueueBinding;
+import org.springframework.amqp.rabbit.annotation.RabbitHandler;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.amqp.support.AmqpHeaders;
 import org.springframework.messaging.handler.annotation.Headers;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -11,12 +16,10 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 /**
- * <br>
- * 标题: 订单接收者<br>
- * 描述: 订单接收者<br>
- * 时间: 2018/09/06<br>
+ * 订单接收者
  *
  * @author zc
+ * @date 2018/09/06
  */
 @Component
 public class OrderReceiver {
@@ -30,8 +33,8 @@ public class OrderReceiver {
      * @throws Exception 异常
      */
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue(value = "order-queue",durable = "true"),
-            exchange = @Exchange(name = "order-exchange",type = "topic"),
+            value = @Queue(value = "order-queue", durable = "true"),
+            exchange = @Exchange(name = "order-exchange", type = "topic"),
             key = "order.*"
     ))
     @RabbitHandler

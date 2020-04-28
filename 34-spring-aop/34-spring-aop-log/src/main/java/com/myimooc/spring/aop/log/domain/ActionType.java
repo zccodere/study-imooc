@@ -1,10 +1,9 @@
 package com.myimooc.spring.aop.log.domain;
 
 /**
- * @title 操作类型枚举类
- * @describe 枚举操作类型
- * @author zc
- * @version 1.0 2017-09-13
+ * 操作类型枚举类；枚举操作类型
+ *
+ * @author zc 2017-09-13
  */
 public enum ActionType {
 

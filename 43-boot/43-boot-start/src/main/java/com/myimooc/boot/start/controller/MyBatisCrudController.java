@@ -3,35 +3,31 @@ package com.myimooc.boot.start.controller;
 import com.myimooc.boot.start.dao.po.SysUser;
 import com.myimooc.boot.start.domain.JsonResult;
 import com.myimooc.boot.start.service.UserService;
-import org.n3r.idworker.Sid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
- * <br>
- * 标题: 基于Mybatis实现的CRUD例子<br>
- * 描述: 控制器<br>
+ * 基于 Mybatis 实现的 CRUD 例子控制器
  *
- * @author zc
- * @date 2018/04/26
+ * @author zc 2018-04-26
  */
 @RestController
-@RequestMapping("mybatis")
+@RequestMapping("/mybatis")
 public class MyBatisCrudController {
 
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private Sid sid;
-
     @RequestMapping("/saveUser")
-    public JsonResult saveUser() throws Exception {
-        String userId = sid.nextShort();
+    public JsonResult saveUser() {
+        // 这里直接使用UUID，实际场景可以按要求生成全局唯一主键
+        String userId = UUID.randomUUID().toString().replaceAll("-", "");
         SysUser user = new SysUser();
         user.setId(userId);
         user.setUsername("imooc" + new Date());
@@ -61,10 +57,12 @@ public class MyBatisCrudController {
         userService.remove(userId);
         return JsonResult.ok("删除成功");
     }
+
     @RequestMapping("/queryUserById")
     public JsonResult queryUserById(String userId) {
         return JsonResult.ok(userService.queryById(userId));
     }
+
     @RequestMapping("/queryUserList")
     public JsonResult queryUserList() {
         SysUser user = new SysUser();
@@ -92,7 +90,8 @@ public class MyBatisCrudController {
 
     @RequestMapping("/saveUserTransactional")
     public JsonResult saveUserTransactional() {
-        String userId = sid.nextShort();
+        // 这里直接使用UUID，实际场景可以按要求生成全局唯一主键
+        String userId = UUID.randomUUID().toString().replaceAll("-", "");
         SysUser user = new SysUser();
         user.setId(userId);
         user.setUsername("lee" + new Date());

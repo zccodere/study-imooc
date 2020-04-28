@@ -3,9 +3,9 @@ package com.myimooc.java.design.pattern.observer.weathercondition;
 import java.util.Objects;
 
 /**
- * @author zc
- * @version 1.0 2017-08-29
- * @describe 天气目标的实现类
+ * 天气目标的实现类
+ *
+ * @author zc 2017-08-29
  */
 public class ConcreteWeatherSubject extends AbstractWeatherSubject {
 

@@ -3,16 +3,16 @@ package com.myimooc.java.design.pattern.proxy.car;
 import java.util.Random;
 
 /**
- * @author zc
- * @version 1.0 2017-08-28
- * @describe 一辆车实现可行驶的接口
+ * 一辆车实现可行驶的接口
+ *
+ * @author zc 2017-08-28
  */
 public class Car implements MoveAble {
 
     @Override
     public void move() {
         // 记录汽车行驶的时间
-        long starttime = System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
         System.out.println("汽车开始行驶...");
 
         // 实现开车
@@ -23,8 +23,8 @@ public class Car implements MoveAble {
             e.printStackTrace();
         }
 
-//		long endtime = System.currentTimeMillis();
-//		System.out.println("汽车结束行驶...汽车行驶时间："+(endtime - starttime) + "毫秒");
+//		long endTime = System.currentTimeMillis();
+//		System.out.println("汽车结束行驶...汽车行驶时间："+(endTime - startTime) + "毫秒");
     }
 
 }

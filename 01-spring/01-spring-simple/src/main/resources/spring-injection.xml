@@ -5,13 +5,13 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--<bean id="injectionService" class="com.myimooc.spring.simple.ioc.injection.service.InjectionServiceImpl">-->
-    <!--<property name="injectionDAO" ref="injectionDAO"/>-->
+    <!--<property name="injectionDao" ref="injectionDao"/>-->
     <!--</bean>-->
 
     <bean id="injectionService" class="com.myimooc.spring.simple.ioc.injection.service.InjectionServiceImpl">
-        <constructor-arg name="injectionDAO" ref="injectionDAO"/>
+        <constructor-arg name="injectionDao" ref="injectionDao"/>
     </bean>
 
-    <bean id="injectionDAO" class="com.myimooc.spring.simple.ioc.injection.dao.InjectionDAOImpl"/>
+    <bean id="injectionDao" class="com.myimooc.spring.simple.ioc.injection.dao.InjectionDaoImpl"/>
 
 </beans>

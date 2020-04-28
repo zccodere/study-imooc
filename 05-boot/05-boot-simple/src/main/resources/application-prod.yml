@@ -3,4 +3,3 @@ server:
 girl:
   cupSize: F
   age: 18
-#content: "cupSize: ${cupSize}, age: ${age}"

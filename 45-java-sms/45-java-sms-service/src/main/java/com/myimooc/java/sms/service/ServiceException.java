@@ -1,9 +1,7 @@
 package com.myimooc.java.sms.service;
 
 /**
- * <br>
- * 标题: 业务服务异常<br>
- * 描述: 业务服务异常<br>
+ * 业务服务异常
  *
  * @author zc
  * @date 2018/05/29

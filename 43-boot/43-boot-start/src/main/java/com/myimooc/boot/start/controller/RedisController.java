@@ -5,6 +5,7 @@ import com.myimooc.boot.start.domain.JsonResult;
 import com.myimooc.boot.start.domain.User;
 import com.myimooc.boot.start.util.JsonUtils;
 import com.myimooc.boot.start.util.RedisOperator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,12 +16,9 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * <br>
- * 标题: 整合redis<br>
- * 描述: redis访问<br>
+ * 整合redis
  *
- * @author zc
- * @date 2018/04/26
+ * @author zc 2018-04-26
  */
 @RestController
 @RequestMapping("redis")
@@ -28,7 +26,6 @@ public class RedisController {
 
     @Autowired
     private StringRedisTemplate strRedis;
-
     @Autowired
     private RedisOperator redis;
 
@@ -42,7 +39,7 @@ public class RedisController {
         user.setIsDelete(0);
         user.setRegistTime(new Date());
         strRedis.opsForValue().set("json:user", JsonUtils.objectToJson(user));
-        SysUser jsonUser = JsonUtils.jsonToPojo(strRedis.opsForValue().get("json:user"), SysUser.class);
+        SysUser jsonUser = JsonUtils.jsonToObject(strRedis.opsForValue().get("json:user"), SysUser.class);
         return JsonResult.ok(jsonUser);
     }
 
@@ -72,9 +69,9 @@ public class RedisController {
         userList.add(u1);
         userList.add(u2);
 
-        redis.set("json:info:userlist", JsonUtils.objectToJson(userList), 2000);
+        redis.set("json:info:user-list", JsonUtils.objectToJson(userList), 2000);
 
-        String userListJson = redis.get("json:info:userlist");
+        String userListJson = redis.get("json:info:user-list");
         List<User> userListBorn = JsonUtils.jsonToList(userListJson, User.class);
 
         return JsonResult.ok(userListBorn);

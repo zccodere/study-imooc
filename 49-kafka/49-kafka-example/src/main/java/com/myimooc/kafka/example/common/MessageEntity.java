@@ -3,14 +3,13 @@ package com.myimooc.kafka.example.common;
 import java.util.Objects;
 
 /**
- * <br>
- * 标题: 消息实体<br>
- * 描述: 消息实体<br>
- * 时间: 2018/09/09<br>
+ * 消息实体
  *
  * @author zc
+ * @date 2018/09/09
  */
 public class MessageEntity {
+
     /**
      * 标题
      */

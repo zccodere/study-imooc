@@ -1,12 +1,12 @@
 package com.myimooc.java.design.pattern.chain.handler;
 
 /**
- * @author zc
- * @version 1.0 2017-08-30
- * @title 责任链模式
- * @describe 销售小组长， 可以批准15%以内的折扣
+ * 责任链模式；销售小组长， 可以批准15%以内的折扣
+ *
+ * @author zc 2017-08-30
  */
 public class Lead extends AbstractPriceHandler {
+
     private static final float DISCOUNT = 0.15f;
 
     @Override

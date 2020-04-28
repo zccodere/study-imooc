@@ -4,58 +4,58 @@
 
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.connection.url">
-        	<![CDATA[
-        		jdbc:mysql://localhost:3306/hibernatemtm?useUnicode=true&characterEncoding=utf8
+            <![CDATA[
+        		jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
         	]]>
         </property>
         <property name="show_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
         <property name="current_session_context_class">thread</property>
-    	 
-    	<!-- 一对一单向外键关联 -->
-    	<!--
-    	<mapping class="com.myimooc.hibernate.anno.ra.onetoonefk.Students"/> 
-		<mapping class="com.myimooc.hibernate.anno.ra.onetoonefk.IdCard"/> 
-		-->
-		
-    	<!-- 一对一双向外键关联 -->
-    	<!--
-    	<mapping class="com.myimooc.hibernate.anno.ra.onetoonebfk.Students"/> 
-		<mapping class="com.myimooc.hibernate.anno.ra.onetoonebfk.IdCard"/> 
-		-->
-		
-		<!-- 多对一单向外键关联 -->
-		<!--
-    	<mapping class="com.myimooc.hibernate.anno.ra.manytoonefk.Students"/> 
-		<mapping class="com.myimooc.hibernate.anno.ra.manytoonefk.ClassRoom"/> 
-		-->
-		
-		<!-- 一对多单向外键关联 -->
-		<!--
-    	<mapping class="com.myimooc.hibernate.anno.ra.onetomanyfk.Students"/> 
-		<mapping class="com.myimooc.hibernate.anno.ra.onetomanyfk.ClassRoom"/>
-		-->
-		
-		<!-- 一对多双向外键关联 -->
-		<!-- 
-    	<mapping class="com.myimooc.hibernate.anno.ra.onetomanybfk.Students"/> 
-		<mapping class="com.myimooc.hibernate.anno.ra.onetomanybfk.ClassRoom"/> 
-		-->
-		
-		<!-- 多对多单向外键关联 -->
-		<!--
-    	<mapping class="com.myimooc.hibernate.anno.ra.manytomanyfk.Students"/> 
-		<mapping class="com.myimooc.hibernate.anno.ra.manytomanyfk.Teachers"/> 
-		-->
-		
-		<!-- 多对多双向外键关联 -->
-    	<mapping class="com.myimooc.hibernate.anno.ra.manytomanybfk.Students"/> 
-		<mapping class="com.myimooc.hibernate.anno.ra.manytomanybfk.Teachers"/>
-		
+
+        <!-- 一对一单向外键关联 -->
+        <!--
+        <mapping class="com.myimooc.hibernate.anno.ra.onetoonefk.Students"/>
+        <mapping class="com.myimooc.hibernate.anno.ra.onetoonefk.IdCard"/>
+        -->
+
+        <!-- 一对一双向外键关联 -->
+        <!--
+        <mapping class="com.myimooc.hibernate.anno.ra.onetoonebfk.Students"/>
+        <mapping class="com.myimooc.hibernate.anno.ra.onetoonebfk.IdCard"/>
+        -->
+
+        <!-- 多对一单向外键关联 -->
+        <!--
+        <mapping class="com.myimooc.hibernate.anno.ra.manytoonefk.Students"/>
+        <mapping class="com.myimooc.hibernate.anno.ra.manytoonefk.ClassRoom"/>
+        -->
+
+        <!-- 一对多单向外键关联 -->
+        <!--
+        <mapping class="com.myimooc.hibernate.anno.ra.onetomanyfk.Students"/>
+        <mapping class="com.myimooc.hibernate.anno.ra.onetomanyfk.ClassRoom"/>
+        -->
+
+        <!-- 一对多双向外键关联 -->
+        <!--
+        <mapping class="com.myimooc.hibernate.anno.ra.onetomanybfk.Students"/>
+        <mapping class="com.myimooc.hibernate.anno.ra.onetomanybfk.ClassRoom"/>
+        -->
+
+        <!-- 多对多单向外键关联 -->
+        <!--
+        <mapping class="com.myimooc.hibernate.anno.ra.manytomanyfk.Students"/>
+        <mapping class="com.myimooc.hibernate.anno.ra.manytomanyfk.Teachers"/>
+        -->
+
+        <!-- 多对多双向外键关联 -->
+        <mapping class="com.myimooc.hibernate.anno.ra.manytomanybfk.Students"/>
+        <mapping class="com.myimooc.hibernate.anno.ra.manytomanybfk.Teachers"/>
+
     </session-factory>
 </hibernate-configuration>

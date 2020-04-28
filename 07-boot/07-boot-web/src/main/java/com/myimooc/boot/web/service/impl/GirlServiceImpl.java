@@ -1,21 +1,21 @@
 package com.myimooc.boot.web.service.impl;
 
+import com.myimooc.boot.web.exception.ResponseException;
+import com.myimooc.boot.web.model.entity.Girl;
 import com.myimooc.boot.web.repository.GirlRepository;
 import com.myimooc.boot.web.service.GirlService;
-import com.myimooc.boot.web.utils.ResultResp;
-import com.myimooc.boot.web.model.entity.Girl;
-import com.myimooc.boot.web.exception.RespException;
+import com.myimooc.boot.web.utils.ResultResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Objects;
+
 /**
- * <br>
- * 标题: 业务服务实现<br>
- * 描述: 业务服务实现<br>
- * 时间: 2017/02/18<br>
+ * 服务层实现
  *
- * @author zc
+ * @author zc 2017-02-18
  */
 @Service
 public class GirlServiceImpl implements GirlService {
@@ -38,21 +38,24 @@ public class GirlServiceImpl implements GirlService {
         girlB.setAge(19);
         girlB.setCupSize("B");
         girlRepository.save(girlB);
-
     }
 
     @Override
-    public void getAge(Integer id) throws Exception {
-        Girl girl = girlRepository.findOne(id);
+    public void getAge(Integer id) throws ResponseException {
+        Girl girl = girlRepository.findById(id).orElse(null);
+        if (Objects.isNull(girl)) {
+            return;
+        }
+
         Integer age = girl.getAge();
         int primarySchool = 10;
         int middleSchool = 16;
         if (age < primarySchool) {
-            //返回“你还在上小学吧”
-            throw new RespException(ResultResp.PRIMARY_SCHOOL);
+            // 返回“你还在上小学吧”
+            throw new ResponseException(ResultResponse.PRIMARY_SCHOOL);
         } else if (age > primarySchool && age < middleSchool) {
-            //返回“你可能在上初中”
-            throw new RespException(ResultResp.MIDDLE_SCHOOL);
+            // 返回“你可能在上初中”
+            throw new ResponseException(ResultResponse.MIDDLE_SCHOOL);
         }
 
         //如果>16岁，价钱
@@ -61,12 +64,9 @@ public class GirlServiceImpl implements GirlService {
 
     /**
      * 通过Id查询一个女生的信息
-     *
-     * @param id
-     * @return
      */
     @Override
     public Girl findOne(Integer id) {
-        return girlRepository.findOne(id);
+        return girlRepository.findById(id).orElse(null);
     }
 }

@@ -11,10 +11,9 @@ import javax.persistence.Transient;
 /**
  * 学生实体类
  *
- * @author ZhangCheng on 2017-07-12
+ * @author zc 2017-07-12
  */
 
-@SuppressWarnings("unused")
 @Entity
 @Table(name = "t_students", schema = "hibernatemtm")
 public class Students {
@@ -32,8 +31,7 @@ public class Students {
             "private String sid;";
 
     /**
-     * 学号
-     * 方式三：使用复合主键
+     * 学号 方式三：使用复合主键
      */
     @EmbeddedId
     private StudentsPk pk;
@@ -41,7 +39,7 @@ public class Students {
     /**
      * 姓名
      */
-    private String sname;
+    private String studentName;
     /**
      * 性别
      */
@@ -67,7 +65,7 @@ public class Students {
 
     @Override
     public String toString() {
-        return "Students [pk=" + pk + ", sname=" + sname + ", gender=" + gender + ", birthday=" + birthday + ", major="
+        return "Students [pk=" + pk + ", studentName=" + studentName + ", gender=" + gender + ", birthday=" + birthday + ", major="
                 + major + ", salary=" + salary + ", address=" + address + "]";
     }
 
@@ -75,21 +73,21 @@ public class Students {
         super();
     }
 
-    public Students(StudentsPk pk, String sname, String gender, Date birthday, String major, Address address) {
+    public Students(StudentsPk pk, String studentName, String gender, Date birthday, String major, Address address) {
         super();
         this.pk = pk;
-        this.sname = sname;
+        this.studentName = studentName;
         this.gender = gender;
         this.birthday = birthday;
         this.major = major;
         this.address = address;
     }
 
-    public Students(StudentsPk pk, String sname, String gender, Date birthday, String major, double salary,
+    public Students(StudentsPk pk, String studentName, String gender, Date birthday, String major, double salary,
                     Address address) {
         super();
         this.pk = pk;
-        this.sname = sname;
+        this.studentName = studentName;
         this.gender = gender;
         this.birthday = birthday;
         this.major = major;
@@ -121,12 +119,12 @@ public class Students {
         this.pk = pk;
     }
 
-    public String getSname() {
-        return sname;
+    public String getStudentName() {
+        return studentName;
     }
 
-    public void setSname(String sname) {
-        this.sname = sname;
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
     public String getGender() {

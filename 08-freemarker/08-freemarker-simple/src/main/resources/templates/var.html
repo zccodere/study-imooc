@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Freemarker基本操作</h1>
+
+<h2>1. 取基本值</h2>
+<ul>
+	<li>整数：${intVar}</li>
+	<li>长整数：${longVar}</li>
+	<li>字符串：${stringVar}</li>
+	<li>双精度：${doubleVar}</li>
+	<li>布尔值：${booleanVar?string('yes','no')}</li>
+	<li>日期：${dateVar?string('yyyy-MM-dd')}</li>
+	<li>null：${nullVar!'我是默认值'}</li>
+	<li>missing：${ssssVar!'我是默认值'}</li>
+</ul>
+
+<h2>2. 赋值运算</h2>
+<ul>
+	<li>赋值&运算</li>
+	[#assign a = 100 /]
+	a = ${a}
+	<br/>
+	a+100=${a+100}
+</ul>
+
+<h2>3. 封装类型</h2>
+<ul>
+	<li>对象</li>
+	${(userObj.name)!"默认值"}
+	<li>富文本</li>
+	${(briefVar)!?html}
+</ul>
+
+<h2>4. 遍历集合</h2>
+<ul>
+	<li>List集合</li>
+	[#list myList as item]
+	<font color="red">${item!}</font><br/>
+	[/#list]
+	
+	<li>Map集合</li>
+	[#list map?keys as key]
+	<font color="red">${key}:${map[key]!}</font><br/>
+	[/#list]
+</ul>
+
+<h2>5. 逻辑处理</h2>
+<ul>
+	<li>if</li>
+	[#assign var = 99 /]
+	
+	[#if var == 99]
+	<font color="red">${var!}</font><br/>
+	[/#if]
+	
+	<li>if else</li>
+	[#if var == 99]
+		<font color="red">var = 99</font><br/>
+	[#else]
+		<font color="red">var != 99</font><br/>
+	[/#if]
+	
+	<li>if elseif else</li>
+	[#if var &gt; 99]
+		<font color="red">var 大于 99</font><br/>
+	[#elseif var == 99]
+		<font color="red">var 等于 99</font><br/>
+	[#else]
+		<font color="red">var 小于 99</font><br/>
+	[/#if]
+	
+	<li>if多条件 || && !</li>
+	[#assign var2 = 'python' /]
+	[#if var2 == 'python' || var2 == 'java']
+	<font color="red">python or java</font><br/>
+	[/#if]
+	
+	<li>switch case break default</li>
+	[#assign var3 = 10 /]
+	[#switch var3]
+		
+	[#case 10] 10<br/>
+		[#break]
+	
+	[#case 100] 100<br/>
+		[#break]
+	
+	[#default] other
+	
+	[/#switch]
+	
+</ul>
+
+<h2>6. 字符操作</h2>
+<ul>
+	<li>字符串常用内建函数-连接</li>
+	[#assign stra = 'hello' /]
+	[#assign strb = 'world' /]
+	<font color="red">${stra + strb}</font><br/>
+	
+	<li>字符串常用内建函数-截取</li>
+	<font color="red">${(stra + strb)?substring(5,8)}</font><br/>
+	
+	<li>字符串常用内建函数-长度</li>
+	<font color="red">${(stra + strb)?length}</font><br/>
+	
+	<li>字符串常用内建函数-大写</li>
+	<font color="red">${(stra + strb)?upper_case}</font><br/>
+	
+	<li>字符串常用内建函数-小写</li>
+	<font color="red">${(stra + strb)?lower_case}</font><br/>
+	
+	<li>字符串常用内建函数-index_of</li>
+	<font color="red">${(stra + strb)?index_of('w')}</font><br/>
+	
+	<li>字符串常用内建函数-last_index_of</li>
+	<font color="red">${(stra + strb)?last_index_of('o')}</font><br/>
+	
+	<li>字符串常用内建函数-replace</li>
+	<font color="red">${(stra + strb)?replace('o','xx')}</font><br/>
+	
+</ul>
+
+
+<h2>7. 自定义函数</h2>
+<ul>
+	<li>整数排序sort_int</li>
+	[#assign mylistinfo = [2,3,4,5,1,8,9,8,7] /]
+	<li>未排序</li>
+	[#list mylistinfo as item]
+		${item},
+	[/#list]
+	
+	[#assign mylistinfo = [2,3,4,5,1,8,9,8,7] /]
+	<li>已排序</li>
+	[#list sort_int(mylistinfo) as item]
+		${item},
+	[/#list]
+	
+	[#assign mylistinfo = [2,3,4,5,1,8,9,8,7] /]
+	<li>内建排序-升序</li>
+	[#list mylistinfo?sort as item]
+		${item_index}:${item},
+	[/#list]
+	<li>内建排序-降序</li>
+	[#list mylistinfo?sort?reverse as item]
+		${item_index}:${item},
+	[/#list]
+	<li>List长度</li>
+	${mylistinfo?size}
+	<li>List下标取值</li>
+	${mylistinfo[3]}
+	
+</ul>
+
+<h2>8. 自定义指令</h2>
+<ul>
+	<li>用户123456是否拥有admin角色，并且返回admin的权限</li>
+	[@role user='123456' role='admin';result1,result2]
+		[#if result1]
+			我的角色是<font color="red">admin</font>
+		[/#if]
+		我拥有的权限是：<font color="red">
+		[#list result2 as item]
+			${item},
+		[/#list]
+		</font>
+	[/@role]
+</ul>
+
+
+</body>
+</html>

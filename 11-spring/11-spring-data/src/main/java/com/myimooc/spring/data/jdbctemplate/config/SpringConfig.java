@@ -8,12 +8,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 /**
- * <br>
- * 标题: Spring配置<br>
- * 描述: Spring配置<br>
- * 时间: 2017/04/24<br>
+ * Spring配置
  *
- * @author zc
+ * @author zc 2017-04-24
  */
 @Configuration
 @ComponentScan("com.myimooc.spring.data.jdbctemplate")

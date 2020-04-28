@@ -7,6 +7,6 @@
 
     <bean id="autoWiringService" class="com.myimooc.spring.simple.autowiring.AutoWiringService"/>
 
-    <bean class="com.myimooc.spring.simple.autowiring.AutoWiringDAO"/>
+    <bean class="com.myimooc.spring.simple.autowiring.AutoWiringDao"/>
 
 </beans>

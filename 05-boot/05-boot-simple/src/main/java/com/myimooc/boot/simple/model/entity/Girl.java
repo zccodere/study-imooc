@@ -5,25 +5,38 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
- * <br>
- * 标题: 实体<br>
- * 描述: 实体<br>
- * 时间: 2017/02/18<br>
+ * 实体
  *
- * @author zc
+ * @author zc 2017-02-18
  */
 @Entity
 public class Girl {
 
+    /**
+     * 主键ID
+     */
     @Id
     @GeneratedValue
     private Integer id;
-
+    /**
+     * 大小
+     */
     private String cupSize;
-
+    /**
+     * 年龄
+     */
     private Integer age;
 
     public Girl() {
+    }
+
+    @Override
+    public String toString() {
+        return "Girl{" +
+                "id=" + id +
+                ", cupSize='" + cupSize + '\'' +
+                ", age=" + age +
+                '}';
     }
 
     public Integer getId() {
@@ -48,14 +61,5 @@ public class Girl {
 
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "Girl{" +
-                "id=" + id +
-                ", cupSize='" + cupSize + '\'' +
-                ", age=" + age +
-                '}';
     }
 }

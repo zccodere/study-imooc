@@ -1,14 +1,12 @@
 package com.myimooc.boot.web.service;
 
+import com.myimooc.boot.web.exception.ResponseException;
 import com.myimooc.boot.web.model.entity.Girl;
 
 /**
- * <br>
- * 标题: 业务服务<br>
- * 描述: 业务服务<br>
- * 时间: 2017/02/18<br>
+ * 服务层
  *
- * @author zc
+ * @author zc 2017-02-18
  */
 public interface GirlService {
 
@@ -20,16 +18,16 @@ public interface GirlService {
     /**
      * 获取年龄
      *
-     * @param id
-     * @throws Exception
+     * @param id 主键ID
+     * @throws ResponseException 业务异常
      */
-    void getAge(Integer id) throws Exception;
+    void getAge(Integer id) throws ResponseException;
 
     /**
      * 获取女生信息
      *
-     * @param id
-     * @return
+     * @param id 主键ID
+     * @return 女生信息
      */
     Girl findOne(Integer id);
 }

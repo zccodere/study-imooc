@@ -1,28 +1,36 @@
 package com.myimooc.spring.aop.log.domain;
 
 /**
- * @title 变化条目实体类
- * @describe 记录字段信息
- * @author zc
- * @version 1.0 2017-09-13
+ * 变化条目实体类；记录字段信息
+ *
+ * @author zc 2017-09-13
  */
 public class ChangeItem {
-	/** 字段名称 */
-    private String field;
-    /** 字段中文名称 */
-    private String fieldShowName;
-    /** 字段旧值 */
-    private String oldValue;
-    /** 字段新值 */
-    private String newValue;
-   
-	@Override
-	public String toString() {
-		return "ChangeItem [field=" + field + ", fieldShowName=" + fieldShowName + ", oldValue=" + oldValue
-				+ ", newValue=" + newValue + "]";
-	}
 
-	public String getFieldShowName() {
+    /**
+     * 字段名称
+     */
+    private String field;
+    /**
+     * 字段中文名称
+     */
+    private String fieldShowName;
+    /**
+     * 字段旧值
+     */
+    private String oldValue;
+    /**
+     * 字段新值
+     */
+    private String newValue;
+
+    @Override
+    public String toString() {
+        return "ChangeItem [field=" + field + ", fieldShowName=" + fieldShowName + ", oldValue=" + oldValue
+                + ", newValue=" + newValue + "]";
+    }
+
+    public String getFieldShowName() {
         return fieldShowName;
     }
 

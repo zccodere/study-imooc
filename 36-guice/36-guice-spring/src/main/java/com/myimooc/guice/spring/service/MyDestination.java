@@ -1,12 +1,12 @@
 package com.myimooc.guice.spring.service;
 
 /**
- * @author zc
- * @version 1.0 2017-10-15
- * @title MyDestination类
- * @describe 提供write()方法
+ * MyDestination类；提供write()方法
+ *
+ * @author zc 2017-10-15
  */
 public interface MyDestination {
+
     /**
      * 写
      *

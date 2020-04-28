@@ -6,6 +6,7 @@ import com.myimooc.rabbitmq.ha.dao.mapper.BrokerMessageLogMapper;
 import com.myimooc.rabbitmq.ha.dao.po.BrokerMessageLogPO;
 import com.myimooc.rabbitmq.ha.producer.OrderSender;
 import com.myimooc.rabbitmq.ha.util.FastJsonConvertUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 /**
- * <br>
- * 标题: 重发消息定时任务<br>
- * 描述: 重发消息定时任务<br>
- * 时间: 2018/09/07<br>
+ * 重发消息定时任务
  *
  * @author zc
+ * @date 2018/09/07
  */
 @Component
 public class RetryMessageTask {
@@ -41,13 +40,13 @@ public class RetryMessageTask {
         // 查询 status = 0 和 timeout 的消息日志
         List<BrokerMessageLogPO> pos = this.brokerMessageLogMapper.listSendFailureAndTimeoutMessage();
         for (BrokerMessageLogPO po : pos) {
-            logger.debug("处理消息日志：{}",po);
+            logger.debug("处理消息日志：{}", po);
             if (po.getTryCount() >= Constants.MAX_RETRY_COUNT) {
                 // 更新状态为失败
-                BrokerMessageLogPO messageLogPO = new BrokerMessageLogPO();
-                messageLogPO.setMessageId(po.getMessageId());
-                messageLogPO.setStatus(Constants.OrderSendStatus.SEND_FAILURE);
-                this.brokerMessageLogMapper.changeBrokerMessageLogStatus(messageLogPO);
+                BrokerMessageLogPO messageLog = new BrokerMessageLogPO();
+                messageLog.setMessageId(po.getMessageId());
+                messageLog.setStatus(Constants.OrderSendStatus.SEND_FAILURE);
+                this.brokerMessageLogMapper.changeBrokerMessageLogStatus(messageLog);
             } else {
                 // 进行重试，重试次数+1
                 this.brokerMessageLogMapper.updateRetryCount(po);
@@ -56,7 +55,7 @@ public class RetryMessageTask {
                     this.orderSender.send(reSendOrder);
                 } catch (Exception ex) {
                     // 异常处理
-                    logger.error("消息发送异常：{}", ex);
+                    logger.error("消息发送异常：", ex);
                 }
             }
         }

@@ -12,10 +12,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
- * 一对多双向外键关联
- * 学生实体类（多方）
+ * 一对多双向外键关联； 学生实体类（多方）
  *
- * @author ZhangCheng on 2017-07-13
+ * @author zc 2017-07-13
  */
 @Entity
 public class Students {
@@ -44,9 +43,7 @@ public class Students {
     private String major;
 
     /**
-     * 多方持有一方的引用
-     * 配置级联关系和抓取策略
-     * // 指定外键
+     * 多方持有一方的引用 配置级联关系和抓取策略 // 指定外键
      */
     @ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
     @JoinColumn(name = "cid")

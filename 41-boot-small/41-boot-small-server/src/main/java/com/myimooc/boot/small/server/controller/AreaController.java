@@ -3,16 +3,18 @@ package com.myimooc.boot.small.server.controller;
 import com.myimooc.boot.small.server.po.Area;
 import com.myimooc.boot.small.server.service.AreaService;
 import com.myimooc.boot.small.server.vo.BaseResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
- * <br>
- * 标题: 区域控制器<br>
- * 描述: 控制器类<br>
+ * 区域控制器
  *
- * @author zc
- * @date 2018/04/17
+ * @author zc 2018-04-17
  */
 @RestController
 @RequestMapping("/superadmin/area")

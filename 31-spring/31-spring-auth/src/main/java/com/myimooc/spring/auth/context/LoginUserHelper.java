@@ -1,5 +1,18 @@
 package com.myimooc.spring.auth.context;
 
+import com.myimooc.spring.auth.common.Whether;
+import com.myimooc.spring.auth.dto.Accordion;
+import com.myimooc.spring.auth.entity.Function;
+import com.myimooc.spring.auth.entity.Role;
+import com.myimooc.spring.auth.entity.RoleFunction;
+import com.myimooc.spring.auth.entity.User;
+import com.myimooc.spring.auth.entity.UserRole;
+import com.myimooc.spring.auth.service.RoleService;
+import com.myimooc.spring.auth.service.UserService;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -10,23 +23,10 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-import com.myimooc.spring.auth.service.RoleService;
-import com.myimooc.spring.auth.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import com.myimooc.spring.auth.common.Whether;
-import com.myimooc.spring.auth.dto.Accordion;
-import com.myimooc.spring.auth.entity.Function;
-import com.myimooc.spring.auth.entity.Role;
-import com.myimooc.spring.auth.entity.RoleFunction;
-import com.myimooc.spring.auth.entity.User;
-import com.myimooc.spring.auth.entity.UserRole;
-
 /**
  * 用户登录 Helper
  *
- * @author zc on 2017-08-19
+ * @author zc 2017-08-19
  */
 @Component
 public class LoginUserHelper {

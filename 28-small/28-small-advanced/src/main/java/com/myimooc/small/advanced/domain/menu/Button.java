@@ -1,14 +1,26 @@
 package com.myimooc.small.advanced.domain.menu;
 
+import java.util.Arrays;
+
 /**
  * 菜单按钮
  *
- * @author ZhangCheng on 2017-08-12
+ * @author zc 2017-08-12
  */
 public class Button {
+
     private String type;
     private String name;
     private Button[] subButton;
+
+    @Override
+    public String toString() {
+        return "Button{" +
+                "type='" + type + '\'' +
+                ", name='" + name + '\'' +
+                ", subButton=" + Arrays.toString(subButton) +
+                '}';
+    }
 
     public String getType() {
         return type;

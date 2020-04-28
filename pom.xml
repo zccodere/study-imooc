@@ -8,11 +8,21 @@
 
     <groupId>com.myimooc</groupId>
     <artifactId>study-imooc</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <modules>
+    <name>study-imooc</name>
+    <description>技术学习案例项目源码</description>
+    <url>https://github.com/zccodere/study-imooc</url>
 
+    <mailingLists>
+        <mailingList>
+            <name>Contact Developer</name>
+            <post>zccoder@aliyun.com</post>
+        </mailingList>
+    </mailingLists>
+
+    <modules>
         <module>01-spring</module>
         <module>02-spring</module>
         <module>03-spring-mvc</module>
@@ -65,7 +75,8 @@
         <module>42-ajax</module>
         <module>43-boot</module>
         <module>44-shiro</module>
-        <module>45-java-sms</module>
+        <!--如果你有JDK9的环境，则可以取消屏蔽-->
+        <!--<module>45-java-sms</module>-->
 
         <module>46-hbase</module>
         <module>47-rabbitmq</module>
@@ -74,6 +85,38 @@
         <module>50-boot</module>
 
     </modules>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <spring.version>5.1.14.RELEASE</spring.version>
+        <spring.boot.version>2.1.13.RELEASE</spring.boot.version>
+        <spring.cloud.version>Greenwich.SR5</spring.cloud.version>
+        <slf4j.version>1.7.30</slf4j.version>
+        <log4j2.version>2.11.2</log4j2.version>
+        <junit.version>4.12</junit.version>
+        <hibernate.version>5.3.15.Final</hibernate.version>
+        <mysql.connector.version>8.0.19</mysql.connector.version>
+        <mybatis.spring.boot.starter.version>2.1.1</mybatis.spring.boot.starter.version>
+
+        <commons.io.version>2.6</commons.io.version>
+        <commons.pool2.version>2.6.2</commons.pool2.version>
+        <commons.lang3.version>3.8.1</commons.lang3.version>
+        <commons.collections4.version>4.4</commons.collections4.version>
+        <commons.fileupload.version>1.4</commons.fileupload.version>
+        <commons.beanutils.version>1.9.4</commons.beanutils.version>
+
+        <fastjson.version>1.2.66</fastjson.version>
+        <gson.version>2.8.6</gson.version>
+        <guava.version>19.0</guava.version>
+
+        <jedis.version>3.2.0</jedis.version>
+        <activemq.version>5.15.11</activemq.version>
+
+    </properties>
 
     <repositories>
         <repository>

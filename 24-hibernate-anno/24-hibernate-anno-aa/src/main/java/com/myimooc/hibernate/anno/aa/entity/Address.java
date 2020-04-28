@@ -3,10 +3,9 @@ package com.myimooc.hibernate.anno.aa.entity;
 import javax.persistence.Embeddable;
 
 /**
- * 地址类（嵌入类）
- * // @Embeddable 表示是一个嵌入类，这个类的对象在另一个实体类中充当属性
+ * 地址类（嵌入类）；@Embeddable 表示是一个嵌入类，这个类的对象在另一个实体类中充当属性
  *
- * @author ZhangCheng on 2017-07-12
+ * @author zc 2017-07-12
  */
 @Embeddable
 public class Address {
@@ -61,6 +60,4 @@ public class Address {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-
 }

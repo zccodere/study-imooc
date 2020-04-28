@@ -8,12 +8,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * <br>
- * 标题: POJO类<br>
- * 描述: 用户信息<br>
+ * 用户信息<
  *
- * @author zc
- * @date 2018/04/19
+ * @author zc 2018-04-19
  */
 public class User implements Serializable {
 
@@ -34,7 +31,7 @@ public class User implements Serializable {
     /**
      * 生日，使用 @JsonFormat 注解，在序列化为 JSON 时，使用 pattern 属性指定的值格式化日期时间
      */
-    @JsonFormat(pattern = "yyyy-MM-dd",locale = "zh",timezone = "GMT+8")
+    @JsonFormat(pattern = "yyyy-MM-dd", locale = "zh", timezone = "GMT+8")
     private Date birthday;
     /**
      * 描述，使用 @JsonInclude 注解，在序列化为 JSON 时，当字段为 null 时，则忽略该字段

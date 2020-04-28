@@ -1,24 +1,30 @@
 package com.myimooc.netty.websocket;
 
+import java.util.Date;
+
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.handler.codec.http.*;
-import io.netty.handler.codec.http.websocketx.*;
+import io.netty.handler.codec.http.DefaultFullHttpResponse;
+import io.netty.handler.codec.http.FullHttpRequest;
+import io.netty.handler.codec.http.HttpResponseStatus;
+import io.netty.handler.codec.http.HttpVersion;
+import io.netty.handler.codec.http.websocketx.CloseWebSocketFrame;
+import io.netty.handler.codec.http.websocketx.PingWebSocketFrame;
+import io.netty.handler.codec.http.websocketx.PongWebSocketFrame;
+import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
+import io.netty.handler.codec.http.websocketx.WebSocketFrame;
+import io.netty.handler.codec.http.websocketx.WebSocketServerHandshaker;
+import io.netty.handler.codec.http.websocketx.WebSocketServerHandshakerFactory;
 import io.netty.util.CharsetUtil;
 
-import java.util.Date;
-
 /**
- * <br>
- * 标题: 处理客户端WebSocket请求的核心业务处理类<br>
- * 描述: 接收/处理/响应 客户端websocket请求的核心业务处理类<br>
+ * 处理客户端WebSocket请求的核心业务处理类；接收/处理/响应 客户端websocket请求的核心业务处理类
  *
- * @author zc
- * @date 2018/04/11
+ * @author zc 2018-04-11
  */
 public class MyWebSocketHandler extends SimpleChannelInboundHandler<Object> {
 
@@ -32,7 +38,7 @@ public class MyWebSocketHandler extends SimpleChannelInboundHandler<Object> {
      * 服务端处理客户端websocket请求的核心方法
      */
     @Override
-    protected void messageReceived(ChannelHandlerContext ctx, Object msg) throws Exception {
+    protected void messageReceived(ChannelHandlerContext ctx, Object msg) {
         if (msg instanceof FullHttpRequest) {
             // 处理客户端向服务端发起http握手请求的业务
             FullHttpRequest request = (FullHttpRequest) msg;
@@ -81,7 +87,7 @@ public class MyWebSocketHandler extends SimpleChannelInboundHandler<Object> {
     private void handHttpRequest(ChannelHandlerContext ctx, FullHttpRequest request) {
         if (!request.getDecoderResult().isSuccess() || !(UPGRADE_WEBSOCKET).equals(request.headers().get(UPGRADE_KEY))) {
             // 不是websocket握手请求时
-            this.sendHttpResponse(ctx, request, new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.BAD_REQUEST));
+            this.sendHttpResponse(ctx, new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.BAD_REQUEST));
             return;
         }
 
@@ -98,7 +104,7 @@ public class MyWebSocketHandler extends SimpleChannelInboundHandler<Object> {
     /**
      * 服务端向客户端响应消息
      */
-    private void sendHttpResponse(ChannelHandlerContext ctc, FullHttpMessage request, DefaultFullHttpResponse response) {
+    private void sendHttpResponse(ChannelHandlerContext ctc, DefaultFullHttpResponse response) {
         if (response.getStatus().code() != HttpResponseStatus.OK.code()) {
             ByteBuf buf = Unpooled.copiedBuffer(response.getStatus().toString(), CharsetUtil.UTF_8);
             response.content().writeBytes(buf);
@@ -116,7 +122,7 @@ public class MyWebSocketHandler extends SimpleChannelInboundHandler<Object> {
      * 工程出现异常时调用
      */
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
         cause.printStackTrace();
         ctx.close();
     }
@@ -125,7 +131,7 @@ public class MyWebSocketHandler extends SimpleChannelInboundHandler<Object> {
      * 客户端与服务端创建连接时调用
      */
     @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+    public void channelActive(ChannelHandlerContext ctx) {
         NettyConfig.group.add(ctx.channel());
         System.out.println("客户端与服务端连接开启...");
     }
@@ -134,7 +140,7 @@ public class MyWebSocketHandler extends SimpleChannelInboundHandler<Object> {
      * 客户端与服务端断开连接时调用
      */
     @Override
-    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+    public void channelInactive(ChannelHandlerContext ctx) {
         NettyConfig.group.remove(ctx.channel());
         System.out.println("客户端与服务端连接关闭...");
     }
@@ -143,7 +149,7 @@ public class MyWebSocketHandler extends SimpleChannelInboundHandler<Object> {
      * 服务端接收客户端发送过来的数据结束之后调用
      */
     @Override
-    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
+    public void channelReadComplete(ChannelHandlerContext ctx) {
         ctx.flush();
     }
 }

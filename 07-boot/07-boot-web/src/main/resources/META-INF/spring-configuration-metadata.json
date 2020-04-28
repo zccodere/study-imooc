@@ -1,0 +1,9 @@
+{
+  "groups": [
+    {
+      "name": "girl",
+      "type": "com.myimooc.boot.web.config.GirlProperties",
+      "sourceType": "com.myimooc.boot.web.config.GirlProperties"
+    }
+  ]
+}

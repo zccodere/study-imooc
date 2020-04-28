@@ -19,7 +19,7 @@ public class CourseServiceImpl implements CourseService {
 		
 		course.setCourseId(courseId);
 		course.setTitle("深入浅出Java多线程");
-		course.setImgPath("resources/imgs/course-img.jpg");
+		course.setImgPath("resources/img/course-img.jpg");
 		course.setLearningNum(12345);
 		course.setLevel(2);
 		course.setLevelDesc("中级");

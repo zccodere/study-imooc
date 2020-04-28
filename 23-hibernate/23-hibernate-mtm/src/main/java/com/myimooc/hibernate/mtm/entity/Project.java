@@ -1,39 +1,40 @@
 package com.myimooc.hibernate.mtm.entity;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 /**
- * project 实体类
+ * 项目实体类
  *
- * @author ZhangCheng on 2017-07-11
+ * @author zc 2017-07-11
  */
 public class Project implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
-    private int proid;
-
-    private String proname;
-
+    /**
+     * 项目编号
+     */
+    private Integer projectId;
+    /**
+     * 项目名称
+     */
+    private String projectName;
     /**
      * 添加一个员工的集合
      */
-    private Set<Employee> employees = new HashSet<Employee>();
+    private Set<Employee> employees;
 
     public Project() {
     }
 
-    public Project(int proid, String proname) {
-        this.proid = proid;
-        this.proname = proname;
+    public Project(int projectId, String projectName) {
+        this.projectId = projectId;
+        this.projectName = projectName;
     }
 
-    public Project(int proid, String proname, Set<Employee> employees) {
-        this.proid = proid;
-        this.proname = proname;
+    public Project(int projectId, String projectName, Set<Employee> employees) {
+        this.projectId = projectId;
+        this.projectName = projectName;
         this.employees = employees;
     }
 
@@ -46,35 +47,34 @@ public class Project implements Serializable {
             return false;
         }
         Project project = (Project) o;
-        return proid == project.proid &&
-                Objects.equals(proname, project.proname);
+        return Objects.equals(projectId, project.projectId) &&
+                Objects.equals(projectName, project.projectName);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(proid, proname);
+        return Objects.hash(projectId, projectName);
     }
 
     @Override
     public String toString() {
-        return "Project [proid=" + proid + ", proname=" + proname + ", employees=" + employees + "]";
+        return "Project [projectId=" + projectId + ", projectName=" + projectName + ", employees=" + employees + "]";
     }
 
-    public int getProid() {
-        return proid;
+    public Integer getProjectId() {
+        return projectId;
     }
 
-    public void setProid(int proid) {
-        this.proid = proid;
+    public void setProjectId(Integer projectId) {
+        this.projectId = projectId;
     }
 
-    public String getproname() {
-        return proname;
+    public String getProjectName() {
+        return projectName;
     }
 
-    public void setproname(String proname) {
-        this.proname = proname;
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
     }
 
     public Set<Employee> getEmployees() {
@@ -84,6 +84,4 @@ public class Project implements Serializable {
     public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
     }
-
-
 }

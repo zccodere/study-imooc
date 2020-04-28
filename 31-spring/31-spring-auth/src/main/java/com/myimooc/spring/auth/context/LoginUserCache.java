@@ -1,5 +1,10 @@
 package com.myimooc.spring.auth.context;
 
+import com.myimooc.spring.auth.dto.Accordion;
+import com.myimooc.spring.auth.entity.User;
+
+import org.springframework.stereotype.Service;
+
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.List;
@@ -7,15 +12,10 @@ import java.util.Map;
 
 import javax.servlet.http.Cookie;
 
-import com.myimooc.spring.auth.entity.User;
-import org.springframework.stereotype.Service;
-
-import com.myimooc.spring.auth.dto.Accordion;
-
 /**
  * 用户登录缓存服务
  *
- * @author zc on 2017-08-20
+ * @author zc 2017-08-20
  */
 @Service
 public class LoginUserCache {

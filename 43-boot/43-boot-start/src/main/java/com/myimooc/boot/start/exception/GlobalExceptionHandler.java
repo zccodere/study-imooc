@@ -1,6 +1,7 @@
 package com.myimooc.boot.start.exception;
 
 import com.myimooc.boot.start.domain.JsonResult;
+
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -10,11 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * <br>
- * 标题: 全局异常捕获，兼容 web 和 ajax<br>
- * 描述: 使用 @ControllerAdvice 声明当前是助手类<br>
+ * 全局异常捕获，兼容 web 和 ajax；使用 @ControllerAdvice 声明当前是助手类<
  *
- * @author zc
+ * @author zc 2018-04-25
  * @date 2018/04/25
  */
 @ControllerAdvice
@@ -34,7 +33,7 @@ public class GlobalExceptionHandler {
     }
 
     private boolean isAjax(HttpServletRequest request) {
-        return (request.getHeader("X-Requested-With") != null) && ("XMLHttpRequest".equals(request.getHeader("X-Requested-With"))) ;
+        return (request.getHeader("X-Requested-With") != null) && ("XMLHttpRequest".equals(request.getHeader("X-Requested-With")));
     }
 
     private JsonResult responseByAjax(HttpServletRequest request, HttpServletResponse response, Exception e) {

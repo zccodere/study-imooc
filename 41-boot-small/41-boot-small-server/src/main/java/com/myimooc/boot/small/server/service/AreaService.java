@@ -5,12 +5,9 @@ import com.myimooc.boot.small.server.po.Area;
 import java.util.List;
 
 /**
- * <br>
- * 标题: 区域业务服务<br>
- * 描述: 区域业务服务<br>
+ * 区域业务服务
  *
- * @author zc
- * @date 2018/04/17
+ * @author zc 2018-04-17
  */
 public interface AreaService {
 

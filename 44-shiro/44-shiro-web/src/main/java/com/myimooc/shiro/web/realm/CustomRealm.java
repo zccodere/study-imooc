@@ -2,6 +2,7 @@ package com.myimooc.shiro.web.realm;
 
 import com.myimooc.shiro.web.dao.UserMapper;
 import com.myimooc.shiro.web.vo.User;
+
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -16,28 +17,29 @@ import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
- * <br>
- * 标题: 自定义Realm<br>
- * 描述: Realm讲解<br>
+ * 自定义Realm；Realm讲解
  *
- * @author zc
- * @date 2018/05/02
+ * @author zc 2018-05-02
  */
 @Component
-public class CustomRealm extends AuthorizingRealm{
+public class CustomRealm extends AuthorizingRealm {
 
     @Autowired
     private UserMapper userMapper;
     @Autowired
     private HashedCredentialsMatcher hashedCredentialsMatcher;
 
-    Map<String,String> userMap = new HashMap<String,String>(16);
+    private Map<String, String> userMap = new HashMap<>(16);
 
     {
-        userMap.put("Mark","283538989cef48f3d7d8a1c1bdf2008f");
+        userMap.put("Mark", "283538989cef48f3d7d8a1c1bdf2008f");
         super.setName("customRealm");
     }
 
@@ -59,11 +61,12 @@ public class CustomRealm extends AuthorizingRealm{
 
     /**
      * 模拟从数据库或缓存中获取权限数据
+     *
      * @param userName 用户名
      * @return 权限数据
      */
     private Set<String> getPermissionsByUserName(String userName) {
-        Set<String> permissions = new HashSet<String>(16);
+        Set<String> permissions = new HashSet<>(16);
         permissions.add("user:delete");
         permissions.add("user:add");
         return permissions;
@@ -71,36 +74,39 @@ public class CustomRealm extends AuthorizingRealm{
 
     /**
      * 模拟从数据库或缓存中获取角色数据
+     *
      * @param userName 用户名
      * @return 角色数据
      */
     private Set<String> getRolesByUserName(String userName) {
         System.out.println("从数据库中获取授权数据");
         List<String> roles = userMapper.queryRolesByUserName(userName);
-        return new HashSet<String>(roles);
+        return new HashSet<>(roles);
     }
 
     /**
      * 认证
+     *
      * @param token 主体传送过来的认证信息
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         this.setCredentialsMatcher(hashedCredentialsMatcher);
         // 获取用户名
-        String userName = (String)token.getPrincipal();
+        String userName = (String) token.getPrincipal();
         // 通过用户名到数据库中获取凭证
         String password = getPasswordByUserName(userName);
-        if (password == null){
+        if (password == null) {
             return null;
         }
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(userName,password,"customRealm");
+        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(userName, password, "customRealm");
         authenticationInfo.setCredentialsSalt(ByteSource.Util.bytes(userName));
         return authenticationInfo;
     }
 
     /**
      * 模拟数据库查询凭证
+     *
      * @param userName 用户名
      * @return 凭证
      */
@@ -111,7 +117,7 @@ public class CustomRealm extends AuthorizingRealm{
     }
 
     public static void main(String[] args) {
-        Md5Hash md5Hash = new Md5Hash("123456","Mark");
+        Md5Hash md5Hash = new Md5Hash("123456", "Mark");
         System.out.println(md5Hash.toString());
     }
 

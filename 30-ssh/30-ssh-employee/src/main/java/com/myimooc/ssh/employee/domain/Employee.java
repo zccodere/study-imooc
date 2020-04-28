@@ -13,10 +13,11 @@ import javax.persistence.ManyToOne;
 /**
  * 员工实体对象
  *
- * @author ZhangCheng on 2017-08-17
+ * @author zc 2017-08-17
  */
 @Entity
 public class Employee {
+
     /**
      * id
      */
@@ -52,8 +53,7 @@ public class Employee {
      */
     private String password;
     /**
-     * 所属部门
-     * // 配置级联关系和抓取策略
+     * 所属部门 // 配置级联关系和抓取策略
      */
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "did")

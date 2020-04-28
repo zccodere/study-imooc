@@ -3,9 +3,9 @@ package com.myimooc.spring.seckill.entity;
 import java.util.Date;
 
 /**
- * @describe 商品库存表
- * @author zc
- * @version 1.0 2017-08-22
+ * 商品库存表
+ *
+ * @author zc 2017-08-22
  */
 public class Seckill {
 

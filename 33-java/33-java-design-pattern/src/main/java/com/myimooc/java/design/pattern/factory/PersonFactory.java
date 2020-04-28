@@ -4,9 +4,9 @@ import com.myimooc.java.design.pattern.factory.boy.Boy;
 import com.myimooc.java.design.pattern.factory.girl.Girl;
 
 /**
- * @author zc
- * @version 1.0 2017-08-27
- * @describe 人物的实现接口
+ * 人物的实现接口
+ *
+ * @author zc 2017-08-27
  */
 public interface PersonFactory {
 

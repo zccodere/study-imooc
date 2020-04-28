@@ -8,11 +8,9 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * Created by ChengComputer on 2017/2/19.
+ * 日期格式化
  *
- * @author zhangcheng
- * @version v1.0
- * @date 2017-02-19
+ * @author zc 2017-02-19
  */
 public class MyDateFormatter implements Formatter<Date> {
 
@@ -23,8 +21,9 @@ public class MyDateFormatter implements Formatter<Date> {
     }
 
     @Override
-    public String print(Date object, Locale locale) {
-        return null;
+    public String print(Date date, Locale locale) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        return sdf.format(date);
     }
 }
 

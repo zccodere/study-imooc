@@ -1,27 +1,25 @@
 package com.myimooc.qrcode.jquery;
 
-import java.util.Properties;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
+import java.util.Properties;
+
 /**
  * 配置类
  *
- * @author ZhangCheng on 2017-06-23
+ * @author zc 2017-06-23
  */
 @Configuration
-public class AppConfig extends WebMvcConfigurerAdapter {
+public class AppConfig implements WebMvcConfigurer {
 
     /**
      * 配置视图解析器
-     *
-     * @return
      */
     @Bean
     public FreeMarkerViewResolver getFreeMarkerViewResolver() {
@@ -47,8 +45,6 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 
     /**
      * 配置FreeMarker
-     *
-     * @return
      */
     @Bean
     public FreeMarkerConfigurer getFreeMarkerConfigurer() {
@@ -75,6 +71,4 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 
         return freeMarkerConfigurer;
     }
-
-
 }

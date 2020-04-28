@@ -2,19 +2,24 @@ package com.myimooc.spring.auth.context;
 
 import javax.servlet.http.HttpServletResponse;
 
-class ResponseContext {
-	
-	private static ThreadLocal<HttpServletResponse> tl = new ThreadLocal<HttpServletResponse>();
-	
-	public static void setCurrent(HttpServletResponse response){
-		tl.set(response);
-	}
-	
-	public static HttpServletResponse getCurrent(){
-		return tl.get();
-	}
+/**
+ * 响应上下文
+ *
+ * @author zc 2017-08-20
+ */
+public class ResponseContext {
 
-	public static void remove(){
-		tl.remove();
-	}
+    private static ThreadLocal<HttpServletResponse> local = new ThreadLocal<>();
+
+    static void setCurrent(HttpServletResponse response) {
+        local.set(response);
+    }
+
+    static HttpServletResponse getCurrent() {
+        return local.get();
+    }
+
+    public static void remove() {
+        local.remove();
+    }
 }

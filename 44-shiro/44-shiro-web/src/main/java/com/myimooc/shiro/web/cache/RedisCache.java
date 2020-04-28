@@ -11,12 +11,9 @@ import java.util.Collection;
 import java.util.Set;
 
 /**
- * <br>
- * 标题: 自定义redis缓存实体类<br>
- * 描述: 实现Cache接口<br>
+ * 自定义redis缓存实体类；实现Cache接口
  *
- * @author zc
- * @date 2018/05/03
+ * @author zc 2018-05-03
  */
 @Component
 public class RedisCache<K, V> implements Cache<K, V> {

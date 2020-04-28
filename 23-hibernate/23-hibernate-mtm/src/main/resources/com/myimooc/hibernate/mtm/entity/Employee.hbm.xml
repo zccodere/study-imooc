@@ -1,19 +1,20 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC 
-	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.myimooc.hibernate.mtm.entity.Employee" table="employee">
-		<id name="empid" column="empid" type="java.lang.Integer">
-			<generator class="assigned"></generator>
-		</id>
-		<property name="empname" type="java.lang.String">
-			<column name="empname" length="20" not-null="true"></column>
-		</property>
-		<!-- 配置多对多关联关系 -->
-		<set name="projects" table="proemp" inverse="true">
-			<key column="rempid"></key>
-			<many-to-many class="com.myimooc.hibernate.mtm.entity.Project" column="rproid"></many-to-many>
-		</set>
-	</class>
+    <class name="com.myimooc.hibernate.mtm.entity.Employee" table="employee">
+        <id name="employeeId" column="employee_id" type="java.lang.Integer">
+            <generator class="assigned"/>
+        </id>
+        <property name="employeeName" type="java.lang.String">
+            <column name="employee_name" length="20" not-null="true"/>
+        </property>
+        <!-- 配置多对多关联关系 -->
+        <set name="projects" table="project_employee" inverse="true">
+            <key column="relation_employee_id"/>
+            <many-to-many class="com.myimooc.hibernate.mtm.entity.Project"
+                          column="relation_project_id"/>
+        </set>
+    </class>
 </hibernate-mapping>

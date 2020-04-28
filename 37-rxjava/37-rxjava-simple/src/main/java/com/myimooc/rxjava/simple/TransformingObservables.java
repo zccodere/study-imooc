@@ -1,170 +1,111 @@
 package com.myimooc.rxjava.simple;
 
-import java.util.List;
+import com.myimooc.rxjava.simple.observer.IntegerListObserver;
+import com.myimooc.rxjava.simple.observer.IntegerObserver;
+import com.myimooc.rxjava.simple.observer.StringObserver;
 
-import rx.Observable;
-import rx.Observer;
-import rx.Subscriber;
-import rx.functions.Func1;
-import rx.functions.Func2;
-import rx.observables.GroupedObservable;
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.BiFunction;
+import io.reactivex.functions.Function;
+import io.reactivex.observables.GroupedObservable;
 
 /**
- * @title 转换操作符
- * @describe 转换操作符演示
- * @author zc
- * @version 1.0 2017-10-16
+ * 转换操作符演示
+ *
+ * @author zc 2020-03-23
  */
-@SuppressWarnings("unused")
 public class TransformingObservables {
-	
-	public static void main(String[] args) {
-//		transformMap();
-//		transformFlatMap();
-//		transformGroupBy();
-//		transformBuffer();
-		transformScan();
-	}
 
-	/**
-	 * Scan操作符:对数据进行累加
-	 */
-	private static void transformScan() {
-		Observable.range(1,5).scan(new Func2<Integer, Integer, Integer>() {
-			
-			@Override
-			public Integer call(Integer sum, Integer num) {
-				return sum + num;
-			}
-			
-		}).subscribe(new Observer<Integer>() {
-			@Override
-			public void onCompleted() {
-				System.out.println("onCompleted()");
-			}
-			@Override
-			public void onError(Throwable arg0) {
-				System.out.println("onError()");
-			}
-			@Override
-			public void onNext(Integer str) {
-				System.out.println("onNext(): " + str);
-			}
-		});
-	}
+    public static void main(String[] args) {
+        transformMap();
+        transformFlatMap();
+        transformGroupBy();
+        transformBuffer();
+        transformScan();
+    }
 
-	/**
-	 * Buffer操作符:分批读取数据
-	 */
-	private static void transformBuffer() {
-		Observable.range(1,5).buffer(2).subscribe(new Observer<List<Integer>>() {
-			@Override
-			public void onCompleted() {
-				System.out.println("onCompleted()");
-			}
-			@Override
-			public void onError(Throwable arg0) {
-				System.out.println("onError()");
-			}
-			@Override
-			public void onNext(List<Integer> str) {
-				System.out.println("onNext(): " + str);
-			}
-		});
-	}
+    /**
+     * Scan操作符:对数据进行累加
+     */
+    private static void transformScan() {
+        // 使用JDK8的Lambda表达式进行求和
+        BiFunction<Integer, Integer, Integer> biFunction = Integer::sum;
 
-	/**
-	 * GroupBy操作符：对数据进行分组操作
-	 */
-	private static void transformGroupBy() {
-		Observable.just(1,2,3,4,5).groupBy(new Func1<Integer,Integer>(){
+        Observable.range(1, 5).scan(biFunction).subscribe(new IntegerObserver());
+    }
 
-			@Override
-			public Integer call(Integer data) {
-				return data % 2;
-			}
-			
-		}).subscribe(new Observer<GroupedObservable<Integer,Integer>>() {
-			@Override
-			public void onCompleted() {
-			}
-			@Override
-			public void onError(Throwable arg0) {
-			}
-			@Override
-			public void onNext(final GroupedObservable<Integer, Integer> groupedObservable) {
-				groupedObservable.subscribe(new Subscriber<Integer>() {
+    /**
+     * Buffer操作符:分批读取数据
+     */
+    private static void transformBuffer() {
+        Observable.range(1, 5).buffer(2).subscribe(new IntegerListObserver());
+    }
 
-					@Override
-					public void onCompleted() {
-					}
-					@Override
-					public void onError(Throwable arg0) {
-					}
-					@Override
-					public void onNext(Integer data) {
-						System.out.println("group:" + groupedObservable.getKey() + " data:" + data);
-					}
-				});
-			}
-		});
-	}
+    /**
+     * GroupBy操作符：对数据进行分组操作
+     */
+    private static void transformGroupBy() {
+        // 使用JDK8的Lambda表达式进行对2取模
+        Function<Integer, Integer> biFunction = (num) -> num % 2;
 
-	/**
-	 * FlatMap操作符：一个对象转换为多个对象
-	 */
-	private static void transformFlatMap() {
-		
-		Observable.just(1,2,3,4,5).flatMap(new Func1<Integer,Observable<? extends String>>(){
+        Observable.just(1, 2, 3, 4, 5).groupBy(biFunction).subscribe(new Observer<GroupedObservable<Integer, Integer>>() {
+            @Override
+            public void onComplete() {
+            }
 
-			@Override
-			public Observable<? extends String> call(Integer num) {
-				return Observable.just(String.valueOf(num));
-			}
-			
-		}).subscribe(new Subscriber<String>() {
-			@Override
-			public void onCompleted() {
-				System.out.println("onCompleted()");
-			}
-			@Override
-			public void onError(Throwable arg0) {
-				System.out.println("onError()");
-			}
-			@Override
-			public void onNext(String str) {
-				System.out.println("onNext(): " + str);
-			}
-		});
-	}
+            @Override
+            public void onError(Throwable arg0) {
+            }
 
-	/**
-	 * Map操作符：一个对象转换为另一个对象
-	 */
-	private static void transformMap() {
-		
-		Observable.just(123).map(new Func1<Integer,String>(){
+            @Override
+            public void onSubscribe(Disposable d) {
+            }
 
-			@Override
-			public String call(Integer num) {
-				return String.valueOf(num);
-			}
-			
-		}).subscribe(new Subscriber<String>() {
-			@Override
-			public void onCompleted() {
-				System.out.println("onCompleted()");
-			}
-			@Override
-			public void onError(Throwable arg0) {
-				System.out.println("onError()");
-			}
-			@Override
-			public void onNext(String str) {
-				System.out.println("onNext(): " + str);
-			}
-		});
-	}
-	
-	
+            @Override
+            public void onNext(final GroupedObservable<Integer, Integer> groupedObservable) {
+                groupedObservable.subscribe(new Observer<Integer>() {
+                    @Override
+                    public void onError(Throwable arg0) {
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(Integer data) {
+                        System.out.println("group:" + groupedObservable.getKey() + " data:" + data);
+                    }
+                });
+            }
+        });
+    }
+
+    /**
+     * FlatMap操作符：一个对象转换为多个对象
+     */
+    private static void transformFlatMap() {
+        // 使用JDK8的Lambda表达式进行将整体转换为字符串
+        Function<Integer, Observable<? extends String>> biFunction = (num) -> Observable.just(String.valueOf(num));
+
+        Observable.just(1, 2, 3, 4, 5).flatMap(biFunction).subscribe(new StringObserver());
+    }
+
+    /**
+     * Map操作符：一个对象转换为另一个对象
+     */
+    private static void transformMap() {
+        // 使用JDK8的Lambda表达式进行将整体转换为字符串
+        Function<Integer, String> biFunction = String::valueOf;
+
+        Observable.just(123).map(biFunction).subscribe(new StringObserver());
+    }
 }

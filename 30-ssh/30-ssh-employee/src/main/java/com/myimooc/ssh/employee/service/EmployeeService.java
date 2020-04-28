@@ -6,7 +6,7 @@ import com.myimooc.ssh.employee.domain.PageBean;
 /**
  * 员工管理的业务层的接口
  *
- * @author ZhangCheng on 2017-08-18
+ * @author zc 2017-08-18
  */
 public interface EmployeeService {
 

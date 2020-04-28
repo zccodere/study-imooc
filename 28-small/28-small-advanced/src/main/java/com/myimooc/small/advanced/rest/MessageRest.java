@@ -1,23 +1,23 @@
 package com.myimooc.small.advanced.rest;
 
-import java.util.Map;
-import java.util.Objects;
-
 import com.myimooc.small.advanced.domain.EventMessage;
-import com.myimooc.small.advanced.domain.NewsMessage;
 import com.myimooc.small.advanced.domain.TextMessage;
 import com.myimooc.small.advanced.util.MessageUtils;
-import com.myimooc.small.advanced.util.WeixinUtils;
+import com.myimooc.small.advanced.util.WeiXinUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+import java.util.Objects;
+
 /**
  * 处理消息请求与响应
  *
- * @author ZhangCheng on 2017-08-11
+ * @author zc 2017-08-11
  */
 @RestController
 public class MessageRest {
@@ -32,11 +32,9 @@ public class MessageRest {
 
     /**
      * 接收微信服务器发送的POST请求
-     *
-     * @throws Exception
      */
     @PostMapping("textmessage")
-    public Object textmessage(TextMessage msg) throws Exception {
+    public Object textMessage(TextMessage msg) throws Exception {
 
         logger.info("请求参数：{}", msg.toString());
 
@@ -50,8 +48,7 @@ public class MessageRest {
             }
             // 关键字 2
             if (Objects.equals(KEY_2, msg.getContent())) {
-                NewsMessage newsMessage = MessageUtils.initNewsMessage(msg.getToUserName(), msg.getFromUserName());
-                return newsMessage;
+                return MessageUtils.initNewsMessage(msg.getToUserName(), msg.getFromUserName());
             }
             // 关键字 3
             if (Objects.equals(KEY_3, msg.getContent())) {
@@ -65,7 +62,7 @@ public class MessageRest {
                     textMessage = MessageUtils.initText(msg.getToUserName(), msg.getFromUserName(), MessageUtils.threeMenu());
                     return textMessage;
                 }
-                textMessage = MessageUtils.initText(msg.getToUserName(), msg.getFromUserName(), WeixinUtils.translate(word));
+                textMessage = MessageUtils.initText(msg.getToUserName(), msg.getFromUserName(), WeiXinUtils.translate(word));
                 return textMessage;
             }
             // 关键字 ？? 调出菜单
@@ -89,7 +86,7 @@ public class MessageRest {
      * 接收微信服务器发送的POST请求
      */
     @PostMapping("eventmessage")
-    public Object eventmessage(Map<String, String> param) {
+    public Object eventMessage(Map<String, String> param) {
 
         EventMessage msg = new EventMessage();
         BeanUtils.copyProperties(param, msg);

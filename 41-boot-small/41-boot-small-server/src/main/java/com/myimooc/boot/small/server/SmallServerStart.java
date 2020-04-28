@@ -5,19 +5,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * <br>
- * 标题: 启动应用<br>
- * 描述: 慕课网《SpringBoot+MyBatis搭建迷你小程序》<br>
- * SpringBoot 整合 Mybatis 时，必须加 @MapperScan
+ * 启动类
+ * <p>慕课网《SpringBoot+MyBatis搭建迷你小程序》
+ * SpringBoot 整合 Mybatis 时，必须加 @MapperScan</p>
  *
- * @author zc
- * @date 2018/04/16
+ * @author zc 2018-04-16
  */
+@MapperScan("com.myimooc.boot.small.server.mapper")
 @SpringBootApplication
-@MapperScan("com.myimooc.small.mapper")
 public class SmallServerStart {
 
-	public static void main(String[] args) {
-		SpringApplication.run(SmallServerStart.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SmallServerStart.class, args);
+    }
 }

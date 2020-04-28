@@ -3,7 +3,7 @@ package com.myimooc.small.advanced.domain;
 /**
  * 事件推送-向微信接口发起请求Vo
  *
- * @author ZhangCheng on 2017-08-11
+ * @author zc 2017-08-11
  */
 public class EventMessage extends BaseMessage {
 
@@ -11,7 +11,7 @@ public class EventMessage extends BaseMessage {
 
     @Override
     public String toString() {
-        return "EventMessage [event=" + event + "]";
+        return super.toString() + "EventMessage [event=" + event + "]";
     }
 
     public String getEvent() {

@@ -7,12 +7,12 @@ import java.util.Map;
 import java.util.Properties;
 
 /**
- * @author zc
- * @version 1.0 2017-08-27
- * @describe properties文件读取类
+ * properties文件读取类
+ *
+ * @author zc 2017-08-27
  */
 public class PropertiesReader {
-	
+
     public Map<String, String> getProperties() {
         Properties props = new Properties();
         Map<String, String> map = new HashMap<>(16);

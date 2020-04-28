@@ -6,66 +6,109 @@ import javax.persistence.Table;
 
 /**
  * 学生信息表
- * @author ZhangCheng on 2017-07-08
  *
+ * @author zc 2017-07-08
  */
 @Entity
-@Table(name="student")
+@Table(name = "student")
 public class Student {
-	
-	@Id
-	private Long id;
-	private String stunum;
-	private String stuname;
-	private String stuage;
-	private String stusex;
-	private String stubirthday;
-	private String stuhobby;
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public String getStunum() {
-		return stunum;
-	}
-	public void setStunum(String stunum) {
-		this.stunum = stunum;
-	}
-	public String getStuname() {
-		return stuname;
-	}
-	public void setStuname(String stuname) {
-		this.stuname = stuname;
-	}
-	public String getStuage() {
-		return stuage;
-	}
-	public void setStuage(String stuage) {
-		this.stuage = stuage;
-	}
-	public String getStusex() {
-		return stusex;
-	}
-	public void setStusex(String stusex) {
-		this.stusex = stusex;
-	}
-	public String getStubirthday() {
-		return stubirthday;
-	}
-	public void setStubirthday(String stubirthday) {
-		this.stubirthday = stubirthday;
-	}
-	public String getStuhobby() {
-		return stuhobby;
-	}
-	public void setStuhobby(String stuhobby) {
-		this.stuhobby = stuhobby;
-	}
-	@Override
-	public String toString() {
-		return "Student [id=" + id + ", stunum=" + stunum + ", stuname=" + stuname + ", stuage=" + stuage + ", stusex="
-				+ stusex + ", stubirthday=" + stubirthday + ", stuhobby=" + stuhobby + "]";
-	}
+
+    /**
+     * 主键ID
+     */
+    @Id
+    private Long id;
+    /**
+     * 学号
+     */
+    private String num;
+    /**
+     * 姓名
+     */
+    private String name;
+    /**
+     * 年龄
+     */
+    private String age;
+    /**
+     * 性别
+     */
+    private String sex;
+    /**
+     * 生日
+     */
+    private String birthday;
+    /**
+     * 爱好
+     */
+    private String hobby;
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", num='" + num + '\'' +
+                ", name='" + name + '\'' +
+                ", age='" + age + '\'' +
+                ", sex='" + sex + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", hobby='" + hobby + '\'' +
+                '}';
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNum() {
+        return num;
+    }
+
+    public void setNum(String num) {
+        this.num = num;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
+    }
 }

@@ -3,9 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd"
-       default-init-method="defautInit" default-destroy-method="defaultDestroy">
+       default-init-method="defaultInit" default-destroy-method="defaultDestroy">
 
-    <bean id="beanLifeCycle" class="com.myimooc.spring.simple.lifecycle.BeanLifeCycle" init-method="start"
+    <bean id="beanLifeCycle" class="com.myimooc.spring.simple.lifecycle.BeanLifeCycle"
+          init-method="start"
           destroy-method="stop"/>
+
+    <bean class="com.myimooc.spring.simple.lifecycle.ExampleInitializingBean"/>
+    <bean class="com.myimooc.spring.simple.lifecycle.ExampleDisposableBean"/>
 
 </beans>

@@ -6,16 +6,14 @@ import org.apache.shiro.session.mgt.SessionKey;
 import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.apache.shiro.web.session.mgt.WebSessionKey;
 
-import javax.servlet.ServletRequest;
 import java.io.Serializable;
 
+import javax.servlet.ServletRequest;
+
 /**
- * <br>
- * 标题: 自定义SessionManager<br>
- * 描述: 继承DefaultWebSessionManager<br>
+ * 自定义SessionManager；继承DefaultWebSessionManager
  *
- * @author zc
- * @date 2018/05/03
+ * @author zc 2018-05-03
  */
 public class CustomSessionManager extends DefaultWebSessionManager {
 
@@ -23,18 +21,18 @@ public class CustomSessionManager extends DefaultWebSessionManager {
     protected Session retrieveSession(SessionKey sessionKey) throws UnknownSessionException {
         Serializable sessionId = getSessionId(sessionKey);
         ServletRequest request = null;
-        if (sessionKey instanceof WebSessionKey){
-            request = ((WebSessionKey)sessionKey).getServletRequest();
+        if (sessionKey instanceof WebSessionKey) {
+            request = ((WebSessionKey) sessionKey).getServletRequest();
         }
-        if(request != null && sessionId != null){
-            Session session = (Session)request.getAttribute(sessionId.toString());
-            if (session != null){
+        if (request != null && sessionId != null) {
+            Session session = (Session) request.getAttribute(sessionId.toString());
+            if (session != null) {
                 return session;
             }
         }
         Session session = super.retrieveSession(sessionKey);
-        if (request != null && sessionId != null){
-            request.setAttribute(sessionId.toString(),session);
+        if (request != null && sessionId != null) {
+            request.setAttribute(sessionId.toString(), session);
         }
         return session;
     }

@@ -1,15 +1,11 @@
 package com.myimooc.spring.simple.aop.schema.advisors.service;
 
-import org.springframework.dao.PessimisticLockingFailureException;
 import org.springframework.stereotype.Service;
 
 /**
- * <br>
- * 标题: 服务<br>
- * 描述: 服务<br>
- * 时间: 2017/01/18<br>
+ * 服务
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 @Service
 public class InvokeService {
@@ -19,7 +15,7 @@ public class InvokeService {
     }
 
     public void invokeException() {
-        throw new PessimisticLockingFailureException("");
+        throw new RuntimeException("手动抛异常进行模拟");
     }
 
 }

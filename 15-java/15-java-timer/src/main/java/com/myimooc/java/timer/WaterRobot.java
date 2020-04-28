@@ -1,26 +1,26 @@
 package com.myimooc.java.timer;
 
-import java.util.Timer;
 import java.util.TimerTask;
 
 /**
- * <br>
- * 标题: 灌水机器人<br>
- * 描述: 灌水机器人<br>
- * 时间: 2017/05/24<br>
+ * 灌水机器人
+ * <p>Timer 已经过时，如想要查看运行效果，放开下面注释即可</p>
  *
- * @author zc
+ * @author zc 2017-05-24
  */
-public class WaterRobot extends TimerTask{
+public class WaterRobot extends TimerTask {
 
+    @Override
+    public void run() {
+        // 什么也不做，如果要查看运行效果，请注释该方法
+    }
+
+/*
     private Timer timer;
 
-    /**
-     * 桶容量，最大容量为5
-     */
     private Integer bucketCapacity = 0;
 
-    public WaterRobot(Timer timer){
+    WaterRobot(Timer timer) {
         this.timer = timer;
     }
 
@@ -31,7 +31,7 @@ public class WaterRobot extends TimerTask{
         if (this.bucketCapacity < count) {
             System.out.println("Add 1L water into the bucket!");
             bucketCapacity++;
-        }else{
+        } else {
             System.out.println("The number of canceled task in timer is : " + timer.purge());
             // 水满之后就停止执行
             cancel();
@@ -46,6 +46,5 @@ public class WaterRobot extends TimerTask{
             }
             timer.cancel();
         }
-
-    }
+    }*/
 }

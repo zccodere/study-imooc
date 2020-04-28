@@ -6,14 +6,12 @@ import com.myimooc.spring.data.jdbc.domain.Student;
 import java.util.List;
 
 /**
- * <br>
- * 标题: StudentDAO访问接口<br>
- * 描述: StudentDAO访问接口<br>
- * 时间: 2017/04/24<br>
+ * StudentDAO访问接口
  *
- * @author zc
+ * @author zc 2017-04-24
  */
 public interface StudentDao {
+
     /**
      * 获取所有学生
      *

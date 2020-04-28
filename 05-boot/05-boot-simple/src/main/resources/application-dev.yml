@@ -3,11 +3,10 @@ server:
 girl:
   cupSize: B
   age: 18
-#content: "cupSize: ${cupSize}, age: ${age}"
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/boot
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/demo?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: root
   jpa:

@@ -1,16 +1,16 @@
 package com.myimooc.ssh.simple.service;
 
+import com.myimooc.ssh.simple.dao.ProductDao;
+import com.myimooc.ssh.simple.domain.Product;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.myimooc.ssh.simple.dao.ProductDao;
-import com.myimooc.ssh.simple.domain.Product;
-
 /**
  * 商品管理的业务类
  *
- * @author ZhangCheng on 2017-08-17
+ * @author zc 2017-08-17
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
@@ -30,6 +30,4 @@ public class ProductService {
         productDao.save(product);
 
     }
-
-
 }

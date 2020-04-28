@@ -1,8 +1,7 @@
 package com.myimooc.java.sms.model;
+
 /**
- * <br>
- * 标题: POJO基类<br>
- * 描述: 领域模型对象基类<br>
+ * 领域模型对象基类
  *
  * @author zc
  * @date 2018/05/29

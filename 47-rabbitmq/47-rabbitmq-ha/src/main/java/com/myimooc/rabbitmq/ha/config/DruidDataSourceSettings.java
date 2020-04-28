@@ -1,19 +1,16 @@
 package com.myimooc.rabbitmq.ha.config;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.Properties;
 
 /**
- * <br>
- * 标题: Druid数据源配置<br>
- * 描述: Druid数据源配置<br>
- * 时间: 2018/09/06<br>
+ * Druid数据源配置
  *
  * @author zc
+ * @date 2018/09/06
  */
 @Component
 @PropertySource("classpath:druid.properties")
@@ -136,7 +133,7 @@ public class DruidDataSourceSettings {
         String[] entrys = connectionProperties.split(";");
         for (String entry : entrys) {
             String[] split = entry.split("=");
-            properties.setProperty(split[0],split[1]);
+            properties.setProperty(split[0], split[1]);
         }
         return properties;
     }

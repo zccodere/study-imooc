@@ -11,28 +11,28 @@ import org.springframework.web.servlet.view.JstlView;
 
 /**
  * Web项目SpringMvc配置
- * @author zhangcheng
- * @version v1.0 2017-02-19
  *
+ * @author zc 2017-02-19
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.myimooc.auth")
-public class SpringMvcConfig extends WebMvcConfigurerAdapter{
-    
+@ComponentScan("com.myimooc.spring.auth")
+public class SpringMvcConfig extends WebMvcConfigurerAdapter {
+
     /**
      * 配置SpringMvc视图解析器
+     *
      * @return 视图解析器
      */
     @Bean
-    public InternalResourceViewResolver viewResolver(){
+    public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setSuffix(".jsp");
         viewResolver.setViewClass(JstlView.class);
         return viewResolver;
     }
-    
+
     /**
      * 配置静态资源映射
      */

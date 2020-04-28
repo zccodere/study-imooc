@@ -1,39 +1,40 @@
 package com.myimooc.hibernate.mtm.entity;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
 /**
- * employee 实体类
+ * 员工实体类
  *
- * @author ZhangCheng on 2017-07-11
+ * @author zc 2017-07-11
  */
 public class Employee implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
-    private int empid;
-
-    private String empname;
-
+    /**
+     * 员工编号
+     */
+    private Integer employeeId;
+    /**
+     * 员工姓名
+     */
+    private String employeeName;
     /**
      * 添加一个项目的集合
      */
-    private Set<Project> projects = new HashSet<Project>();
+    private Set<Project> projects;
 
     public Employee() {
     }
 
-    public Employee(int empid, String empname) {
-        this.empid = empid;
-        this.empname = empname;
+    public Employee(Integer employeeId, String employeeName) {
+        this.employeeId = employeeId;
+        this.employeeName = employeeName;
     }
 
-    public Employee(int empid, String empname, Set<Project> projects) {
-        this.empid = empid;
-        this.empname = empname;
+    public Employee(Integer employeeId, String employeeName, Set<Project> projects) {
+        this.employeeId = employeeId;
+        this.employeeName = employeeName;
         this.projects = projects;
     }
 
@@ -46,35 +47,34 @@ public class Employee implements Serializable {
             return false;
         }
         Employee employee = (Employee) o;
-        return empid == employee.empid &&
-                Objects.equals(empname, employee.empname);
+        return Objects.equals(employeeId, employee.employeeId) &&
+                Objects.equals(employeeName, employee.employeeName);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(empid, empname);
+        return Objects.hash(employeeId, employeeName);
     }
 
     @Override
     public String toString() {
-        return "Employee [empid=" + empid + ", empname=" + empname + ", projects=" + projects + "]";
+        return "Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", projects=" + projects + "]";
     }
 
-    public int getEmpid() {
-        return empid;
+    public Integer getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmpid(int empid) {
-        this.empid = empid;
+    public void setEmployeeId(Integer employeeId) {
+        this.employeeId = employeeId;
     }
 
-    public String getEmpname() {
-        return empname;
+    public String getEmployeeName() {
+        return employeeName;
     }
 
-    public void setEmpname(String empname) {
-        this.empname = empname;
+    public void setEmployeeName(String employeeName) {
+        this.employeeName = employeeName;
     }
 
     public Set<Project> getProjects() {

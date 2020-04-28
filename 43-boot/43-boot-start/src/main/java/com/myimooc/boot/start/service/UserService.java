@@ -5,12 +5,9 @@ import com.myimooc.boot.start.dao.po.SysUser;
 import java.util.List;
 
 /**
- * <br>
- * 标题: 用户服务<br>
- * 描述: 用户服务<br>
+ * 用户服务
  *
- * @author zc
- * @date 2018/04/26
+ * @author zc 2018-04-26
  */
 public interface UserService {
 

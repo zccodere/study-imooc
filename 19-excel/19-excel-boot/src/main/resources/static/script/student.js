@@ -10,7 +10,7 @@ $(function() {
 				title : '数据列表',
 				fit : true,
 				height : 450,
-				url : 'student-list',
+				url : '/student/list',
 				fitColumns : true,
 				striped : true, //隔行变色特性 
 				loadMsg : '数据正在加载,请耐心的等待...',
@@ -86,7 +86,7 @@ $(function() {
 						form.attr('style', 'display:none');
 						form.attr('target', '');
 						form.attr('method', 'post');
-						form.attr('action', 'student-export');
+						form.attr('action', '/student/export');
 						//添加input
 						var input1 = $("<input>");
 						input1.attr('type', 'hidden');

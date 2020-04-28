@@ -7,7 +7,7 @@
     <parent>
         <artifactId>39-boot-module</artifactId>
         <groupId>com.myimooc</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>39-boot-module-web</artifactId>
@@ -17,7 +17,7 @@
         <dependency>
             <groupId>com.myimooc</groupId>
             <artifactId>39-boot-module-repository</artifactId>
-            <version>${project.version}</version>
+            <version>1.0.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

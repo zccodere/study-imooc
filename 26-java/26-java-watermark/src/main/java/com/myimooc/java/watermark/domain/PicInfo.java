@@ -3,7 +3,7 @@ package com.myimooc.java.watermark.domain;
 /**
  * 图片信息模型类
  *
- * @author ZhangCheng on 2017-07-21
+ * @author zc 2017-07-21
  */
 public class PicInfo {
 
@@ -36,6 +36,4 @@ public class PicInfo {
     public void setLogoImageUrl(String logoImageUrl) {
         this.logoImageUrl = logoImageUrl;
     }
-
-
 }

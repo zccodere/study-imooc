@@ -3,14 +3,11 @@ package com.myimooc.shiro.web.vo;
 import java.io.Serializable;
 
 /**
- * <br>
- * 标题: 用户实体类<br>
- * 描述: POJO<br>
+ * 用户实体类；
  *
- * @author zc
- * @date 2018/05/02
+ * @author zc 2018-05-02
  */
-public class User implements Serializable{
+public class User implements Serializable {
 
     private static final long serialVersionUID = -4486078810058797882L;
 

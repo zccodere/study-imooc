@@ -4,20 +4,20 @@
 
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
         <property name="hibernate.connection.url">
-        	<![CDATA[
-        		jdbc:mysql://localhost:3306/hibernatemtm?useUnicode=true&characterEncoding=utf8
+            <![CDATA[
+        		jdbc:mysql://127.0.0.1:3306/demo?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
         	]]>
         </property>
         <property name="show_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
-    	 
-    	<!-- 指定映射文件的路径 -->
-    	<mapping class="com.myimooc.hibernate.anno.ca.entity.Students"/>
+
+        <!-- 指定映射文件的路径 -->
+        <mapping class="com.myimooc.hibernate.anno.ca.entity.Students"/>
 
     </session-factory>
 </hibernate-configuration>

@@ -1,14 +1,13 @@
 package com.myimooc.java.sms.model;
 
 /**
- * <br>
- * 标题: 学生实体类<br>
- * 描述: 学生实体类<br>
+ * 学生实体类
  *
  * @author zc
  * @date 2018/05/29
  */
 public class Student extends BaseNamedEntity {
+
     /**
      * 班级
      */

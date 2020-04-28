@@ -1,41 +1,49 @@
 package com.myimooc.java.watermark.config;
 
-import java.util.Properties;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerView;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
+import java.util.Properties;
+
 /**
  * 项目配置类
- * @author ZhangCheng on 2017-07-21
  *
+ * @author zc 2017-07-21
  */
 @Configuration
-public class SpringMvcConfig extends WebMvcConfigurerAdapter{
-	
-	/**
+public class SpringMvcConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("/index");
+        registry.addViewController("").setViewName("/index");
+        registry.addViewController("/index").setViewName("/index");
+        registry.addViewController("/more-upload").setViewName("/more-upload");
+    }
+
+    /**
      * 配置视图解析器
-     * @return
      */
     @Bean
-    public FreeMarkerViewResolver getFreeMarkerViewResolver(){
+    public FreeMarkerViewResolver getFreeMarkerViewResolver() {
         FreeMarkerViewResolver freeMarkerViewResolver = new FreeMarkerViewResolver();
-        
+
         freeMarkerViewResolver.setOrder(1);
         freeMarkerViewResolver.setSuffix(".html");
         freeMarkerViewResolver.setCache(false);
         freeMarkerViewResolver.setRequestContextAttribute("request");
         freeMarkerViewResolver.setContentType("text/html;charset=utf-8");
         freeMarkerViewResolver.setViewClass(FreeMarkerView.class);
-        
+
         return freeMarkerViewResolver;
     }
-    
+
     /**
      * 配置静态资源映射
      */
@@ -43,17 +51,16 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter{
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
-    
+
     /**
      * 配置FreeMarker
-     * @return
      */
     @Bean
-    public FreeMarkerConfigurer getFreeMarkerConfigurer(){
+    public FreeMarkerConfigurer getFreeMarkerConfigurer() {
         FreeMarkerConfigurer freeMarkerConfigurer = new FreeMarkerConfigurer();
         freeMarkerConfigurer.setDefaultEncoding("UTF-8");
         freeMarkerConfigurer.setTemplateLoaderPath("classpath:/templates/");
-        
+
         Properties settings = new Properties();
         settings.setProperty("template_update_delay", "5");
         settings.setProperty("url_escaping_charset", "UTF-8");
@@ -70,7 +77,7 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter{
         settings.setProperty("template_exception_handler", "ignore");
         settings.setProperty("auto_import", "/common/common.ftl as common");
         freeMarkerConfigurer.setFreemarkerSettings(settings);
-        
+
         return freeMarkerConfigurer;
     }
 }

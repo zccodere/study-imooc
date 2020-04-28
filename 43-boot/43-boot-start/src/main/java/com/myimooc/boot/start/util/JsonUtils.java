@@ -7,12 +7,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 
 /**
- * <br>
- * 标题: 定义响应结构, 转换类<br>
- * 描述: Json工具<br>
+ * 定义响应结构, 转换类；Json工具
  *
- * @author zc
- * @date 2018/04/26
+ * @author zc 2018-04-26
  */
 public class JsonUtils {
 
@@ -23,20 +20,13 @@ public class JsonUtils {
 
     /**
      * 将对象转换成json字符串。
-     * <p>Title: pojoToJson</p>
-     * <p>Description: </p>
-     *
-     * @param data
-     * @return
      */
     public static String objectToJson(Object data) {
         try {
-            String string = MAPPER.writeValueAsString(data);
-            return string;
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            return MAPPER.writeValueAsString(data);
+        } catch (JsonProcessingException ex) {
+            throw new RuntimeException("序列化为JSON异常：", ex);
         }
-        return null;
     }
 
     /**
@@ -44,35 +34,25 @@ public class JsonUtils {
      *
      * @param jsonData json数据
      * @param beanType 对象中的object类型
-     * @return
      */
-    public static <T> T jsonToPojo(String jsonData, Class<T> beanType) {
+    public static <T> T jsonToObject(String jsonData, Class<T> beanType) {
         try {
-            T t = MAPPER.readValue(jsonData, beanType);
-            return t;
-        } catch (Exception e) {
-            e.printStackTrace();
+            return MAPPER.readValue(jsonData, beanType);
+        } catch (Exception ex) {
+            throw new RuntimeException("反序列化JSON异常：", ex);
         }
-        return null;
     }
 
     /**
      * 将json数据转换成pojo对象list
-     *
-     * @param jsonData
-     * @param beanType
-     * @return
      */
     public static <T> List<T> jsonToList(String jsonData, Class<T> beanType) {
         JavaType javaType = MAPPER.getTypeFactory().constructParametricType(List.class, beanType);
         try {
-            List<T> list = MAPPER.readValue(jsonData, javaType);
-            return list;
-        } catch (Exception e) {
-            e.printStackTrace();
+            return MAPPER.readValue(jsonData, javaType);
+        } catch (Exception ex) {
+            throw new RuntimeException("反序列化JSON异常：", ex);
         }
-
-        return null;
     }
 
 }

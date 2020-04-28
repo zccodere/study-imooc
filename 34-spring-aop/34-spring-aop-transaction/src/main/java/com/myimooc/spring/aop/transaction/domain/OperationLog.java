@@ -9,49 +9,48 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 
 /**
- * @title 操作日志实体类
- * @describe 操作日志信息
- * @author zc
- * @version 1.0 2017-09-13
+ * 操作日志实体类；操作日志信息
+ *
+ * @author zc 2017-09-13
  */
 @Entity
 public class OperationLog {
-	
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
-	
-	private String content;
-	
-	private Date createdAt;
-	
-	@PrePersist
-	public void settingTime(){
-		createdAt = new Date();
-	}
-	
-	public Long getId() {
-		return id;
-	}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-	public String getContent() {
-		return content;
-	}
+    private String content;
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    private Date createdAt;
 
-	public Date getCreatedAt() {
-		return createdAt;
-	}
+    @PrePersist
+    public void settingTime() {
+        createdAt = new Date();
+    }
 
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-	
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
 }

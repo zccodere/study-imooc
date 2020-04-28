@@ -1,9 +1,7 @@
 package com.myimooc.hbase.demo.dto;
 
 /**
- * <br>
- * 标题: 用户表<br>
- * 描述: 用户表<br>
+ * 用户表
  *
  * @author zc
  * @date 2018/06/21

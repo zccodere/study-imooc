@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC
-	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
-	"http://struts.apache.org/dtds/struts-2.5.dtd">
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
 
 <struts>
-	
-	<package name="employee" extends="struts-default" namespace="/" >
-		<action name="employee_login" class="employeeAction" method="login">
-			<result name="input">/index.jsp</result>
-			<result name="success" type="redirect">/frame.jsp</result>
-		</action>
-		
-		<action name="employee_findAll" class="employeeAction" method="findAll">
-			<result name="findAll">/jsp/employee/list.jsp</result>
-		</action>
-		
-		<action name="employee_saveUI" class="employeeAction" method="saveUI">
-			<result name="saveUI">/jsp/employee/add.jsp</result>
-		</action>
-		
-		<action name="employee_save" class="employeeAction" method="save">
-			<result name="saveSuccess" type="redirectAction">employee_findAll.action</result>
-		</action>
-		
-		<action name="employee_edit" class="employeeAction" method="edit">
-			<result name="editSuccess" >/jsp/employee/edit.jsp</result>
-		</action>
-		
-		<action name="employee_update" class="employeeAction" method="update">
-			<result name="updateSuccess" type="redirectAction">employee_findAll.action</result>
-		</action>
-		
-		<action name="employee_delete" class="employeeAction" method="delete">
-			<result name="deleteSuccess" type="redirectAction">employee_findAll.action</result>
-		</action>
-		
-		
-		<action name="department_findAll" class="departmentAction" method="findAll">
-			<result name="findAll">/jsp/department/list.jsp</result>
-		</action>
-		
-		<action name="department_saveUI" class="departmentAction" method="saveUI">
-			<result name="saveUI">/jsp/department/add.jsp</result>
-		</action>
-		
-		<action name="department_save" class="departmentAction" method="save">
-			<result name="saveSuccess" type="redirectAction">department_findAll.action</result>
-		</action>
-		
-		<action name="department_edit" class="departmentAction" method="edit">
-			<result name="editSuccess">/jsp/department/edit.jsp</result>
-		</action>
-		
-		<action name="department_update" class="departmentAction" method="update">
-			<result name="updateSuccess" type="redirectAction">department_findAll.action</result>
-		</action>
-		
-		<action name="department_delete" class="departmentAction" method="delete">
-			<result name="deleteSuccess" type="redirectAction">department_findAll.action</result>
-		</action>
-		
-	</package>
+
+    <package name="employee" extends="struts-default" namespace="/">
+        <action name="employee_login" class="employeeAction" method="login">
+            <result name="input">/index.jsp</result>
+            <result name="success" type="redirect">/frame.jsp</result>
+        </action>
+
+        <action name="employee_findAll" class="employeeAction" method="findAll">
+            <result name="findAll">/jsp/employee/list.jsp</result>
+        </action>
+
+        <action name="employee_saveUi" class="employeeAction" method="saveUi">
+            <result name="saveUi">/jsp/employee/add.jsp</result>
+        </action>
+
+        <action name="employee_save" class="employeeAction" method="save">
+            <result name="saveSuccess" type="redirectAction">employee_findAll.action</result>
+        </action>
+
+        <action name="employee_edit" class="employeeAction" method="edit">
+            <result name="editSuccess">/jsp/employee/edit.jsp</result>
+        </action>
+
+        <action name="employee_update" class="employeeAction" method="update">
+            <result name="updateSuccess" type="redirectAction">employee_findAll.action</result>
+        </action>
+
+        <action name="employee_delete" class="employeeAction" method="delete">
+            <result name="deleteSuccess" type="redirectAction">employee_findAll.action</result>
+        </action>
+
+
+        <action name="department_findAll" class="departmentAction" method="findAll">
+            <result name="findAll">/jsp/department/list.jsp</result>
+        </action>
+
+        <action name="department_saveUi" class="departmentAction" method="saveUi">
+            <result name="saveUi">/jsp/department/add.jsp</result>
+        </action>
+
+        <action name="department_save" class="departmentAction" method="save">
+            <result name="saveSuccess" type="redirectAction">department_findAll.action</result>
+        </action>
+
+        <action name="department_edit" class="departmentAction" method="edit">
+            <result name="editSuccess">/jsp/department/edit.jsp</result>
+        </action>
+
+        <action name="department_update" class="departmentAction" method="update">
+            <result name="updateSuccess" type="redirectAction">department_findAll.action</result>
+        </action>
+
+        <action name="department_delete" class="departmentAction" method="delete">
+            <result name="deleteSuccess" type="redirectAction">department_findAll.action</result>
+        </action>
+
+    </package>
 
 </struts>

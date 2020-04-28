@@ -35,7 +35,7 @@
 					<td>选择模板：</td>
 					<td><input id="templates" name="templates"
 						class="easyui-combobox" panelHeight="auto"
-						url="importdata-templates" valueField="templateId"
+						url="/import/data/templates" valueField="templateId"
 						textField="templateName" value="" /> <a id="okBtn"
 						class="easyui-linkbutton">确定</a></td>
 				</tr>
@@ -44,7 +44,7 @@
 	</div>
 	<div id="importDialog" title="导入Excel" modal=true draggable=false
 		class="easyui-dialog" closed=true style="width: 350px; height: 220px;">
-		<form action="importdata-upload" enctype="multipart/form-data" method="post">
+		<form action="/import/data/upload" enctype="multipart/form-data" method="post">
 			<table>
 				<tr>
 					<td>下载模板:</td>

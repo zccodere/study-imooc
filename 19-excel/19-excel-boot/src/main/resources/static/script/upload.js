@@ -43,7 +43,7 @@ $(function () {
                 title: '数据列表',
                 fit: true,
                 height: 450,
-                url: 'importdata-list',
+                url: '/import/data/list',
                 fitColumns: true,
                 striped: true, // 隔行变色特性
                 loadMsg: '数据正在加载,请耐心的等待...',

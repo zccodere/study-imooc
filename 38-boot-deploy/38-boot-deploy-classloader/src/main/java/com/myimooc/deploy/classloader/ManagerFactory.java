@@ -6,10 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author zc
- * @version 1.0 2017-12-01
- * @title Manager工厂类
- * @describe 加载manager的工厂
+ * Manager工厂类；加载manager的工厂
+ *
+ * @author zc 2017-12-01
  */
 public class ManagerFactory {
 
@@ -21,8 +20,7 @@ public class ManagerFactory {
     /**
      * 要加载的类的classpath路径
      */
-    private static final String CLASS_PATH = "D:/AllGitHub/study-imooc/38-boot-deploy/38-boot-deploy-classloader/target/classes/";
-
+    private static final String CLASS_PATH = "D:/Study/ByGithub/study-imooc/38-boot-deploy/38-boot-deploy-classloader/target/classes/";
     /**
      * 实现热加载的类的全名称（包名+类名）
      */
@@ -47,11 +45,11 @@ public class ManagerFactory {
 
     private static void load(String className, long lastModified) {
         MyClassLoader myClassLoader = new MyClassLoader(CLASS_PATH);
-        Class<?> loadClass = null;
+        Class<?> loadClass;
         try {
             loadClass = myClassLoader.findClass(className);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            throw new RuntimeException("类加载失败：" + ex.getMessage(), ex);
         }
         BaseManager manager = newInstance(loadClass);
         LoadInfo loadInfo = new LoadInfo(myClassLoader, lastModified);
@@ -60,10 +58,7 @@ public class ManagerFactory {
     }
 
     /**
-     * @title 创建实例对象
-     * @describe 以反射的方式创建BaseManager子类对象
-     * @author zc
-     * @version 1.0 2017-12-01
+     * 创建实例对象；以反射的方式创建BaseManager子类对象
      */
     private static BaseManager newInstance(Class<?> loadClass) {
         try {

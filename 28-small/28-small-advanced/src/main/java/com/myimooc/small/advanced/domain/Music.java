@@ -3,14 +3,26 @@ package com.myimooc.small.advanced.domain;
 /**
  * 音乐
  *
- * @author ZhangCheng on 2017-08-12
+ * @author zc 2017-08-12
  */
 public class Music {
+
     private String title;
     private String description;
     private String musicUrl;
     private String hqMusicUrl;
     private String thumbMediaId;
+
+    @Override
+    public String toString() {
+        return "Music{" +
+                "title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", musicUrl='" + musicUrl + '\'' +
+                ", hqMusicUrl='" + hqMusicUrl + '\'' +
+                ", thumbMediaId='" + thumbMediaId + '\'' +
+                '}';
+    }
 
     public String getTitle() {
         return title;
@@ -40,8 +52,8 @@ public class Music {
         return hqMusicUrl;
     }
 
-    public void setHqMusicUrl(String hQMusicUrl) {
-        hqMusicUrl = hQMusicUrl;
+    public void setHqMusicUrl(String hqMusicUrl) {
+        this.hqMusicUrl = hqMusicUrl;
     }
 
     public String getThumbMediaId() {

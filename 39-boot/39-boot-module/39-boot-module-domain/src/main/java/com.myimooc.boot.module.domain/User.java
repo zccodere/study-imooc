@@ -3,12 +3,9 @@ package com.myimooc.boot.module.domain;
 import java.io.Serializable;
 
 /**
- * <br>
- * 标题: 用户模型<br>
- * 描述: POJO类<br>
+ * 用户模型
  *
- * @author zc
- * @date 2018/04/08
+ * @author zc 2018-04-08
  */
 public class User implements Serializable {
 

@@ -17,16 +17,13 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * <br>
- * 标题: 自定义Realm<br>
- * 描述: Realm讲解<br>
+ * 自定义Realm；Realm讲解
  *
- * @author zc
- * @date 2018/05/02
+ * @author zc 2018-05-02
  */
 public class CustomRealm extends AuthorizingRealm {
 
-    Map<String, String> userMap = new HashMap<String, String>(16);
+    private Map<String, String> userMap = new HashMap<>(16);
 
     {
         userMap.put("Mark", "283538989cef48f3d7d8a1c1bdf2008f");
@@ -56,7 +53,7 @@ public class CustomRealm extends AuthorizingRealm {
      * @return 权限数据
      */
     private Set<String> getPermissionsByUserName(String userName) {
-        Set<String> permissions = new HashSet<String>(16);
+        Set<String> permissions = new HashSet<>(16);
         permissions.add("user:delete");
         permissions.add("user:add");
         return permissions;
@@ -69,7 +66,7 @@ public class CustomRealm extends AuthorizingRealm {
      * @return 角色数据
      */
     private Set<String> getRolesByUserName(String userName) {
-        Set<String> roles = new HashSet<String>(16);
+        Set<String> roles = new HashSet<>(16);
         roles.add("admin");
         roles.add("user");
         return roles;

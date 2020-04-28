@@ -6,39 +6,35 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
- * <br>
- * 标题: 使用@Named<br>
- * 描述: 使用@Named<br>
- * 时间: 2017/01/18<br>
+ * 使用@Named
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 @Named
 public class JsrService {
 
     /**
-     * // @Resource
-     * // @Inject
+     * // @Resource // @Inject
      */
-    private JsrDAO jsrDAO;
+    private JsrDao jsrDao;
 
     @Inject
-    public void setJsrDAO(@Named("jsrDAO") JsrDAO jsrDAO) {
-        this.jsrDAO = jsrDAO;
+    public void setJsrDao(@Named("jsrDao") JsrDao jsrDao) {
+        this.jsrDao = jsrDao;
     }
 
     @PostConstruct
     public void init() {
-        System.out.println("JsrServie init.");
+        System.out.println("JsrService init.");
     }
 
     @PreDestroy
     public void destroy() {
-        System.out.println("JsrServie destroy.");
+        System.out.println("JsrService destroy.");
     }
 
     public void save() {
-        jsrDAO.save();
+        jsrDao.save();
     }
 
 }

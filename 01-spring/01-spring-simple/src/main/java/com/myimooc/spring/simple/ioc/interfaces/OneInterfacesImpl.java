@@ -1,12 +1,9 @@
 package com.myimooc.spring.simple.ioc.interfaces;
 
 /**
- * <br>
- * 标题: 面向接口编程<br>
- * 描述: 另外一个实现<br>
- * 时间: 2017/01/18<br>
+ * 另外一个实现
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 public class OneInterfacesImpl implements OneInterface {
 

@@ -1,6 +1,9 @@
 package com.myimooc.java.thumbnail.service;
 
-import java.awt.Image;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -8,13 +11,10 @@ import java.io.OutputStream;
 
 import javax.imageio.ImageIO;
 
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
 /**
  * 缩略图服务类
  *
- * @author ZhangCheng on 2017-07-19
+ * @author zc 2017-07-19
  */
 @Service
 public class ThumbnailAwtService {
@@ -22,13 +22,12 @@ public class ThumbnailAwtService {
     private static final int WIDTH = 100;
     private static final int HEIGHT = 100;
 
-    @SuppressWarnings("static-access")
     public String thumbnail(MultipartFile file, String uploadPath, String realUploadPath) {
 
         OutputStream os = null;
 
         try {
-            String des = realUploadPath + "/thum_" + file.getOriginalFilename();
+            String des = realUploadPath + "/thumbnail_" + file.getOriginalFilename();
 
             os = new FileOutputStream(des);
 
@@ -69,6 +68,6 @@ public class ThumbnailAwtService {
                 }
             }
         }
-        return uploadPath + "/thum_" + file.getOriginalFilename();
+        return uploadPath + "/thumbnail_" + file.getOriginalFilename();
     }
 }

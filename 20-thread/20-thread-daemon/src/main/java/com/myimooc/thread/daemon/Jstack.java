@@ -1,8 +1,9 @@
 package com.myimooc.thread.daemon;
+
 /**
  * Java stack
- * @author ZhangCheng on 2017-07-08
  *
+ * @author ZhangCheng on 2017-07-08
  */
 public class Jstack {
 /*
@@ -113,19 +114,6 @@ Full thread dump Java HotSpot(TM) 64-Bit Server VM (25.101-b13 mixed mode):
 "VM Periodic Task Thread" os_prio=2 tid=0x000000001d1f3000 nid=0x2b08 waiting on condition
 
 JNI global references: 6
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 */
 }

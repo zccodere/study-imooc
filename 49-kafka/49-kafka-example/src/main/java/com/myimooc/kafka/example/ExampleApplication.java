@@ -5,15 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.kafka.annotation.EnableKafka;
 
 /**
- * <br>
- * 标题: 启动类<br>
- * 描述: 启动类<br>
- * 时间: 2018/09/09<br>
+ * 启动类
  *
  * @author zc
+ * @date 2018/09/09
  */
-@SpringBootApplication
 @EnableKafka
+@SpringBootApplication
 public class ExampleApplication {
 
     public static void main(String[] args) {

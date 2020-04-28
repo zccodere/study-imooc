@@ -19,8 +19,8 @@ blockquote:before, blockquote:after, q:before, q:after{ content: ''; content: no
 a:link, a:visited{ color: #5e5e5e;}
 a:hover { color:#c9394a;}
 a:active { color: #666;}
-.clearfix:after{content:'\0020';display:block;height:0;clear:both;visibility:hidden;}
-.clearfix{*zoom:1;}
+.clear_fix:after{content:'\0020';display:block;height:0;clear:both;visibility:hidden;}
+.clear_fix{*zoom:1;}
 .l{float:left;}
 .r{float:right;}
 .clear{ height:0; overflow:hidden; clear:both}
@@ -60,14 +60,14 @@ a:hover,
 a:active {
   color: #cc0000;
 }
-.clearfix:after {
+.clear_fix:after {
   content: '\0020';
   display: block;
   height: 0;
   clear: both;
   visibility: hidden;
 }
-.clearfix {
+.clear_fix {
   *zoom: 1;
 }
 .l {
@@ -84,7 +84,7 @@ a:active {
   white-space: nowrap;
   overflow: hidden;
 }
-.newcontainer,
+.new-container,
 .page-container {
   margin: 0 auto;
   width: 1200px;
@@ -1842,7 +1842,7 @@ body{
 .chapter_catalog{
 	margin-top: 20px;
 }
-.course_shortdecription{
+.course_short_description{
 	color:#60686b;
 	font-size:14px;
 	line-height: 30px;
@@ -1899,11 +1899,11 @@ em.outline_zt{
 	color:#99a1a6;
 	font-size: 18px;
 }
-.unopen .outline_descr{
+.unopen .outline_description{
 	color:#99a1a6;
 	font-size: 12px;
 }
-.outline_descr {
+.outline_description {
 	color:#60686b;
 	font-size:12px;
 	line-height: 24px;
@@ -1991,7 +1991,7 @@ a.back-btn:hover{
 	color:#b4bbbf;
 	padding:10px 20px;
 }
-.openicon{
+.open_icon{
 	float:left;
 	width:41px;
 	height:41px;
@@ -2000,7 +2000,7 @@ a.back-btn:hover{
     background: url(../img/course_info_sprit.png) no-repeat 0 -106px;
 
 }
-.unopenicon{
+.un_open_icon{
 	float:left;
 	width:41px;
 	height:41px;
@@ -2014,7 +2014,7 @@ a.back-btn:hover{
 	text-decoration:underline
 }
 
-#couList li a:hover .openicon{
+#couList li a:hover .open_icon{
     background: url(../img/course_info_sprit.png) no-repeat 0 -148px;
 }
 .path{

@@ -1,10 +1,9 @@
 package com.myimooc.spring.aop.proxy.chain;
 
 /**
- * @author zc
- * @version 1.0 2017-09-13
- * @title 责任链模式
- * @describe 测试类
+ * 责任链模式；测试类
+ *
+ * @author zc 2017-09-13
  */
 public class Client {
 
@@ -34,8 +33,8 @@ public class Client {
         HandlerB handlerB = new HandlerB();
         HandlerC handlerC = new HandlerC();
         // 设置链接关系
-        handlerA.setSucessor(handlerB);
-        handlerB.setSucessor(handlerC);
+        handlerA.setProcess(handlerB);
+        handlerB.setProcess(handlerC);
 
         handlerA.execute();
     }

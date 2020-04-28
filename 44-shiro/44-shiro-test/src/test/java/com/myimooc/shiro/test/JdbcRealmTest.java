@@ -1,36 +1,32 @@
 package com.myimooc.shiro.test;
 
-import com.alibaba.druid.pool.DruidDataSource;
-import com.mysql.jdbc.Driver;
+import com.zaxxer.hikari.HikariDataSource;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.realm.jdbc.JdbcRealm;
-import org.apache.shiro.realm.text.IniRealm;
 import org.apache.shiro.subject.Subject;
 import org.junit.Test;
 
 /**
- * <br>
- * 标题: JdbcRealmTest测试类<br>
- * 描述: 讲解JdbcRealm<br>
+ * JdbcRealmTest测试类；讲解JdbcRealm
  *
- * @author zc
- * @date 2018/05/02
+ * @author zc 2018-05-02
  */
 public class JdbcRealmTest {
 
-    private DruidDataSource dataSource = new DruidDataSource();
+    private HikariDataSource dataSource = new HikariDataSource();
 
     {
-        dataSource.setUrl("jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false");
+        dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf8&useSSL=false");
         dataSource.setUsername("root");
         dataSource.setPassword("root");
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
     }
 
     @Test
-    public void  testAuthentication(){
+    public void testAuthentication() {
 
         JdbcRealm jdbcRealm = new JdbcRealm();
         jdbcRealm.setDataSource(dataSource);
@@ -58,7 +54,7 @@ public class JdbcRealmTest {
 //        subject.checkRoles("admin","user");
 //        subject.checkPermission("user:select");
 
-        UsernamePasswordToken token = new UsernamePasswordToken("xiaoming","654321");
+        UsernamePasswordToken token = new UsernamePasswordToken("xiaoming", "654321");
         subject.login(token);
         subject.checkRole("user");
 

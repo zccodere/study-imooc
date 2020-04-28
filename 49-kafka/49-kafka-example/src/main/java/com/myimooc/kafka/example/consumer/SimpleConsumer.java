@@ -2,6 +2,7 @@ package com.myimooc.kafka.example.consumer;
 
 import com.alibaba.fastjson.JSONObject;
 import com.myimooc.kafka.example.common.MessageEntity;
+
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,12 +14,10 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 /**
- * <br>
- * 标题: 消费者<br>
- * 描述: 消费者<br>
- * 时间: 2018/09/09<br>
+ * 消费者
  *
  * @author zc
+ * @date 2018/09/09
  */
 @Component
 public class SimpleConsumer {

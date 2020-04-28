@@ -7,12 +7,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * <br>
- * 标题: Hello 服务测试<br>
- * 描述: Hello 服务测试<br>
- * 时间: 2018/09/08<br>
+ * Hello 服务测试
  *
  * @author zc
+ * @date 2018/09/08
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest

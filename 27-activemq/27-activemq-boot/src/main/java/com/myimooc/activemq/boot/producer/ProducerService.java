@@ -3,7 +3,7 @@ package com.myimooc.activemq.boot.producer;
 /**
  * 消息发送服务
  *
- * @author ZhangCheng on 2017-07-22
+ * @author zc 2017-07-22
  */
 public interface ProducerService {
 

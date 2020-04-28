@@ -1,12 +1,9 @@
 package com.myimooc.spring.simple.beanannotation.javabased;
 
 /**
- * <br>
- * 标题: 驱动管理<br>
- * 描述: 驱动管理<br>
- * 时间: 2017/01/18<br>
+ * 驱动管理
  *
- * @author zc
+ * @author zc 2017-01-18
  */
 public class MyDriverManager {
 

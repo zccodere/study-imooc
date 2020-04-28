@@ -1,12 +1,9 @@
 package com.myimooc.boot.simple.service;
 
 /**
- * <br>
- * 标题: 服务<br>
- * 描述: 服务<br>
- * 时间: 2017/02/18<br>
+ * 服务
  *
- * @author zc
+ * @author zc 2017-02-18
  */
 public interface GirlService {
 

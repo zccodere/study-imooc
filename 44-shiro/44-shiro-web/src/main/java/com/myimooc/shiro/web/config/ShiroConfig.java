@@ -5,6 +5,7 @@ import com.myimooc.shiro.web.filter.RolesOrFilter;
 import com.myimooc.shiro.web.realm.CustomRealm;
 import com.myimooc.shiro.web.session.CustomSessionManager;
 import com.myimooc.shiro.web.session.RedisSessionDao;
+
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.cache.CacheManager;
 import org.apache.shiro.spring.LifecycleBeanPostProcessor;
@@ -13,22 +14,19 @@ import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.CookieRememberMeManager;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.apache.shiro.web.servlet.SimpleCookie;
-import org.apache.shiro.web.session.mgt.DefaultWebSessionManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.servlet.Filter;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import javax.servlet.Filter;
+
 /**
- * <br>
- * 标题: Shiro配置<br>
- * 描述: 配置Shiro相关参数<br>
+ * Shiro配置；配置Shiro相关参数
  *
- * @author zc
- * @date 2018/05/02
+ * @author zc 2018-05-02
  */
 @Configuration
 public class ShiroConfig {
@@ -54,9 +52,9 @@ public class ShiroConfig {
     }
 
     @Bean
-    public ShiroFilterFactoryBean shirFilter() {
+    public ShiroFilterFactoryBean shirFilter(CustomRealm customRealm) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
-        shiroFilterFactoryBean.setSecurityManager(securityManager());
+        shiroFilterFactoryBean.setSecurityManager(securityManager(customRealm));
         // 登录页，如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
         shiroFilterFactoryBean.setLoginUrl("login");
         // 未认证的跳转页面
@@ -64,7 +62,7 @@ public class ShiroConfig {
         // 登录成功后要跳转的链接
         shiroFilterFactoryBean.setSuccessUrl("/index");
 
-        Map<String, String> filterChainDefinitionMap = new LinkedHashMap<String, String>();
+        Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
         // 配置不会被拦截的链接 顺序判断
         filterChainDefinitionMap.put("/login", "anon");
         filterChainDefinitionMap.put("/static/**", "anon");
@@ -81,7 +79,7 @@ public class ShiroConfig {
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
 
         // 注册自定义Filter
-        Map<String, Filter> filters = new HashMap<String, Filter>(16);
+        Map<String, Filter> filters = new HashMap<>(16);
         filters.put("rolesOr", rolesOrFilter());
         shiroFilterFactoryBean.setFilters(filters);
 
@@ -118,11 +116,6 @@ public class ShiroConfig {
     }
 
     @Bean
-    public CustomRealm customRealm() {
-        return new CustomRealm();
-    }
-
-    @Bean
     public HashedCredentialsMatcher credentialsMatcher() {
         HashedCredentialsMatcher matcher = new HashedCredentialsMatcher();
         matcher.setHashAlgorithmName("md5");
@@ -131,9 +124,9 @@ public class ShiroConfig {
     }
 
     @Bean
-    public DefaultWebSecurityManager securityManager() {
+    public DefaultWebSecurityManager securityManager(CustomRealm customRealm) {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        securityManager.setRealm(customRealm());
+        securityManager.setRealm(customRealm);
         securityManager.setCacheManager(cacheManager());
         securityManager.setRememberMeManager(cookieRememberMeManager());
         return securityManager;

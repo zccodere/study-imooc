@@ -7,22 +7,19 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Created by ChengComputer on 2017/2/19.
- * @author zhangcheng
- * @version v1.0
- * @date 2017-02-19
+ * 日期转换器
+ *
+ * @author zc 2017-02-19
  */
-public class MyDateConverter implements Converter<String,Date> {
+public class MyDateConverter implements Converter<String, Date> {
 
     @Override
     public Date convert(String source) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
             return sdf.parse(source);
-        } catch (ParseException e) {
-            e.printStackTrace();
+        } catch (ParseException ex) {
+            throw new RuntimeException("日期转换异常：", ex);
         }
-        return null;
     }
 }
-

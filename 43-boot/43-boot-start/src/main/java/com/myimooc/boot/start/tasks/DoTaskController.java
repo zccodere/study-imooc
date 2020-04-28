@@ -1,6 +1,7 @@
 package com.myimooc.boot.start.tasks;
 
 import com.myimooc.boot.start.domain.JsonResult;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,12 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.concurrent.Future;
 
 /**
- * <br>
- * 标题: 调用异步方法的controller<br>
- * 描述: 异步任务<br>
+ * 调用异步方法的 Controller
  *
- * @author zc
- * @date 2018/04/26
+ * @author zc 2018-04-26
  */
 @RestController
 @RequestMapping("/tasks")

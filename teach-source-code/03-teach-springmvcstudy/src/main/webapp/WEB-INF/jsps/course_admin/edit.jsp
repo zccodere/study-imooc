@@ -31,7 +31,7 @@
 		    </div> 
 		    <div>
 		       <span>课程介绍:</span>
-		       <textarea id="descr" name="descr" rows="5" style="width:480px"></textarea>
+		       <textarea id="description" name="description" rows="5" style="width:480px"></textarea>
 		    </div> 
 		    <div>
 		       <input type="submit" id="btnPass" value="提交" />

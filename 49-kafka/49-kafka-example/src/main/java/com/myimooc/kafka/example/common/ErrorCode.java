@@ -1,14 +1,13 @@
 package com.myimooc.kafka.example.common;
 
 /**
- * <br>
- * 标题: 错误编码<br>
- * 描述: 错误编码<br>
- * 时间: 2018/09/09<br>
+ * 错误编码
  *
  * @author zc
+ * @date 2018/09/09
  */
 public class ErrorCode {
+
     /**
      * 成功
      */

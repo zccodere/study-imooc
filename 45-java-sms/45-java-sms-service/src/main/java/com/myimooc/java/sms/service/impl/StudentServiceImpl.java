@@ -1,7 +1,6 @@
 package com.myimooc.java.sms.service.impl;
 
 
-
 import com.myimooc.java.sms.model.Student;
 import com.myimooc.java.sms.persistence.PersistenceException;
 import com.myimooc.java.sms.persistence.PersistenceService;
@@ -11,9 +10,7 @@ import com.myimooc.java.sms.service.StudentService;
 import java.util.List;
 
 /**
- * <br>
- * 标题: 学生服务实现<br>
- * 描述: 学生服务实现<br>
+ * 学生服务实现
  *
  * @author zc
  * @date 2018/05/29
@@ -34,7 +31,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student getOne(String id) throws ServiceException {
         try {
-            return persistenceService.getOne(Student.class,id);
+            return persistenceService.getOne(Student.class, id);
         } catch (PersistenceException e) {
             throw new ServiceException(e);
         }
@@ -50,8 +47,8 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void createStudent(String id,String name,String group) throws ServiceException{
-        this.createStudent(new Student(id,name,group));
+    public void createStudent(String id, String name, String group) throws ServiceException {
+        this.createStudent(new Student(id, name, group));
     }
 
     @Override
@@ -66,7 +63,7 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public void removeStudent(Student student) throws ServiceException {
         try {
-            persistenceService.remove(Student.class,student.getId());
+            persistenceService.remove(Student.class, student.getId());
         } catch (PersistenceException e) {
             throw new ServiceException(e);
         }

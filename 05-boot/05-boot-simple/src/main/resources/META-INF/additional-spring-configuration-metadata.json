@@ -1,0 +1,16 @@
+{
+  "properties": [
+    {
+      "name": "girl.cupSize",
+      "type": "java.lang.String",
+      "defaultValue": null,
+      "description": "set girl cup size, enum has A/B/C/D/E/F/G."
+    },
+    {
+      "name": "girl.age",
+      "type": "java.lang.Integer",
+      "defaultValue": null,
+      "description": "set girl age."
+    }
+  ]
+}
