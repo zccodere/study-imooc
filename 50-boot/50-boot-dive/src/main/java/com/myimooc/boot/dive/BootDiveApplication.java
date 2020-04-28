@@ -5,12 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 
 /**
- * <br>
- * 标题: 启动类<br>
- * 描述: 启动类<br>
- * 时间: 2018/10/10<br>
+ * 启动类
  *
  * @author zc
+ * @date 2018/10/10
  */
 @SpringBootApplication
 @ServletComponentScan(basePackages = "com.myimooc.boot.dive.web.servlet")
