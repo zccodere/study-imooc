@@ -4,6 +4,7 @@ import com.myimooc.hbase.demo.dto.User;
 import com.myimooc.hbase.demo.mapper.UserRowMapper;
 import com.myimooc.hbase.demo.service.HbaseService;
 import com.spring4all.spring.boot.starter.hbase.api.HbaseTemplate;
+
 import org.apache.hadoop.hbase.client.Mutation;
 import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.util.Bytes;
@@ -13,9 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * <br>
- * 标题: 用户服务<br>
- * 描述: 用户服务<br>
+ * 用户服务
  *
  * @author zc
  * @date 2018/06/22
@@ -38,8 +37,8 @@ public class UserHbaseServiceImpl implements HbaseService<User> {
     }
 
     @Override
-    public List<Mutation> saveOrUpdate(String tableName, List<Mutation> datas) {
-        hbaseTemplate.saveOrUpdates(tableName, datas);
-        return datas;
+    public List<Mutation> saveOrUpdate(String tableName, List<Mutation> mutationList) {
+        hbaseTemplate.saveOrUpdates(tableName, mutationList);
+        return mutationList;
     }
 }

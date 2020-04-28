@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2018/06/22
  */
 @SpringBootApplication
-public class Application {
+public class HbaseDemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(HbaseDemoApplication.class, args);
