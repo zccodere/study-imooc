@@ -3,12 +3,10 @@ package com.myimooc.kafka.example.common;
 import java.io.Serializable;
 
 /**
- * <br>
- * 标题: REST请求统一响应对象<br>
- * 描述: REST请求统一响应对象<br>
- * 时间: 2018/09/09<br>
+ * REST请求统一响应对象
  *
  * @author zc
+ * @date 2018/09/09
  */
 public class Response implements Serializable {
 

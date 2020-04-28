@@ -1,6 +1,7 @@
 package com.myimooc.kafka.example.producer;
 
 import com.alibaba.fastjson.JSON;
+
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.slf4j.Logger;
@@ -13,12 +14,10 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
 /**
- * <br>
- * 标题: 生产者<br>
- * 描述: 生产者<br>
- * 时间: 2018/09/09<br>
+ * 生产者
  *
  * @author zc
+ * @date 2018/09/09
  */
 @Component
 public class SimpleProducer<T> {
@@ -26,36 +25,38 @@ public class SimpleProducer<T> {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
-    private KafkaTemplate<String, Object> kafkaTemplate;
+    private KafkaTemplate<String, String> kafkaTemplate;
 
-    public void send(String topic, String key, Object entity) {
+    public void send(String topic, String key, T entity) {
         logger.info("发送消息入参：{}", entity);
-        ProducerRecord<String, Object> record = new ProducerRecord<>(
+
+        // 将任意对象转换为JSON字符串进行消息发送
+        ProducerRecord<String, String> record = new ProducerRecord<>(
                 topic,
                 key,
                 JSON.toJSONString(entity)
         );
 
         long startTime = System.currentTimeMillis();
-        ListenableFuture<SendResult<String, Object>> future = this.kafkaTemplate.send(record);
-        future.addCallback(new ListenableFutureCallback<SendResult<String, Object>>() {
+        ListenableFuture<SendResult<String, String>> future = this.kafkaTemplate.send(record);
+        future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
             @Override
             public void onFailure(Throwable ex) {
-                logger.error("消息发送失败：{}", ex);
+                logger.error("消息发送失败：", ex);
             }
 
             @Override
-            public void onSuccess(SendResult<String, Object> result) {
+            public void onSuccess(SendResult<String, String> result) {
                 long elapsedTime = System.currentTimeMillis() - startTime;
-
                 RecordMetadata metadata = result.getRecordMetadata();
+
                 StringBuilder record = new StringBuilder(128);
-                record.append("message(")
-                        .append("key = ").append(key).append(",")
-                        .append("message = ").append(entity).append(")")
-                        .append("send to partition(").append(metadata.partition()).append(")")
-                        .append("with offset(").append(metadata.offset()).append(")")
-                        .append("in ").append(elapsedTime).append(" ms");
+                record.append("message(");
+                record.append("key = ").append(key).append(",");
+                record.append("message = ").append(entity).append(")");
+                record.append("send to partition(").append(metadata.partition()).append(")");
+                record.append("with offset(").append(metadata.offset()).append(")");
+                record.append("in ").append(elapsedTime).append(" ms");
                 logger.info("消息发送成功：{}", record.toString());
             }
         });
